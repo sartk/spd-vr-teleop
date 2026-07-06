@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="jenga_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="jenga_block">
+      <geom type="mesh" contype="0" conaffinity="0" condim="4" density="0" group="1" priority="1" />
+    </default>
+    <default class="jenga_col">
+      <geom type="box" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+  </default>
+  <asset>
+    <texture name="jenga_tex" type="2d" file="jenga/blinn1.png" />
+    <material name="jenga_mat" texture="jenga_tex" specular="0.3" shininess="0.3" />
+    <!-- Block half-extents in body frame: x = 0.5 in (thin, vertical when flat),
+         y = 0.8 in (cross), z = 2.375 in (long). Mesh native bounds are
+         (1, 1, 3.09); after this scale it becomes (1in, 1.6in, 4.75in). -->
+    <mesh name="jenga_block" file="jenga/jenga_block.obj" scale="0.0254 0.04064 0.039045" />
+    <mesh name="jenga_block_col" file="jenga/jenga_block_collision.obj" scale="0.0254 0.04064 0.039045" />
+  </asset>
+  <worldbody>
+    <body name="jenga_1" pos="0.6450 -0.04124 0.7530" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_1_jnt" />
+      <geom name="jenga_1_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_1_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_2" pos="0.6450 0.00000 0.7530" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_2_jnt" />
+      <geom name="jenga_2_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_2_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_3" pos="0.6450 0.04124 0.7530" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_3_jnt" />
+      <geom name="jenga_3_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_3_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_4" pos="0.6038 0.0000 0.7792" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_4_jnt" />
+      <geom name="jenga_4_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_4_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_5" pos="0.6450 0.0000 0.7792" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_5_jnt" />
+      <geom name="jenga_5_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_5_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_6" pos="0.6862 0.0000 0.7792" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_6_jnt" />
+      <geom name="jenga_6_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_6_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_7" pos="0.6450 -0.04124 0.8054" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_7_jnt" />
+      <geom name="jenga_7_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_7_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_8" pos="0.6450 0.00000 0.8054" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_8_jnt" />
+      <geom name="jenga_8_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_8_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_9" pos="0.6450 0.04124 0.8054" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_9_jnt" />
+      <geom name="jenga_9_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_9_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_10" pos="0.6038 0.0000 0.8316" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_10_jnt" />
+      <geom name="jenga_10_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_10_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_11" pos="0.6450 0.0000 0.8316" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_11_jnt" />
+      <geom name="jenga_11_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_11_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_12" pos="0.6862 0.0000 0.8316" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_12_jnt" />
+      <geom name="jenga_12_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_12_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_13" pos="0.6450 -0.04124 0.8578" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_13_jnt" />
+      <geom name="jenga_13_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_13_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_14" pos="0.6450 0.00000 0.8578" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_14_jnt" />
+      <geom name="jenga_14_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_14_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_15" pos="0.6450 0.04124 0.8578" quat="0.707107 0 0.707107 0">
+      <freejoint name="jenga_15_jnt" />
+      <geom name="jenga_15_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_15_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_16" pos="0.6038 0.0000 0.8840" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_16_jnt" />
+      <geom name="jenga_16_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_16_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_17" pos="0.6450 0.0000 0.8840" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_17_jnt" />
+      <geom name="jenga_17_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_17_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="jenga_18" pos="0.6862 0.0000 0.8840" quat="0.5 -0.5 0.5 0.5">
+      <freejoint name="jenga_18_jnt" />
+      <geom name="jenga_18_vis" mesh="jenga_block" material="jenga_mat" class="jenga_block" />
+      <geom name="jenga_18_col" size="0.0127 0.02032 0.060325" mass="0.060" class="jenga_col" group="3" condim="4" friction="0.5 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+  </worldbody>
+</mujoco>

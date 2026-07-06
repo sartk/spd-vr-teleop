@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="workcell_base">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <option integrator="implicitfast" />
+  <size memory="256M" />
+  <visual>
+    <global azimuth="120" elevation="-20" offwidth="1920" offheight="1080" />
+    <quality shadowsize="8192" offsamples="16" />
+    <headlight ambient="0.50 0.50 0.50" diffuse="0.15 0.15 0.15" specular="0.03 0.03 0.03" />
+    <rgba haze="1.0 1.0 1.0 1" />
+  </visual>
+  <asset>
+    <mesh name="base_visual_gate" file="i2rt_yam/assets/base_visual_gate.stl" />
+    <mesh name="camera_d405" file="i2rt_yam/assets/d405.stl" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge" rgb1="0.55 0.55 0.55" rgb2="0.50 0.50 0.50" markrgb="0.6 0.6 0.6" width="300" height="300" />
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2" />
+  </asset>
+  <worldbody>
+    <light name="overhead_key" pos="0.55 0 1.8" dir="0 0 -1" directional="true" diffuse="0.65 0.65 0.65" specular="0.12 0.12 0.12" />
+    <geom name="floor" size="0 0 0.05" type="plane" rgba="0.75 0.75 0.75 1" />
+    <geom name="base_visual_gate" type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom name="base_gate_collision" size="0.305 0.61 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+    <body name="top_camera_d405" pos="0.3125 -0.009 1.500" quat="-0.183004 -0.683015 -0.683015 -0.183004">
+      <geom type="mesh" contype="0" conaffinity="0" group="2" density="0.001" mass="0.001" rgba="0 0 0 0" mesh="camera_d405" />
+      <body name="top_camera_frame" pos="0.009 0 0" quat="0 0 0 1">
+        <camera name="top" pos="0 0 0" quat="0 1 0 0" fovy="63" />
+      </body>
+    </body>
+    <body name="overhead_camera" pos="0.55 0.0 1.6">
+      <camera name="overhead" pos="0 0 0" quat="0.707 0 0 -0.707" fovy="60" />
+    </body>
+    <body name="mid_camera" pos="0.4 0.0 1.05">
+      <camera name="mid" pos="0 0 0" quat="0.666058 0.237417 -0.237417 -0.666058" fovy="90" />
+    </body>
+    <body name="left_side_camera" pos="0.5 0.55 1.05" euler="-1.3 0 3.14159">
+      <camera name="left_side" pos="0 0 0" fovy="70" />
+    </body>
+    <body name="right_side_camera" pos="0.5 -0.55 1.05" euler="1.3 0 0">
+      <camera name="right_side" pos="0 0 0" fovy="70" />
+    </body>
+    <body name="play_table">
+      <geom name="table_visual" size="0.4572 0.61 0.05" pos="0.7522 0 0.7" type="box" group="2" contype="0" conaffinity="0" rgba="0.24 0.25 0.27 1" />
+      <geom name="table_plane" type="box" size="0.4572 0.61 0.05" pos="0.7522 0 0.7" rgba="0 0 0 0" group="3" condim="4" friction="1.0 0.05 0.001" solref="0.008 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+  </worldbody>
+</mujoco>

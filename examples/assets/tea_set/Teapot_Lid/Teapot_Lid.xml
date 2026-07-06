@@ -1,0 +1,25 @@
+<mujoco model="Teapot_Lid">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Porcelain_White" specular="0.5" shininess="0.672400024" rgba="0.940000 0.940000 0.920000 1.000000"/>
+    <mesh file="Teapot_Lid.obj"/>
+    <mesh file="Teapot_Lid_collision_0.obj"/>
+    <mesh file="Teapot_Lid_collision_1.obj"/>
+    <mesh file="Teapot_Lid_collision_2.obj"/>
+  </asset>
+  <worldbody>
+    <body name="Teapot_Lid">
+      <geom material="Porcelain_White" mesh="Teapot_Lid" class="visual"/>
+      <geom mesh="Teapot_Lid_collision_0" rgba="0.47324504940807666 0.7949504398802424 0.6658667447411837 1" class="collision"/>
+      <geom mesh="Teapot_Lid_collision_1" rgba="0.175011365114363 0.3060524749399848 0.21421948339633257 1" class="collision"/>
+      <geom mesh="Teapot_Lid_collision_2" rgba="0.41041420603082157 0.049845126144497764 0.7055787726451451 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

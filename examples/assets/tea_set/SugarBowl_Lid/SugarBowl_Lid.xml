@@ -1,0 +1,25 @@
+<mujoco model="SugarBowl_Lid">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Porcelain_White" specular="0.5" shininess="0.672400024" rgba="0.940000 0.940000 0.920000 1.000000"/>
+    <mesh file="SugarBowl_Lid.obj"/>
+    <mesh file="SugarBowl_Lid_collision_0.obj"/>
+    <mesh file="SugarBowl_Lid_collision_1.obj"/>
+    <mesh file="SugarBowl_Lid_collision_2.obj"/>
+  </asset>
+  <worldbody>
+    <body name="SugarBowl_Lid">
+      <geom material="Porcelain_White" mesh="SugarBowl_Lid" class="visual"/>
+      <geom mesh="SugarBowl_Lid_collision_0" rgba="0.6727717563825363 0.9081458975428324 0.2580384285774957 1" class="collision"/>
+      <geom mesh="SugarBowl_Lid_collision_1" rgba="0.8169241649753494 0.7047076775789038 0.2839585130676403 1" class="collision"/>
+      <geom mesh="SugarBowl_Lid_collision_2" rgba="0.5932512461448958 0.29700354094214676 0.6555404495451784 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+*.egg-info/
+dist/
+build/
+.venv/
+*.so
+.DS_Store
+uv.lock
+MUJOCO_LOG.TXT
+data/
+*.keyframe.json
+
+# Scene-builder outputs — ignore generated files but keep the assets symlink.
+examples/generated/*.xml
+examples/generated/*.config.json
+examples/generated/i2rt_gravcomp/
+
+# Robocasa assets fetched by examples/assets/assets_robocasa/download_assets.sh
+examples/assets/assets_robocasa/objaverse/
+examples/assets/assets_robocasa/objects_lightwheel/
+
+# HDRI/texture assets are committed (fetched by scripts/fetch_hdris.py and
+# fetch_table_textures.py); only the intermediate Radiance .hdr files — which
+# the fetchers tonemap to PNG and then delete — are ignored.
+examples/assets/hdri/*.hdr
+
+# Frontend deps — reinstall with `npm install --prefix frontend`
+frontend/node_modules/

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="bottles_in_bin_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <!-- All bodies (garbage_can + 3-6 bottles) are attached at compile time
+       by variant_pools.BOTTLES_IN_BIN_POOLS. The worldbody is intentionally
+       empty so the variant slots are the only objects. -->
+  <worldbody />
+</mujoco>

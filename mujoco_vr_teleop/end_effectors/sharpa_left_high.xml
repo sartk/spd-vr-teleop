@@ -1,0 +1,322 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="sharpa_left_end_effector">
+  <compiler angle="radian" autolimits="true" assetdir="../../examples/assets" meshdir="../../examples/assets" texturedir="../../examples/assets" />
+  <asset>
+    <texture name="left_sharpa_alb" type="2d" content_type="image/png" file="sharpa_hand/usd/textures/t_Sharpa_alb.png" />
+    <texture name="left_sharpa_nor" type="2d" content_type="image/png" file="sharpa_hand/usd/textures/t_Sharpa_nor.png" />
+    <texture name="left_sharpa_orm" type="2d" content_type="image/png" file="sharpa_hand/usd/textures/t_Sharpa_orm.png" />
+    <!-- Layered PBR material. The built-in MuJoCo renderer only samples the
+         rgb layer; normal/orm layers are honored by PBR-capable external
+         renderers (e.g. madrona_mjwarp). specular/shininess are the
+         built-in renderer's matte-plastic fallback. -->
+    <material name="left_sharpa" specular="0.3" shininess="0.4">
+      <layer texture="left_sharpa_alb" role="rgb" />
+      <layer texture="left_sharpa_nor" role="normal" />
+      <layer texture="left_sharpa_orm" role="orm" />
+    </material>
+
+    <mesh name="left_MCP_VL" file="sharpa_hand/MCP_VL.STL" />
+    <mesh name="left_elastomer" file="sharpa_hand/elastomer.STL" />
+    <mesh name="left_DP" file="sharpa_hand/left_DP.STL" />
+    <mesh name="left_MP" file="sharpa_hand/left_MP.STL" />
+    <mesh name="left_PP" file="sharpa_hand/left_PP.STL" />
+    <mesh name="left_hand_C_MC" file="sharpa_hand/left_hand_C_MC.STL" />
+    <mesh name="left_pinky_MC" file="sharpa_hand/left_pinky_MC.STL" />
+    <mesh name="left_thumb_DP" file="sharpa_hand/left_thumb_DP.STL" />
+    <mesh name="left_thumb_MC" file="sharpa_hand/left_thumb_MC.STL" />
+    <mesh name="left_thumb_PP" file="sharpa_hand/left_thumb_PP.STL" />
+    <mesh name="left_thumb_elastomer" file="sharpa_hand/thumb_elastomer.STL" />
+
+    <mesh name="left_DP_visual" file="sharpa_hand/usd/obj_left/right_DP_visual.obj" />
+    <mesh name="left_MCP_VL_visual" file="sharpa_hand/usd/obj_left/right_MCP_VL_visual.obj" />
+    <mesh name="left_MP_visual" file="sharpa_hand/usd/obj_left/right_MP_visual.obj" />
+    <mesh name="left_PP_visual" file="sharpa_hand/usd/obj_left/right_PP_visual.obj" />
+    <mesh name="left_hand_C_MC_visual" file="sharpa_hand/usd/obj_left/right_hand_C_MC_visual.obj" />
+    <mesh name="left_pinky_MC_visual" file="sharpa_hand/usd/obj_left/right_pinky_MC_visual.obj" />
+    <mesh name="left_thumb_CMC_VL_visual" file="sharpa_hand/usd/obj_left/right_thumb_CMC_VL_visual.obj" />
+    <mesh name="left_thumb_DP_visual" file="sharpa_hand/usd/obj_left/right_thumb_DP_visual.obj" />
+    <mesh name="left_thumb_MCP_VL_visual" file="sharpa_hand/usd/obj_left/right_thumb_MCP_VL_visual.obj" />
+    <mesh name="left_thumb_MC_visual" file="sharpa_hand/usd/obj_left/right_thumb_MC_visual.obj" />
+    <mesh name="left_thumb_PP_visual" file="sharpa_hand/usd/obj_left/right_thumb_PP_visual.obj" />
+    <mesh name="left_elastomer_visual" file="sharpa_hand/usd/obj_left/elastomer_surface.obj" />
+    <mesh name="left_thumb_elastomer_visual" file="sharpa_hand/usd/obj_left/thumb_elastomer_surface.obj" />
+
+    <mesh name="left_wrist_mount_visual" file="slanted_final_mounts/slanted_final_left_mount.stl" />
+    <mesh name="left_wrist_mount_collision_0" file="slanted_final_mounts/slanted_final_left_mount.stl" />
+    <mesh name="left_camera_d405" file="i2rt_yam/assets/d405.stl" />
+  </asset>
+  <worldbody>
+    <body name="sharpa_hand_left" pos="0 0 0.04" quat="0 0 0 -1" gravcomp="1">
+      <geom name="left_sharpa_spacer" type="cylinder" size="0.02 0.0075" pos="0 0 -0.0075" material="left_sharpa" group="1" contype="0" conaffinity="0" density="0" />
+      <geom name="left_wrist_mount_collision_0" type="mesh" mesh="left_wrist_mount_collision_0" pos="0 0 -0.0366" rgba="0.30 0.30 0.30 1" group="3" contype="1" conaffinity="1" solimp="0.999 0.999 0.001" solref="0.002 1" />
+      <geom name="left_wrist_mount_visual" type="mesh" mesh="left_wrist_mount_visual" pos="0 0 -0.0366" rgba="0.30 0.30 0.30 1" group="1" contype="0" conaffinity="0" density="0" />
+      <body name="left_camera_d405" pos="0.0462 0.0443 0.0007" quat="-0.0000 0.0000 -0.1736 0.9848">
+        <geom type="mesh" contype="0" conaffinity="0" group="3" density="0.001" mass="0.001" rgba="0 0 0 0" mesh="left_camera_d405" />
+        <geom name="left_cam_col" type="sphere" size="0.02" pos="0 0 0" group="3" rgba="0 0 1 0.0" mass="0.001" />
+        <body name="left_camera_frame" pos="0.009 0 0" quat="0 0 0 1">
+          <camera name="left" pos="0 0 0" quat="0 0.707107 -0.707107 0" fovy="58" />
+        </body>
+      </body>
+      <body name="left_hand_C_MC" pos="0 0 0">
+        <inertial pos="0.0060282 0.00091891 0.038914" mass="0.72045" diaginertia="0.00071328 0.00081371 0.00020795" />
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_hand_C_MC_visual" name="left_hand_C_MC_visual" />
+        <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_hand_C_MC" name="left_hand_C_MC" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+        <body name="left_sharpa_palm_site" pos="0 0 0.02" quat="-0.5 -0.5 0.5 0.5">
+          <site name="left_sharpa_palm_site" group="4" size="0.002 0.002 0.002" />
+        </body>
+        <camera name="wrist_left" pos="0.1 0 0" quat="0.183013 -0.683013 0.683013 -0.183013" fovy="77.55214222201174" />
+        <body name="left_thumb_CMC_VL" pos="0.01 -0.026 0.0212" quat="0.707105 0 0 -0.707108">
+          <inertial pos="0 0 0" mass="1e-06" diaginertia="2e-12 2e-12 2e-12" />
+          <joint name="left_thumb_CMC_FE" pos="0 0 0" axis="0 0 1" range="-0.1745 1.9199" armature="0.0032" frictionloss="0.132" damping="4.20E-05" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_CMC_VL_visual" />
+          <body name="left_thumb_MC" pos="0 -0.005 0" quat="0.65328 0.653282 -0.270598 0.270599">
+            <inertial pos="0.0385056 -0.0105846 -0.00991873" quat="0.158428 0.667584 0.222963 0.692474" mass="0.116" diaginertia="3.83518e-05 3.34032e-05 1.641e-05" />
+            <joint name="left_thumb_CMC_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.0032" frictionloss="0.132" damping="4.20E-05" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_MC_visual" name="left_thumb_MC_visual" />
+            <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_thumb_MC" name="left_thumb_MC" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+            <body name="left_thumb_MCP_VL" pos="0.065 -0.006 -0.010392" quat="0.965926 -0.25882 0 0">
+              <inertial pos="4.8e-09 0.000869809 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12" />
+              <joint name="left_thumb_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.5236 1.3963" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_MCP_VL_visual" />
+              <body name="left_thumb_PP" quat="0.707105 0.707108 0 0">
+                <body name="left_sharpa_thumb_proximal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_thumb_proximal_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+                <inertial pos="0.0219483 -0.00015581 0.00149446" quat="0.526585 0.473016 0.473458 0.524215" mass="0.04955" diaginertia="4.60001e-06 4.35675e-06 2.57733e-06" />
+                <joint name="left_thumb_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_PP_visual" name="left_thumb_PP_visual" />
+                <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_thumb_PP" name="left_thumb_PP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                <body name="left_thumb_DP" pos="0.039 0 0" quat="0.707105 -0.707108 0 0">
+                  <inertial pos="0.00985829 -0.0101254 0.00044771" quat="0.649916 0.20258 -0.647399 0.342703" mass="0.006986" diaginertia="8.79989e-07 8.08573e-07 2.50588e-07" />
+                  <joint name="left_thumb_IP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" frictionloss="0.01276" damping="4.06E-06" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_DP_visual" name="left_thumb_DP_visual" />
+                  <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_thumb_DP" name="left_thumb_DP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                  <geom quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_elastomer_visual" />
+                  <geom contype="1" conaffinity="1" group="3" quat="0.5 0.5 -0.5 0.5" type="mesh" rgba="0.2 1 0.2 1" mesh="left_thumb_elastomer" name="left_thumb_elastomer" solref="0.002 1" friction="1.5 0.005 0.0001" solimp="0.999 0.999 0.001" priority="2" condim="3" />
+                  <body name="left_sharpa_thumb_distal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                    <site name="left_sharpa_thumb_distal_site" group="4" size="0.002 0.002 0.002" />
+                  </body>
+                  <body name="left_sharpa_thumb_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5">
+                    <site name="left_sharpa_thumb_tip_site" group="4" size="0.002 0.002 0.002" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="left_index_MCP_VL" pos="0.001 -0.0303 0.0957" quat="0.499998 -0.500002 -0.5 -0.5">
+          <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12" />
+          <joint name="left_index_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.17453293 1.5708" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual" name="left_index_MCP_VL_visual" />
+          <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MCP_VL" name="left_index_MCP_VL" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+          <body name="left_index_PP" quat="0.707105 0.707108 0 0">
+            <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06" />
+            <joint name="left_index_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual" name="left_index_PP_visual" />
+            <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_PP" name="left_index_PP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+            <body name="left_sharpa_index_proximal_site" pos="0 0 0" quat="0 0.70710678 0.70710678 0">
+              <site name="left_sharpa_index_proximal_site" group="4" size="0.002 0.002 0.002" />
+            </body>
+            <body name="left_index_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0">
+              <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07" />
+              <joint name="left_index_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" frictionloss="0.01276" damping="4.06E-06" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual" name="left_index_MP_visual" />
+              <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MP" name="left_index_MP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+              <body name="left_sharpa_index_intermediate_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                <site name="left_sharpa_index_intermediate_site" group="4" size="0.002 0.002 0.002" />
+              </body>
+              <body name="left_index_DP" pos="0.0315 0 0">
+                <inertial pos="0.00931302 -0.00769378 0.000111984" quat="0.643869 0.245527 -0.649442 0.321517" mass="0.005102" diaginertia="4.23794e-07 3.8546e-07 1.37255e-07" />
+                <joint name="left_index_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" frictionloss="0.00378738" damping="1.21E-06" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual" name="left_index_DP_visual" />
+                <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_DP" name="left_index_DP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                <geom quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" solref="0.06 0.9" mesh="left_elastomer_visual" name="left_index_elastomer_visual" />
+                <geom contype="1" conaffinity="1" group="3" quat="0.5 0.5 -0.5 0.5" type="mesh" rgba="0.2 1 0.2 1" mesh="left_elastomer" name="left_index_elastomer" friction="1.5 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="3" />
+                <body name="left_sharpa_index_distal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_index_distal_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+                <body name="left_sharpa_index_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_index_tip_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="left_middle_MCP_VL" pos="0 -0.01 0.0987" quat="0.499998 -0.500002 -0.5 -0.5">
+          <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12" />
+          <joint name="left_middle_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.17453293 1.5708" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual" name="left_middle_MCP_VL_visual" />
+          <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MCP_VL" name="left_middle_MCP_VL" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+          <body name="left_middle_PP" quat="0.707105 0.707108 0 0">
+            <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06" />
+            <joint name="left_middle_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual" name="left_middle_PP_visual" />
+            <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_PP" name="left_middle_PP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+            <body name="left_sharpa_middle_proximal_site" pos="0 0 0" quat="0 0.70710678 0.70710678 0">
+              <site name="left_sharpa_middle_proximal_site" group="4" size="0.002 0.002 0.002" />
+            </body>
+            <body name="left_middle_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0">
+              <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07" />
+              <joint name="left_middle_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" frictionloss="0.01276" damping="4.06E-06" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual" name="left_middle_MP_visual" />
+              <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MP" name="left_middle_MP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+              <body name="left_sharpa_middle_intermediate_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                <site name="left_sharpa_middle_intermediate_site" group="4" size="0.002 0.002 0.002" />
+              </body>
+              <body name="left_middle_DP" pos="0.0315 0 0">
+                <inertial pos="0.00931302 -0.00769378 0.000111984" quat="0.643869 0.245527 -0.649442 0.321517" mass="0.005102" diaginertia="4.23794e-07 3.8546e-07 1.37255e-07" />
+                <joint name="left_middle_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" frictionloss="0.00378738" damping="1.21E-06" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual" name="left_middle_DP_visual" />
+                <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_DP" name="left_middle_DP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                <geom quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" solref="0.06 0.9" mesh="left_elastomer_visual" name="left_middle_elastomer_visual" />
+                <geom contype="1" conaffinity="1" group="3" quat="0.5 0.5 -0.5 0.5" type="mesh" rgba="0.2 1 0.2 1" mesh="left_elastomer" name="left_middle_elastomer" friction="1.5 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="3" />
+                <body name="left_sharpa_middle_distal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_middle_distal_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+                <body name="left_sharpa_middle_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_middle_tip_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="left_ring_MCP_VL" pos="0.0015 0.0103 0.0927" quat="0.499998 -0.500002 -0.5 -0.5">
+          <inertial pos="4.8e-09 0.00086981 3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12" />
+          <joint name="left_ring_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.17453293 1.5708" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual" name="left_ring_MCP_VL_visual" />
+          <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MCP_VL" name="left_ring_MCP_VL" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+          <body name="left_ring_PP" quat="0.707105 0.707108 0 0">
+            <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06" />
+            <joint name="left_ring_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual" name="left_ring_PP_visual" />
+            <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_PP" name="left_ring_PP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+            <body name="left_sharpa_ring_proximal_site" pos="0 0 0" quat="0 0.70710678 0.70710678 0">
+              <site name="left_sharpa_ring_proximal_site" group="4" size="0.002 0.002 0.002" />
+            </body>
+            <body name="left_ring_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0">
+              <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07" />
+              <joint name="left_ring_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" frictionloss="0.01276" damping="4.06E-06" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual" name="left_ring_MP_visual" />
+              <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MP" name="left_ring_MP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+              <body name="left_sharpa_ring_intermediate_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                <site name="left_sharpa_ring_intermediate_site" group="4" size="0.002 0.002 0.002" />
+              </body>
+              <body name="left_ring_DP" pos="0.0315 0 0">
+                <inertial pos="0.00931208 -0.00769378 0.000111984" quat="0.643953 0.245771 -0.649317 0.321417" mass="0.005102" diaginertia="4.23686e-07 3.85387e-07 1.37226e-07" />
+                <joint name="left_ring_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" frictionloss="0.00378738" damping="1.21E-06" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual" name="left_ring_DP_visual" />
+                <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_DP" name="left_ring_DP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                <geom quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" solref="0.06 0.9" mesh="left_elastomer_visual" name="left_ring_elastomer_visual" />
+                <geom contype="1" conaffinity="1" group="3" quat="0.499998 0.5 -0.5 0.500002" type="mesh" rgba="0.2 1 0.2 1" mesh="left_elastomer" name="left_ring_elastomer" friction="1.5 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="3" />
+                <body name="left_sharpa_ring_distal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_ring_distal_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+                <body name="left_sharpa_ring_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_ring_tip_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="left_pinky_MC" pos="0.01136 0.0263 0.0867" quat="1.34924e-11 3.67321e-06 -1 -3.67321e-06">
+          <inertial pos="0.0107985 0.00598801 0.0335125" quat="0.709657 0.106152 0.0812795 0.691746" mass="0.12541" diaginertia="3.57685e-05 2.46485e-05 2.14424e-05" />
+          <joint name="left_pinky_CMC" pos="0 0 0" axis="0 0 1" range="0 0.2618" armature="0.00012" frictionloss="0.012" damping="4.20E-05" />
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_pinky_MC_visual" name="left_pinky_MC_visual" />
+          <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_pinky_MC" name="left_pinky_MC" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+          <body name="left_pinky_MCP_VL" pos="0.00836 0.0048 0" quat="0.499998 -0.5 0.5 0.500002">
+            <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12" />
+            <joint name="left_pinky_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.17453293 1.5708" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual" name="left_pinky_MCP_VL_visual" />
+            <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MCP_VL" name="left_pinky_MCP_VL" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+            <body name="left_pinky_PP" quat="0.707105 0.707108 0 0">
+              <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06" />
+              <joint name="left_pinky_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" frictionloss="0.07456" damping="2.38E-05" />
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual" name="left_pinky_PP_visual" />
+              <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_PP" name="left_pinky_PP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+              <body name="left_sharpa_pinky_proximal_site" pos="0 0 0" quat="0 0.70710678 0.70710678 0">
+                <site name="left_sharpa_pinky_proximal_site" group="4" size="0.002 0.002 0.002" />
+              </body>
+              <body name="left_pinky_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0">
+                <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07" />
+                <joint name="left_pinky_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" frictionloss="0.01276" damping="4.06E-06" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual" name="left_pinky_MP_visual" />
+                <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_MP" name="left_pinky_MP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                <body name="left_sharpa_pinky_intermediate_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                  <site name="left_sharpa_pinky_intermediate_site" group="4" size="0.002 0.002 0.002" />
+                </body>
+                <body name="left_pinky_DP" pos="0.0315 0 0">
+                  <inertial pos="0.00931208 -0.00769378 0.000111984" quat="0.643953 0.245771 -0.649317 0.321417" mass="0.005102" diaginertia="4.23686e-07 3.85387e-07 1.37226e-07" />
+                  <joint name="left_pinky_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" frictionloss="0.00378738" damping="1.21E-06" />
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual" name="left_pinky_DP_visual" />
+                  <geom type="mesh" contype="1" conaffinity="1" group="3" material="left_sharpa" mesh="left_DP" name="left_pinky_DP" friction="1 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="6" />
+                  <geom quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" solref="0.06 0.9" mesh="left_elastomer_visual" name="left_pinky_elastomer_visual" />
+                  <geom quat="0.5 0.5 -0.5 0.5" contype="1" conaffinity="1" group="3" type="mesh" rgba="0.2 1 0.2 1" mesh="left_elastomer" name="left_pinky_elastomer" friction="1.5 0.005 0.0001" solref="0.002 1" solimp="0.999 0.999 0.001" priority="2" condim="3" />
+                  <body name="left_sharpa_pinky_distal_site" pos="0 0 0" quat="0.5 0.5 0.5 -0.5">
+                    <site name="left_sharpa_pinky_distal_site" group="4" size="0.002 0.002 0.002" />
+                  </body>
+                  <body name="left_sharpa_pinky_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5">
+                    <site name="left_sharpa_pinky_tip_site" group="4" size="0.002 0.002 0.002" />
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <position name="left_thumb_CMC_FE_ctrl" joint="left_thumb_CMC_FE" kp="6.95" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_thumb_CMC_AA_ctrl" joint="left_thumb_CMC_AA" kp="13.2" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_thumb_MCP_FE_ctrl" joint="left_thumb_MCP_FE" kp="4.76" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_thumb_MCP_AA_ctrl" joint="left_thumb_MCP_AA" kp="6.62" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_thumb_IP_ctrl" joint="left_thumb_IP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_index_MCP_FE_ctrl" joint="left_index_MCP_FE" kp="4.76" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_index_MCP_AA_ctrl" joint="left_index_MCP_AA" kp="6.62" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_index_PIP_ctrl" joint="left_index_PIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_index_DIP_ctrl" joint="left_index_DIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_middle_MCP_FE_ctrl" joint="left_middle_MCP_FE" kp="4.76" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_middle_MCP_AA_ctrl" joint="left_middle_MCP_AA" kp="6.62" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_middle_PIP_ctrl" joint="left_middle_PIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_middle_DIP_ctrl" joint="left_middle_DIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_ring_MCP_FE_ctrl" joint="left_ring_MCP_FE" kp="4.76" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_ring_MCP_AA_ctrl" joint="left_ring_MCP_AA" kp="6.62" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_ring_PIP_ctrl" joint="left_ring_PIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_ring_DIP_ctrl" joint="left_ring_DIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_pinky_CMC_ctrl" joint="left_pinky_CMC" kp="1.38" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_pinky_MCP_FE_ctrl" joint="left_pinky_MCP_FE" kp="4.76" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_pinky_MCP_AA_ctrl" joint="left_pinky_MCP_AA" kp="6.62" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_pinky_PIP_ctrl" joint="left_pinky_PIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+    <position name="left_pinky_DIP_ctrl" joint="left_pinky_DIP" kp="0.9" dampratio="0.9" inheritrange="1.0" />
+  </actuator>
+  <contact>
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+</mujoco>

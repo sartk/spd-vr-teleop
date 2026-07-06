@@ -1,0 +1,624 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="dishrack_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="rack_visual">
+      <geom group="1" type="mesh" contype="0" conaffinity="0" />
+    </default>
+    <default class="rack_collision">
+      <geom group="3" type="mesh" friction="1.2 0.01 0.001" density="0" />
+    </default>
+    <default class="plate_visual">
+      <geom group="1" type="mesh" contype="0" conaffinity="0" />
+    </default>
+    <default class="plate_collision">
+      <geom group="3" type="mesh" density="0" friction="1.2 0.01 0.001" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+    <default class="mug_col">
+      <geom type="mesh" friction="1.2 0.05 0.001" density="0" group="3" rgba="0 0 0 0" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <mesh name="rack_visual" file="dishrack/model.obj" />
+    <mesh name="rack_col_0" file="dishrack/model_collision_0.obj" />
+    <mesh name="rack_col_1" file="dishrack/model_collision_1.obj" />
+    <mesh name="rack_col_2" file="dishrack/model_collision_2.obj" />
+    <mesh name="rack_col_3" file="dishrack/model_collision_3.obj" />
+    <mesh name="rack_col_4" file="dishrack/model_collision_4.obj" />
+    <mesh name="rack_col_5" file="dishrack/model_collision_5.obj" />
+    <mesh name="rack_col_6" file="dishrack/model_collision_6.obj" />
+    <mesh name="rack_col_7" file="dishrack/model_collision_7.obj" />
+    <mesh name="rack_col_8" file="dishrack/model_collision_8.obj" />
+    <mesh name="rack_col_9" file="dishrack/model_collision_9.obj" />
+    <mesh name="rack_col_10" file="dishrack/model_collision_10.obj" />
+    <mesh name="rack_col_11" file="dishrack/model_collision_11.obj" />
+    <mesh name="rack_col_12" file="dishrack/model_collision_12.obj" />
+    <mesh name="rack_col_13" file="dishrack/model_collision_13.obj" />
+    <mesh name="rack_col_14" file="dishrack/model_collision_14.obj" />
+    <mesh name="rack_col_15" file="dishrack/model_collision_15.obj" />
+    <mesh name="rack_col_16" file="dishrack/model_collision_16.obj" />
+    <mesh name="rack_col_17" file="dishrack/model_collision_17.obj" />
+    <mesh name="rack_col_18" file="dishrack/model_collision_18.obj" />
+    <mesh name="rack_col_19" file="dishrack/model_collision_19.obj" />
+    <mesh name="rack_col_20" file="dishrack/model_collision_20.obj" />
+    <mesh name="rack_col_21" file="dishrack/model_collision_21.obj" />
+    <mesh name="rack_col_22" file="dishrack/model_collision_22.obj" />
+    <mesh name="rack_col_23" file="dishrack/model_collision_23.obj" />
+    <mesh name="rack_col_24" file="dishrack/model_collision_24.obj" />
+    <mesh name="rack_col_25" file="dishrack/model_collision_25.obj" />
+    <mesh name="rack_col_26" file="dishrack/model_collision_26.obj" />
+    <mesh name="rack_col_27" file="dishrack/model_collision_27.obj" />
+    <mesh name="rack_col_28" file="dishrack/model_collision_28.obj" />
+    <mesh name="rack_col_29" file="dishrack/model_collision_29.obj" />
+    <mesh name="rack_col_30" file="dishrack/model_collision_30.obj" />
+    <mesh name="rack_col_31" file="dishrack/model_collision_31.obj" />
+    <mesh name="rack_col_32" file="dishrack/model_collision_32.obj" />
+    <mesh name="rack_col_33" file="dishrack/model_collision_33.obj" />
+    <mesh name="rack_col_34" file="dishrack/model_collision_34.obj" />
+    <mesh name="rack_col_35" file="dishrack/model_collision_35.obj" />
+    <mesh name="rack_col_36" file="dishrack/model_collision_36.obj" />
+    <mesh name="rack_col_37" file="dishrack/model_collision_37.obj" />
+    <mesh name="rack_col_38" file="dishrack/model_collision_38.obj" />
+    <mesh name="rack_col_39" file="dishrack/model_collision_39.obj" />
+    <mesh name="rack_col_40" file="dishrack/model_collision_40.obj" />
+    <mesh name="rack_col_41" file="dishrack/model_collision_41.obj" />
+    <mesh name="rack_col_42" file="dishrack/model_collision_42.obj" />
+    <mesh name="rack_col_43" file="dishrack/model_collision_43.obj" />
+    <mesh name="rack_col_44" file="dishrack/model_collision_44.obj" />
+    <mesh name="rack_col_45" file="dishrack/model_collision_45.obj" />
+    <mesh name="rack_col_46" file="dishrack/model_collision_46.obj" />
+    <mesh name="rack_col_47" file="dishrack/model_collision_47.obj" />
+    <mesh name="rack_col_48" file="dishrack/model_collision_48.obj" />
+    <mesh name="rack_col_49" file="dishrack/model_collision_49.obj" />
+    <mesh name="rack_col_50" file="dishrack/model_collision_50.obj" />
+    <mesh name="rack_col_51" file="dishrack/model_collision_51.obj" />
+    <mesh name="rack_col_52" file="dishrack/model_collision_52.obj" />
+    <mesh name="rack_col_53" file="dishrack/model_collision_53.obj" />
+    <mesh name="rack_col_54" file="dishrack/model_collision_54.obj" />
+    <mesh name="rack_col_55" file="dishrack/model_collision_55.obj" />
+    <mesh name="rack_col_56" file="dishrack/model_collision_56.obj" />
+    <mesh name="rack_col_57" file="dishrack/model_collision_57.obj" />
+    <mesh name="rack_col_58" file="dishrack/model_collision_58.obj" />
+    <mesh name="rack_col_59" file="dishrack/model_collision_59.obj" />
+    <mesh name="rack_col_60" file="dishrack/model_collision_60.obj" />
+    <mesh name="rack_col_61" file="dishrack/model_collision_61.obj" />
+    <mesh name="rack_col_62" file="dishrack/model_collision_62.obj" />
+    <mesh name="rack_col_63" file="dishrack/model_collision_63.obj" />
+    <mesh name="rack_col_64" file="dishrack/model_collision_64.obj" />
+    <mesh name="rack_col_65" file="dishrack/model_collision_65.obj" />
+    <mesh name="rack_col_66" file="dishrack/model_collision_66.obj" />
+    <mesh name="rack_col_67" file="dishrack/model_collision_67.obj" />
+    <mesh name="rack_col_68" file="dishrack/model_collision_68.obj" />
+    <mesh name="rack_col_69" file="dishrack/model_collision_69.obj" />
+    <mesh name="rack_col_70" file="dishrack/model_collision_70.obj" />
+    <mesh name="rack_col_71" file="dishrack/model_collision_71.obj" />
+    <mesh name="rack_col_72" file="dishrack/model_collision_72.obj" />
+    <mesh name="rack_col_73" file="dishrack/model_collision_73.obj" />
+    <mesh name="rack_col_74" file="dishrack/model_collision_74.obj" />
+    <mesh name="rack_col_75" file="dishrack/model_collision_75.obj" />
+    <mesh name="rack_col_76" file="dishrack/model_collision_76.obj" />
+    <mesh name="rack_col_77" file="dishrack/model_collision_77.obj" />
+    <mesh name="rack_col_78" file="dishrack/model_collision_78.obj" />
+    <mesh name="rack_col_79" file="dishrack/model_collision_79.obj" />
+    <mesh name="rack_col_80" file="dishrack/model_collision_80.obj" />
+    <mesh name="rack_col_81" file="dishrack/model_collision_81.obj" />
+    <mesh name="rack_col_82" file="dishrack/model_collision_82.obj" />
+    <mesh name="rack_col_83" file="dishrack/model_collision_83.obj" />
+    <mesh name="rack_col_84" file="dishrack/model_collision_84.obj" />
+    <mesh name="rack_col_85" file="dishrack/model_collision_85.obj" />
+    <mesh name="rack_col_86" file="dishrack/model_collision_86.obj" />
+    <mesh name="rack_col_87" file="dishrack/model_collision_87.obj" />
+    <mesh name="rack_col_88" file="dishrack/model_collision_88.obj" />
+    <mesh name="rack_col_89" file="dishrack/model_collision_89.obj" />
+    <mesh name="rack_col_90" file="dishrack/model_collision_90.obj" />
+    <mesh name="rack_col_91" file="dishrack/model_collision_91.obj" />
+    <mesh name="rack_col_92" file="dishrack/model_collision_92.obj" />
+    <mesh name="rack_col_93" file="dishrack/model_collision_93.obj" />
+    <mesh name="rack_col_94" file="dishrack/model_collision_94.obj" />
+    <mesh name="rack_col_95" file="dishrack/model_collision_95.obj" />
+    <mesh name="rack_col_96" file="dishrack/model_collision_96.obj" />
+    <mesh name="rack_col_97" file="dishrack/model_collision_97.obj" />
+    <mesh name="rack_col_98" file="dishrack/model_collision_98.obj" />
+    <mesh name="rack_col_99" file="dishrack/model_collision_99.obj" />
+    <mesh name="rack_col_100" file="dishrack/model_collision_100.obj" />
+    <mesh name="rack_col_101" file="dishrack/model_collision_101.obj" />
+    <mesh name="rack_col_102" file="dishrack/model_collision_102.obj" />
+    <mesh name="rack_col_103" file="dishrack/model_collision_103.obj" />
+    <mesh name="rack_col_104" file="dishrack/model_collision_104.obj" />
+    <mesh name="rack_col_105" file="dishrack/model_collision_105.obj" />
+    <mesh name="rack_col_106" file="dishrack/model_collision_106.obj" />
+    <mesh name="rack_col_107" file="dishrack/model_collision_107.obj" />
+    <mesh name="rack_col_108" file="dishrack/model_collision_108.obj" />
+    <mesh name="rack_col_109" file="dishrack/model_collision_109.obj" />
+    <mesh name="rack_col_110" file="dishrack/model_collision_110.obj" />
+    <mesh name="rack_col_111" file="dishrack/model_collision_111.obj" />
+    <mesh name="rack_col_112" file="dishrack/model_collision_112.obj" />
+    <mesh name="rack_col_113" file="dishrack/model_collision_113.obj" />
+    <mesh name="rack_col_114" file="dishrack/model_collision_114.obj" />
+    <mesh name="rack_col_115" file="dishrack/model_collision_115.obj" />
+    <mesh name="rack_col_116" file="dishrack/model_collision_116.obj" />
+    <mesh name="rack_col_117" file="dishrack/model_collision_117.obj" />
+    <mesh name="rack_col_118" file="dishrack/model_collision_118.obj" />
+    <mesh name="rack_col_119" file="dishrack/model_collision_119.obj" />
+    <mesh name="rack_col_120" file="dishrack/model_collision_120.obj" />
+    <mesh name="rack_col_121" file="dishrack/model_collision_121.obj" />
+    <mesh name="rack_col_122" file="dishrack/model_collision_122.obj" />
+    <mesh name="rack_col_123" file="dishrack/model_collision_123.obj" />
+    <mesh name="rack_col_124" file="dishrack/model_collision_124.obj" />
+    <mesh name="rack_col_125" file="dishrack/model_collision_125.obj" />
+    <mesh name="rack_col_126" file="dishrack/model_collision_126.obj" />
+    <mesh name="rack_col_127" file="dishrack/model_collision_127.obj" />
+    <mesh name="rack_col_128" file="dishrack/model_collision_128.obj" />
+    <mesh name="rack_col_129" file="dishrack/model_collision_129.obj" />
+    <mesh name="rack_col_130" file="dishrack/model_collision_130.obj" />
+    <mesh name="rack_col_131" file="dishrack/model_collision_131.obj" />
+    <mesh name="rack_col_132" file="dishrack/model_collision_132.obj" />
+    <mesh name="rack_col_133" file="dishrack/model_collision_133.obj" />
+    <mesh name="rack_col_134" file="dishrack/model_collision_134.obj" />
+    <mesh name="rack_col_135" file="dishrack/model_collision_135.obj" />
+    <mesh name="rack_col_136" file="dishrack/model_collision_136.obj" />
+    <mesh name="rack_col_137" file="dishrack/model_collision_137.obj" />
+    <mesh name="rack_col_138" file="dishrack/model_collision_138.obj" />
+    <mesh name="rack_col_139" file="dishrack/model_collision_139.obj" />
+    <mesh name="rack_col_140" file="dishrack/model_collision_140.obj" />
+    <mesh name="rack_col_141" file="dishrack/model_collision_141.obj" />
+    <mesh name="rack_col_142" file="dishrack/model_collision_142.obj" />
+    <mesh name="rack_col_143" file="dishrack/model_collision_143.obj" />
+    <mesh name="rack_col_144" file="dishrack/model_collision_144.obj" />
+    <mesh name="rack_col_145" file="dishrack/model_collision_145.obj" />
+    <mesh name="rack_col_146" file="dishrack/model_collision_146.obj" />
+    <mesh name="rack_col_147" file="dishrack/model_collision_147.obj" />
+    <mesh name="rack_col_148" file="dishrack/model_collision_148.obj" />
+    <texture type="2d" name="rack_tex" file="dishrack/texture.png" />
+    <material name="rack_mat" texture="rack_tex" specular="0.5" shininess="0.5" />
+    <mesh name="plate_visual" file="plate/model.obj" />
+    <mesh name="plate_col_0" file="plate/model_collision_0.obj" />
+    <mesh name="plate_col_1" file="plate/model_collision_1.obj" />
+    <mesh name="plate_col_2" file="plate/model_collision_2.obj" />
+    <mesh name="plate_col_3" file="plate/model_collision_3.obj" />
+    <mesh name="plate_col_4" file="plate/model_collision_4.obj" />
+    <mesh name="plate_col_5" file="plate/model_collision_5.obj" />
+    <mesh name="plate_col_6" file="plate/model_collision_6.obj" />
+    <mesh name="plate_col_7" file="plate/model_collision_7.obj" />
+    <mesh name="plate_col_8" file="plate/model_collision_8.obj" />
+    <mesh name="plate_col_9" file="plate/model_collision_9.obj" />
+    <mesh name="plate_col_10" file="plate/model_collision_10.obj" />
+    <mesh name="plate_col_11" file="plate/model_collision_11.obj" />
+    <mesh name="plate_col_12" file="plate/model_collision_12.obj" />
+    <mesh name="plate_col_13" file="plate/model_collision_13.obj" />
+    <mesh name="plate_col_14" file="plate/model_collision_14.obj" />
+    <mesh name="plate_col_15" file="plate/model_collision_15.obj" />
+    <texture type="2d" name="plate_tex" file="plate/texture.png" />
+    <material name="plate_mat" texture="plate_tex" specular="0.5" shininess="0.5" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+
+    <!-- mug -->
+    <mesh name="mug_vis_0" file="mug/visual/model_normalized_0.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_vis_1" file="mug/visual/model_normalized_1.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_0" file="mug/collision/model_normalized_collision_0.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_1" file="mug/collision/model_normalized_collision_1.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_2" file="mug/collision/model_normalized_collision_2.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_3" file="mug/collision/model_normalized_collision_3.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_4" file="mug/collision/model_normalized_collision_4.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_5" file="mug/collision/model_normalized_collision_5.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_6" file="mug/collision/model_normalized_collision_6.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_7" file="mug/collision/model_normalized_collision_7.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_8" file="mug/collision/model_normalized_collision_8.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_9" file="mug/collision/model_normalized_collision_9.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_10" file="mug/collision/model_normalized_collision_10.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_11" file="mug/collision/model_normalized_collision_11.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_12" file="mug/collision/model_normalized_collision_12.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_13" file="mug/collision/model_normalized_collision_13.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_14" file="mug/collision/model_normalized_collision_14.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_15" file="mug/collision/model_normalized_collision_15.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_16" file="mug/collision/model_normalized_collision_16.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_17" file="mug/collision/model_normalized_collision_17.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_18" file="mug/collision/model_normalized_collision_18.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_19" file="mug/collision/model_normalized_collision_19.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_20" file="mug/collision/model_normalized_collision_20.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_21" file="mug/collision/model_normalized_collision_21.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_22" file="mug/collision/model_normalized_collision_22.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_23" file="mug/collision/model_normalized_collision_23.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_24" file="mug/collision/model_normalized_collision_24.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_25" file="mug/collision/model_normalized_collision_25.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_26" file="mug/collision/model_normalized_collision_26.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_27" file="mug/collision/model_normalized_collision_27.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_28" file="mug/collision/model_normalized_collision_28.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_29" file="mug/collision/model_normalized_collision_29.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_30" file="mug/collision/model_normalized_collision_30.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_31" file="mug/collision/model_normalized_collision_31.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <!-- extra materials for new objects -->
+    <material name="mug_white" specular="0.5" shininess="0.003" rgba="0.930 0.930 0.930 1.0" />
+    <material name="mug_accent_a" specular="0.5" shininess="0.003" rgba="0.172 0.780 0.435 1.0" />
+    <material name="mug_accent_b" specular="0.5" shininess="0.003" rgba="0.85 0.2 0.15 1.0" />
+    <!-- fork / spoon (silverware) -->
+    <texture name="fork_tex" type="2d" file="fork/texture.png" />
+    <material name="fork_mat" texture="fork_tex" specular="0.6" shininess="0.4" />
+    <texture name="spoon_tex" type="2d" file="spoon/texture.png" />
+    <material name="spoon_mat" texture="spoon_tex" specular="0.6" shininess="0.4" />
+    <mesh name="fork_visual" file="fork/visual.obj" />
+    <mesh name="fork_col_0" file="fork/collision/col_0.obj" />
+    <mesh name="fork_col_1" file="fork/collision/col_1.obj" />
+    <mesh name="fork_col_2" file="fork/collision/col_2.obj" />
+    <mesh name="spoon_visual" file="spoon/visual.obj" />
+    <mesh name="spoon_col_0" file="spoon/collision/col_0.obj" />
+    <mesh name="spoon_col_1" file="spoon/collision/col_1.obj" />
+    <mesh name="spoon_col_2" file="spoon/collision/col_2.obj" />
+    <mesh name="spoon_col_3" file="spoon/collision/col_3.obj" />
+  </asset>
+  <worldbody>
+    <body name="dishrack" pos="0.62 -0.24 0.75">
+      <geom material="rack_mat" mesh="rack_visual" class="rack_visual" mass="0.5" />
+      <geom mesh="rack_col_0" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_1" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_2" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_3" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_4" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_5" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_6" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_7" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_8" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_9" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_10" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_11" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_12" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_13" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_14" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_15" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_16" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_17" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_18" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_19" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_20" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_21" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_22" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_23" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_24" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_25" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_26" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_27" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_28" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_29" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_30" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_31" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_32" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_33" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_34" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_35" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_36" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_37" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_38" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_39" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_40" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_41" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_42" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_43" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_44" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_45" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_46" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_47" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_48" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_49" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_50" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_51" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_52" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_53" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_54" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_55" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_56" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_57" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_58" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_59" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_60" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_61" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_62" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_63" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_64" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_65" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_66" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_67" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_68" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_69" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_70" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_71" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_72" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_73" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_74" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_75" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_76" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_77" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_78" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_79" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_80" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_81" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_82" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_83" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_84" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_85" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_86" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_87" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_88" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_89" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_90" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_91" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_92" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_93" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_94" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_95" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_96" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_97" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_98" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_99" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_100" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_101" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_102" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_103" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_104" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_105" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_106" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_107" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_108" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_109" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_110" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_111" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_112" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_113" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_114" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_115" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_116" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_117" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_118" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_119" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_120" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_121" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_122" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_123" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_124" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_125" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_126" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_127" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_128" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_129" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_130" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_131" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_132" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_133" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_134" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_135" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_136" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_137" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_138" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_139" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_140" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_141" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_142" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_143" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_144" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_145" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_146" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_147" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="rack_col_148" class="rack_collision" group="3" friction="1.2 0.01 0.001" />
+    </body>
+    <body name="plate_0" pos="0.624 0.227 0.76">
+      <freejoint name="plate_0_joint" />
+      <geom material="plate_mat" mesh="plate_visual" class="plate_visual" mass="0.18" />
+      <geom mesh="plate_col_0" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_1" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_2" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_3" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_4" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_5" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_6" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_7" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_8" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_9" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_10" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_11" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_12" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_13" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_14" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_15" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+    </body>
+<body name="plate_1" pos="0.809 0.428 0.76">
+      <freejoint name="plate_1_joint" />
+      <geom material="plate_mat" mesh="plate_visual" class="plate_visual" mass="0.18" />
+      <geom mesh="plate_col_0" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_1" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_2" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_3" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_4" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_5" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_6" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_7" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_8" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_9" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_10" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_11" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_12" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_13" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_14" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+      <geom mesh="plate_col_15" class="plate_collision" group="3" friction="1.2 0.01 0.001" />
+    </body>
+    <body name="mug_0" pos="0.464 0.474 0.810">
+      <freejoint name="mug_0_joint" />
+      <geom type="mesh" mesh="mug_vis_0" material="mug_white" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_vis_1" material="mug_accent_a" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_col_0" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_1" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_2" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_3" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_4" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_5" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_6" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_7" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_8" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_9" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_10" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_11" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_12" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_13" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_14" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_15" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_16" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_17" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_18" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_19" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_20" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_21" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_22" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_23" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_24" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_25" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_26" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_27" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_28" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_29" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_30" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_31" class="mug_col" />
+    </body>
+    <body name="mug_1" pos="0.708 0.023 0.810">
+      <freejoint name="mug_1_joint" />
+      <geom type="mesh" mesh="mug_vis_0" material="mug_white" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_vis_1" material="mug_accent_b" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_col_0" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_1" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_2" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_3" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_4" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_5" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_6" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_7" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_8" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_9" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_10" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_11" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_12" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_13" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_14" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_15" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_16" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_17" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_18" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_19" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_20" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_21" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_22" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_23" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_24" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_25" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_26" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_27" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_28" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_29" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_30" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_31" class="mug_col" />
+    </body>
+
+<geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom size="0.2975 0.65 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+  </worldbody>
+</mujoco>

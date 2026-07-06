@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="bottled_water_24">
+  <asset>
+    <mesh file="visual/model_normalized_0.obj" name="model_normalized_0_vis" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="visual/model_normalized_1.obj" name="model_normalized_1_vis" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <material name="plastic" specular="0.5" shininess="0.160880429" rgba="0.001487 0.098912 0.800000 1.0" />
+    <material name="transparent_plastic" specular="0.5" shininess="0.952576" rgba="0.800000 0.800000 0.800000 1.0" />
+    <mesh file="collision/collision_mesh_collision_0.obj" name="bottled_collision_mesh_0" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_1.obj" name="bottled_collision_mesh_1" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_2.obj" name="bottled_collision_mesh_2" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_3.obj" name="bottled_collision_mesh_3" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_4.obj" name="bottled_collision_mesh_4" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_5.obj" name="bottled_collision_mesh_5" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_6.obj" name="bottled_collision_mesh_6" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_7.obj" name="bottled_collision_mesh_7" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_8.obj" name="bottled_collision_mesh_8" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_9.obj" name="bottled_collision_mesh_9" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    </asset>
+  <default>
+    <default class="region">
+      <geom group="1" conaffinity="0" contype="0" rgba="0 1 0 0" />
+      </default>
+    <default class="collision">
+      <geom group="3" rgba="0.5 0 0 0.5" density="1000.0" />
+      </default>
+    </default>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="1" material="transparent_plastic" />
+        <geom density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_1_vis" conaffinity="0" contype="0" group="1" material="plastic" />
+        <geom class="region" name="reg_bbox" type="box" pos="0.000292155999999999 -3.548559999999812e-05 -0.00040513439999999984" size="0.021155246399999994 0.021015193600000003 0.07923318399999998" />
+        <geom mesh="bottled_collision_mesh_0" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_1" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_2" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_3" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_4" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_5" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_6" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_7" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_8" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_9" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        </body>
+      </body>
+    </worldbody>
+  </mujoco>

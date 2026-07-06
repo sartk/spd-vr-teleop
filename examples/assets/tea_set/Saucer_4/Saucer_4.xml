@@ -1,0 +1,51 @@
+<mujoco model="Saucer_4">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Porcelain_White" specular="0.5" shininess="0.672400024" rgba="0.940000 0.940000 0.920000 1.000000"/>
+    <mesh file="Saucer_4.obj"/>
+    <mesh file="Saucer_4_collision_0.obj"/>
+    <mesh file="Saucer_4_collision_1.obj"/>
+    <mesh file="Saucer_4_collision_2.obj"/>
+    <mesh file="Saucer_4_collision_3.obj"/>
+    <mesh file="Saucer_4_collision_4.obj"/>
+    <mesh file="Saucer_4_collision_5.obj"/>
+    <mesh file="Saucer_4_collision_6.obj"/>
+    <mesh file="Saucer_4_collision_7.obj"/>
+    <mesh file="Saucer_4_collision_8.obj"/>
+    <mesh file="Saucer_4_collision_9.obj"/>
+    <mesh file="Saucer_4_collision_10.obj"/>
+    <mesh file="Saucer_4_collision_11.obj"/>
+    <mesh file="Saucer_4_collision_12.obj"/>
+    <mesh file="Saucer_4_collision_13.obj"/>
+    <mesh file="Saucer_4_collision_14.obj"/>
+    <mesh file="Saucer_4_collision_15.obj"/>
+  </asset>
+  <worldbody>
+    <body name="Saucer_4">
+      <geom material="Porcelain_White" mesh="Saucer_4" class="visual"/>
+      <geom mesh="Saucer_4_collision_0" rgba="0.7155539034653269 0.6991162460225763 0.3553689616111506 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_1" rgba="0.610195599416899 0.3740439167641384 0.3431120626750511 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_2" rgba="0.6603488327178897 0.6273202416163083 0.32184445070309553 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_3" rgba="0.520660822619034 0.5355429186269332 0.7996086445429939 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_4" rgba="0.461716638954186 0.25082535955588026 0.7454743797799528 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_5" rgba="0.8114178456379644 0.0021107311973657117 0.42663557701315913 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_6" rgba="0.4753603833398522 0.6562931645041178 0.6608726264518341 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_7" rgba="0.7304890941943566 0.00345116308346638 0.952479912664795 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_8" rgba="0.15942151373592195 0.454689966174878 0.43947540100433335 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_9" rgba="0.9217668440987657 0.9359283629579669 0.6338185117355825 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_10" rgba="0.8428525206613968 0.7386911311542728 0.8048934984024857 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_11" rgba="0.09086895275809448 0.3159410185096967 0.9687047158045378 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_12" rgba="0.16242810883194247 0.2625670664035047 0.4269288961861766 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_13" rgba="0.13338690933990283 0.20052954400668743 0.2144509316286467 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_14" rgba="0.6390017132717184 0.6755377221344895 0.53959630156842 1" class="collision"/>
+      <geom mesh="Saucer_4_collision_15" rgba="0.912113887479153 0.7369607810443979 0.4132032880552512 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

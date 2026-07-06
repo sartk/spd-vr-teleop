@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="tea_time_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="tea_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <material name="teapot_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="teapot_vis" file="tea_set/Teapot/Teapot.obj" />
+    <mesh name="teapot_col_0" file="tea_set/Teapot/Teapot_collision_0.obj" />
+    <mesh name="teapot_col_1" file="tea_set/Teapot/Teapot_collision_1.obj" />
+    <mesh name="teapot_col_2" file="tea_set/Teapot/Teapot_collision_2.obj" />
+    <mesh name="teapot_col_3" file="tea_set/Teapot/Teapot_collision_3.obj" />
+    <mesh name="teapot_col_4" file="tea_set/Teapot/Teapot_collision_4.obj" />
+    <mesh name="teapot_col_5" file="tea_set/Teapot/Teapot_collision_5.obj" />
+    <mesh name="teapot_col_6" file="tea_set/Teapot/Teapot_collision_6.obj" />
+    <mesh name="teapot_col_7" file="tea_set/Teapot/Teapot_collision_7.obj" />
+    <mesh name="teapot_col_8" file="tea_set/Teapot/Teapot_collision_8.obj" />
+    <mesh name="teapot_col_9" file="tea_set/Teapot/Teapot_collision_9.obj" />
+    <mesh name="teapot_col_10" file="tea_set/Teapot/Teapot_collision_10.obj" />
+    <mesh name="teapot_col_11" file="tea_set/Teapot/Teapot_collision_11.obj" />
+    <mesh name="teapot_col_12" file="tea_set/Teapot/Teapot_collision_12.obj" />
+    <mesh name="teapot_col_13" file="tea_set/Teapot/Teapot_collision_13.obj" />
+    <mesh name="teapot_col_14" file="tea_set/Teapot/Teapot_collision_14.obj" />
+    <mesh name="teapot_col_15" file="tea_set/Teapot/Teapot_collision_15.obj" />
+    <material name="teapot_lid_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="teapot_lid_vis" file="tea_set/Teapot_Lid/Teapot_Lid.obj" />
+    <mesh name="teapot_lid_col_0" file="tea_set/Teapot_Lid/Teapot_Lid_collision_0.obj" />
+    <mesh name="teapot_lid_col_1" file="tea_set/Teapot_Lid/Teapot_Lid_collision_1.obj" />
+    <mesh name="teapot_lid_col_2" file="tea_set/Teapot_Lid/Teapot_Lid_collision_2.obj" />
+    <material name="sugar_bowl_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="sugar_bowl_vis" file="tea_set/SugarBowl/SugarBowl.obj" />
+    <mesh name="sugar_bowl_col_0" file="tea_set/SugarBowl/SugarBowl_collision_0.obj" />
+    <mesh name="sugar_bowl_col_1" file="tea_set/SugarBowl/SugarBowl_collision_1.obj" />
+    <mesh name="sugar_bowl_col_2" file="tea_set/SugarBowl/SugarBowl_collision_2.obj" />
+    <mesh name="sugar_bowl_col_3" file="tea_set/SugarBowl/SugarBowl_collision_3.obj" />
+    <mesh name="sugar_bowl_col_4" file="tea_set/SugarBowl/SugarBowl_collision_4.obj" />
+    <mesh name="sugar_bowl_col_5" file="tea_set/SugarBowl/SugarBowl_collision_5.obj" />
+    <mesh name="sugar_bowl_col_6" file="tea_set/SugarBowl/SugarBowl_collision_6.obj" />
+    <mesh name="sugar_bowl_col_7" file="tea_set/SugarBowl/SugarBowl_collision_7.obj" />
+    <mesh name="sugar_bowl_col_8" file="tea_set/SugarBowl/SugarBowl_collision_8.obj" />
+    <mesh name="sugar_bowl_col_9" file="tea_set/SugarBowl/SugarBowl_collision_9.obj" />
+    <mesh name="sugar_bowl_col_10" file="tea_set/SugarBowl/SugarBowl_collision_10.obj" />
+    <mesh name="sugar_bowl_col_11" file="tea_set/SugarBowl/SugarBowl_collision_11.obj" />
+    <mesh name="sugar_bowl_col_12" file="tea_set/SugarBowl/SugarBowl_collision_12.obj" />
+    <mesh name="sugar_bowl_col_13" file="tea_set/SugarBowl/SugarBowl_collision_13.obj" />
+    <mesh name="sugar_bowl_col_14" file="tea_set/SugarBowl/SugarBowl_collision_14.obj" />
+    <mesh name="sugar_bowl_col_15" file="tea_set/SugarBowl/SugarBowl_collision_15.obj" />
+    <material name="sugar_lid_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="sugar_lid_vis" file="tea_set/SugarBowl_Lid/SugarBowl_Lid.obj" />
+    <mesh name="sugar_lid_col_0" file="tea_set/SugarBowl_Lid/SugarBowl_Lid_collision_0.obj" />
+    <mesh name="sugar_lid_col_1" file="tea_set/SugarBowl_Lid/SugarBowl_Lid_collision_1.obj" />
+    <mesh name="sugar_lid_col_2" file="tea_set/SugarBowl_Lid/SugarBowl_Lid_collision_2.obj" />
+    <material name="cup_1_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="cup_1_vis" file="tea_set/Cup_1/Cup_1.obj" />
+    <mesh name="cup_1_col_0" file="tea_set/Cup_1/Cup_1_collision_0.obj" />
+    <mesh name="cup_1_col_1" file="tea_set/Cup_1/Cup_1_collision_1.obj" />
+    <mesh name="cup_1_col_2" file="tea_set/Cup_1/Cup_1_collision_2.obj" />
+    <mesh name="cup_1_col_3" file="tea_set/Cup_1/Cup_1_collision_3.obj" />
+    <mesh name="cup_1_col_4" file="tea_set/Cup_1/Cup_1_collision_4.obj" />
+    <mesh name="cup_1_col_5" file="tea_set/Cup_1/Cup_1_collision_5.obj" />
+    <mesh name="cup_1_col_6" file="tea_set/Cup_1/Cup_1_collision_6.obj" />
+    <mesh name="cup_1_col_7" file="tea_set/Cup_1/Cup_1_collision_7.obj" />
+    <mesh name="cup_1_col_8" file="tea_set/Cup_1/Cup_1_collision_8.obj" />
+    <mesh name="cup_1_col_9" file="tea_set/Cup_1/Cup_1_collision_9.obj" />
+    <mesh name="cup_1_col_10" file="tea_set/Cup_1/Cup_1_collision_10.obj" />
+    <mesh name="cup_1_col_11" file="tea_set/Cup_1/Cup_1_collision_11.obj" />
+    <mesh name="cup_1_col_12" file="tea_set/Cup_1/Cup_1_collision_12.obj" />
+    <mesh name="cup_1_col_13" file="tea_set/Cup_1/Cup_1_collision_13.obj" />
+    <mesh name="cup_1_col_14" file="tea_set/Cup_1/Cup_1_collision_14.obj" />
+    <mesh name="cup_1_col_15" file="tea_set/Cup_1/Cup_1_collision_15.obj" />
+    <material name="cup_2_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="cup_2_vis" file="tea_set/Cup_2/Cup_2.obj" />
+    <mesh name="cup_2_col_0" file="tea_set/Cup_2/Cup_2_collision_0.obj" />
+    <mesh name="cup_2_col_1" file="tea_set/Cup_2/Cup_2_collision_1.obj" />
+    <mesh name="cup_2_col_2" file="tea_set/Cup_2/Cup_2_collision_2.obj" />
+    <mesh name="cup_2_col_3" file="tea_set/Cup_2/Cup_2_collision_3.obj" />
+    <mesh name="cup_2_col_4" file="tea_set/Cup_2/Cup_2_collision_4.obj" />
+    <mesh name="cup_2_col_5" file="tea_set/Cup_2/Cup_2_collision_5.obj" />
+    <mesh name="cup_2_col_6" file="tea_set/Cup_2/Cup_2_collision_6.obj" />
+    <mesh name="cup_2_col_7" file="tea_set/Cup_2/Cup_2_collision_7.obj" />
+    <mesh name="cup_2_col_8" file="tea_set/Cup_2/Cup_2_collision_8.obj" />
+    <mesh name="cup_2_col_9" file="tea_set/Cup_2/Cup_2_collision_9.obj" />
+    <mesh name="cup_2_col_10" file="tea_set/Cup_2/Cup_2_collision_10.obj" />
+    <mesh name="cup_2_col_11" file="tea_set/Cup_2/Cup_2_collision_11.obj" />
+    <mesh name="cup_2_col_12" file="tea_set/Cup_2/Cup_2_collision_12.obj" />
+    <mesh name="cup_2_col_13" file="tea_set/Cup_2/Cup_2_collision_13.obj" />
+    <mesh name="cup_2_col_14" file="tea_set/Cup_2/Cup_2_collision_14.obj" />
+    <mesh name="cup_2_col_15" file="tea_set/Cup_2/Cup_2_collision_15.obj" />
+    <material name="saucer_1_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="saucer_1_vis" file="tea_set/Saucer_1/Saucer_1.obj" />
+    <mesh name="saucer_1_col_0" file="tea_set/Saucer_1/Saucer_1_collision_0.obj" />
+    <mesh name="saucer_1_col_1" file="tea_set/Saucer_1/Saucer_1_collision_1.obj" />
+    <mesh name="saucer_1_col_2" file="tea_set/Saucer_1/Saucer_1_collision_2.obj" />
+    <mesh name="saucer_1_col_3" file="tea_set/Saucer_1/Saucer_1_collision_3.obj" />
+    <mesh name="saucer_1_col_4" file="tea_set/Saucer_1/Saucer_1_collision_4.obj" />
+    <mesh name="saucer_1_col_5" file="tea_set/Saucer_1/Saucer_1_collision_5.obj" />
+    <mesh name="saucer_1_col_6" file="tea_set/Saucer_1/Saucer_1_collision_6.obj" />
+    <mesh name="saucer_1_col_7" file="tea_set/Saucer_1/Saucer_1_collision_7.obj" />
+    <mesh name="saucer_1_col_8" file="tea_set/Saucer_1/Saucer_1_collision_8.obj" />
+    <mesh name="saucer_1_col_9" file="tea_set/Saucer_1/Saucer_1_collision_9.obj" />
+    <mesh name="saucer_1_col_10" file="tea_set/Saucer_1/Saucer_1_collision_10.obj" />
+    <mesh name="saucer_1_col_11" file="tea_set/Saucer_1/Saucer_1_collision_11.obj" />
+    <mesh name="saucer_1_col_12" file="tea_set/Saucer_1/Saucer_1_collision_12.obj" />
+    <mesh name="saucer_1_col_13" file="tea_set/Saucer_1/Saucer_1_collision_13.obj" />
+    <mesh name="saucer_1_col_14" file="tea_set/Saucer_1/Saucer_1_collision_14.obj" />
+    <mesh name="saucer_1_col_15" file="tea_set/Saucer_1/Saucer_1_collision_15.obj" />
+    <material name="saucer_2_mat" specular="0.5" shininess="0.6" rgba="0.940 0.940 0.920 1.000" />
+    <mesh name="saucer_2_vis" file="tea_set/Saucer_2/Saucer_2.obj" />
+    <mesh name="saucer_2_col_0" file="tea_set/Saucer_2/Saucer_2_collision_0.obj" />
+    <mesh name="saucer_2_col_1" file="tea_set/Saucer_2/Saucer_2_collision_1.obj" />
+    <mesh name="saucer_2_col_2" file="tea_set/Saucer_2/Saucer_2_collision_2.obj" />
+    <mesh name="saucer_2_col_3" file="tea_set/Saucer_2/Saucer_2_collision_3.obj" />
+    <mesh name="saucer_2_col_4" file="tea_set/Saucer_2/Saucer_2_collision_4.obj" />
+    <mesh name="saucer_2_col_5" file="tea_set/Saucer_2/Saucer_2_collision_5.obj" />
+    <mesh name="saucer_2_col_6" file="tea_set/Saucer_2/Saucer_2_collision_6.obj" />
+    <mesh name="saucer_2_col_7" file="tea_set/Saucer_2/Saucer_2_collision_7.obj" />
+    <mesh name="saucer_2_col_8" file="tea_set/Saucer_2/Saucer_2_collision_8.obj" />
+    <mesh name="saucer_2_col_9" file="tea_set/Saucer_2/Saucer_2_collision_9.obj" />
+    <mesh name="saucer_2_col_10" file="tea_set/Saucer_2/Saucer_2_collision_10.obj" />
+    <mesh name="saucer_2_col_11" file="tea_set/Saucer_2/Saucer_2_collision_11.obj" />
+    <mesh name="saucer_2_col_12" file="tea_set/Saucer_2/Saucer_2_collision_12.obj" />
+    <mesh name="saucer_2_col_13" file="tea_set/Saucer_2/Saucer_2_collision_13.obj" />
+    <mesh name="saucer_2_col_14" file="tea_set/Saucer_2/Saucer_2_collision_14.obj" />
+    <mesh name="saucer_2_col_15" file="tea_set/Saucer_2/Saucer_2_collision_15.obj" />
+    <material name="spoon_1_mat" specular="0.5" shininess="0.6" rgba="0.860 0.860 0.880 1.000" />
+    <mesh name="spoon_1_vis" file="tea_set/Spoon_1/Spoon_1.obj" />
+    <mesh name="spoon_1_col_0" file="tea_set/Spoon_1/Spoon_1_collision_0.obj" />
+    <mesh name="spoon_1_col_1" file="tea_set/Spoon_1/Spoon_1_collision_1.obj" />
+    <material name="spoon_2_mat" specular="0.5" shininess="0.6" rgba="0.860 0.860 0.880 1.000" />
+    <mesh name="spoon_2_vis" file="tea_set/Spoon_2/Spoon_2.obj" />
+    <mesh name="spoon_2_col_0" file="tea_set/Spoon_2/Spoon_2_collision_0.obj" />
+    <mesh name="spoon_2_col_1" file="tea_set/Spoon_2/Spoon_2_collision_1.obj" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="teapot" pos="0.5 -0.18 0.86" euler="0 0 0">
+      <freejoint name="teapot_jnt" />
+      <geom name="teapot_vis" type="mesh" mesh="teapot_vis" material="teapot_mat" mass="0.3" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="teapot_col_0" type="mesh" mesh="teapot_col_0" class="tea_col" />
+      <geom name="teapot_col_1" type="mesh" mesh="teapot_col_1" class="tea_col" />
+      <geom name="teapot_col_2" type="mesh" mesh="teapot_col_2" class="tea_col" />
+      <geom name="teapot_col_3" type="mesh" mesh="teapot_col_3" class="tea_col" />
+      <geom name="teapot_col_4" type="mesh" mesh="teapot_col_4" class="tea_col" />
+      <geom name="teapot_col_5" type="mesh" mesh="teapot_col_5" class="tea_col" />
+      <geom name="teapot_col_6" type="mesh" mesh="teapot_col_6" class="tea_col" />
+      <geom name="teapot_col_7" type="mesh" mesh="teapot_col_7" class="tea_col" />
+      <geom name="teapot_col_8" type="mesh" mesh="teapot_col_8" class="tea_col" />
+      <geom name="teapot_col_9" type="mesh" mesh="teapot_col_9" class="tea_col" />
+      <geom name="teapot_col_10" type="mesh" mesh="teapot_col_10" class="tea_col" />
+      <geom name="teapot_col_11" type="mesh" mesh="teapot_col_11" class="tea_col" />
+      <geom name="teapot_col_12" type="mesh" mesh="teapot_col_12" class="tea_col" />
+      <geom name="teapot_col_13" type="mesh" mesh="teapot_col_13" class="tea_col" />
+      <geom name="teapot_col_14" type="mesh" mesh="teapot_col_14" class="tea_col" />
+      <geom name="teapot_col_15" type="mesh" mesh="teapot_col_15" class="tea_col" />
+    </body>
+    <body name="teapot_lid" pos="0.5 -0.18 1.02" euler="0 1.5708 0">
+      <freejoint name="teapot_lid_jnt" />
+      <geom name="teapot_lid_vis" type="mesh" mesh="teapot_lid_vis" material="teapot_lid_mat" mass="0.04" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="teapot_lid_col_0" type="mesh" mesh="teapot_lid_col_0" class="tea_col" />
+      <geom name="teapot_lid_col_1" type="mesh" mesh="teapot_lid_col_1" class="tea_col" />
+      <geom name="teapot_lid_col_2" type="mesh" mesh="teapot_lid_col_2" class="tea_col" />
+    </body>
+    <body name="sugar_bowl" pos="0.5 0.18 0.81" euler="0 0 0">
+      <freejoint name="sugar_bowl_jnt" />
+      <geom name="sugar_bowl_vis" type="mesh" mesh="sugar_bowl_vis" material="sugar_bowl_mat" mass="0.1" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="sugar_bowl_col_0" type="mesh" mesh="sugar_bowl_col_0" class="tea_col" />
+      <geom name="sugar_bowl_col_1" type="mesh" mesh="sugar_bowl_col_1" class="tea_col" />
+      <geom name="sugar_bowl_col_2" type="mesh" mesh="sugar_bowl_col_2" class="tea_col" />
+      <geom name="sugar_bowl_col_3" type="mesh" mesh="sugar_bowl_col_3" class="tea_col" />
+      <geom name="sugar_bowl_col_4" type="mesh" mesh="sugar_bowl_col_4" class="tea_col" />
+      <geom name="sugar_bowl_col_5" type="mesh" mesh="sugar_bowl_col_5" class="tea_col" />
+      <geom name="sugar_bowl_col_6" type="mesh" mesh="sugar_bowl_col_6" class="tea_col" />
+      <geom name="sugar_bowl_col_7" type="mesh" mesh="sugar_bowl_col_7" class="tea_col" />
+      <geom name="sugar_bowl_col_8" type="mesh" mesh="sugar_bowl_col_8" class="tea_col" />
+      <geom name="sugar_bowl_col_9" type="mesh" mesh="sugar_bowl_col_9" class="tea_col" />
+      <geom name="sugar_bowl_col_10" type="mesh" mesh="sugar_bowl_col_10" class="tea_col" />
+      <geom name="sugar_bowl_col_11" type="mesh" mesh="sugar_bowl_col_11" class="tea_col" />
+      <geom name="sugar_bowl_col_12" type="mesh" mesh="sugar_bowl_col_12" class="tea_col" />
+      <geom name="sugar_bowl_col_13" type="mesh" mesh="sugar_bowl_col_13" class="tea_col" />
+      <geom name="sugar_bowl_col_14" type="mesh" mesh="sugar_bowl_col_14" class="tea_col" />
+      <geom name="sugar_bowl_col_15" type="mesh" mesh="sugar_bowl_col_15" class="tea_col" />
+    </body>
+    <body name="sugar_lid" pos="0.5 0.18 0.92" euler="0 1.5708 0">
+      <freejoint name="sugar_lid_jnt" />
+      <geom name="sugar_lid_vis" type="mesh" mesh="sugar_lid_vis" material="sugar_lid_mat" mass="0.02" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="sugar_lid_col_0" type="mesh" mesh="sugar_lid_col_0" class="tea_col" />
+      <geom name="sugar_lid_col_1" type="mesh" mesh="sugar_lid_col_1" class="tea_col" />
+      <geom name="sugar_lid_col_2" type="mesh" mesh="sugar_lid_col_2" class="tea_col" />
+    </body>
+    <body name="cup_1" pos="0.78 -0.14 0.81" euler="0 0 0">
+      <freejoint name="cup_1_jnt" />
+      <geom name="cup_1_vis" type="mesh" mesh="cup_1_vis" material="cup_1_mat" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="cup_1_col_0" type="mesh" mesh="cup_1_col_0" class="tea_col" />
+      <geom name="cup_1_col_1" type="mesh" mesh="cup_1_col_1" class="tea_col" />
+      <geom name="cup_1_col_2" type="mesh" mesh="cup_1_col_2" class="tea_col" />
+      <geom name="cup_1_col_3" type="mesh" mesh="cup_1_col_3" class="tea_col" />
+      <geom name="cup_1_col_4" type="mesh" mesh="cup_1_col_4" class="tea_col" />
+      <geom name="cup_1_col_5" type="mesh" mesh="cup_1_col_5" class="tea_col" />
+      <geom name="cup_1_col_6" type="mesh" mesh="cup_1_col_6" class="tea_col" />
+      <geom name="cup_1_col_7" type="mesh" mesh="cup_1_col_7" class="tea_col" />
+      <geom name="cup_1_col_8" type="mesh" mesh="cup_1_col_8" class="tea_col" />
+      <geom name="cup_1_col_9" type="mesh" mesh="cup_1_col_9" class="tea_col" />
+      <geom name="cup_1_col_10" type="mesh" mesh="cup_1_col_10" class="tea_col" />
+      <geom name="cup_1_col_11" type="mesh" mesh="cup_1_col_11" class="tea_col" />
+      <geom name="cup_1_col_12" type="mesh" mesh="cup_1_col_12" class="tea_col" />
+      <geom name="cup_1_col_13" type="mesh" mesh="cup_1_col_13" class="tea_col" />
+      <geom name="cup_1_col_14" type="mesh" mesh="cup_1_col_14" class="tea_col" />
+      <geom name="cup_1_col_15" type="mesh" mesh="cup_1_col_15" class="tea_col" />
+    </body>
+    <body name="cup_2" pos="0.78 0.14 0.81" euler="0 0 0">
+      <freejoint name="cup_2_jnt" />
+      <geom name="cup_2_vis" type="mesh" mesh="cup_2_vis" material="cup_2_mat" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="cup_2_col_0" type="mesh" mesh="cup_2_col_0" class="tea_col" />
+      <geom name="cup_2_col_1" type="mesh" mesh="cup_2_col_1" class="tea_col" />
+      <geom name="cup_2_col_2" type="mesh" mesh="cup_2_col_2" class="tea_col" />
+      <geom name="cup_2_col_3" type="mesh" mesh="cup_2_col_3" class="tea_col" />
+      <geom name="cup_2_col_4" type="mesh" mesh="cup_2_col_4" class="tea_col" />
+      <geom name="cup_2_col_5" type="mesh" mesh="cup_2_col_5" class="tea_col" />
+      <geom name="cup_2_col_6" type="mesh" mesh="cup_2_col_6" class="tea_col" />
+      <geom name="cup_2_col_7" type="mesh" mesh="cup_2_col_7" class="tea_col" />
+      <geom name="cup_2_col_8" type="mesh" mesh="cup_2_col_8" class="tea_col" />
+      <geom name="cup_2_col_9" type="mesh" mesh="cup_2_col_9" class="tea_col" />
+      <geom name="cup_2_col_10" type="mesh" mesh="cup_2_col_10" class="tea_col" />
+      <geom name="cup_2_col_11" type="mesh" mesh="cup_2_col_11" class="tea_col" />
+      <geom name="cup_2_col_12" type="mesh" mesh="cup_2_col_12" class="tea_col" />
+      <geom name="cup_2_col_13" type="mesh" mesh="cup_2_col_13" class="tea_col" />
+      <geom name="cup_2_col_14" type="mesh" mesh="cup_2_col_14" class="tea_col" />
+      <geom name="cup_2_col_15" type="mesh" mesh="cup_2_col_15" class="tea_col" />
+    </body>
+    <body name="saucer_1" pos="0.78 -0.14 0.755" euler="0 1.5708 0">
+      <freejoint name="saucer_1_jnt" />
+      <geom name="saucer_1_vis" type="mesh" mesh="saucer_1_vis" material="saucer_1_mat" mass="0.06" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="saucer_1_col_0" type="mesh" mesh="saucer_1_col_0" class="tea_col" />
+      <geom name="saucer_1_col_1" type="mesh" mesh="saucer_1_col_1" class="tea_col" />
+      <geom name="saucer_1_col_2" type="mesh" mesh="saucer_1_col_2" class="tea_col" />
+      <geom name="saucer_1_col_3" type="mesh" mesh="saucer_1_col_3" class="tea_col" />
+      <geom name="saucer_1_col_4" type="mesh" mesh="saucer_1_col_4" class="tea_col" />
+      <geom name="saucer_1_col_5" type="mesh" mesh="saucer_1_col_5" class="tea_col" />
+      <geom name="saucer_1_col_6" type="mesh" mesh="saucer_1_col_6" class="tea_col" />
+      <geom name="saucer_1_col_7" type="mesh" mesh="saucer_1_col_7" class="tea_col" />
+      <geom name="saucer_1_col_8" type="mesh" mesh="saucer_1_col_8" class="tea_col" />
+      <geom name="saucer_1_col_9" type="mesh" mesh="saucer_1_col_9" class="tea_col" />
+      <geom name="saucer_1_col_10" type="mesh" mesh="saucer_1_col_10" class="tea_col" />
+      <geom name="saucer_1_col_11" type="mesh" mesh="saucer_1_col_11" class="tea_col" />
+      <geom name="saucer_1_col_12" type="mesh" mesh="saucer_1_col_12" class="tea_col" />
+      <geom name="saucer_1_col_13" type="mesh" mesh="saucer_1_col_13" class="tea_col" />
+      <geom name="saucer_1_col_14" type="mesh" mesh="saucer_1_col_14" class="tea_col" />
+      <geom name="saucer_1_col_15" type="mesh" mesh="saucer_1_col_15" class="tea_col" />
+    </body>
+    <body name="saucer_2" pos="0.78 0.14 0.755" euler="0 1.5708 0">
+      <freejoint name="saucer_2_jnt" />
+      <geom name="saucer_2_vis" type="mesh" mesh="saucer_2_vis" material="saucer_2_mat" mass="0.06" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="saucer_2_col_0" type="mesh" mesh="saucer_2_col_0" class="tea_col" />
+      <geom name="saucer_2_col_1" type="mesh" mesh="saucer_2_col_1" class="tea_col" />
+      <geom name="saucer_2_col_2" type="mesh" mesh="saucer_2_col_2" class="tea_col" />
+      <geom name="saucer_2_col_3" type="mesh" mesh="saucer_2_col_3" class="tea_col" />
+      <geom name="saucer_2_col_4" type="mesh" mesh="saucer_2_col_4" class="tea_col" />
+      <geom name="saucer_2_col_5" type="mesh" mesh="saucer_2_col_5" class="tea_col" />
+      <geom name="saucer_2_col_6" type="mesh" mesh="saucer_2_col_6" class="tea_col" />
+      <geom name="saucer_2_col_7" type="mesh" mesh="saucer_2_col_7" class="tea_col" />
+      <geom name="saucer_2_col_8" type="mesh" mesh="saucer_2_col_8" class="tea_col" />
+      <geom name="saucer_2_col_9" type="mesh" mesh="saucer_2_col_9" class="tea_col" />
+      <geom name="saucer_2_col_10" type="mesh" mesh="saucer_2_col_10" class="tea_col" />
+      <geom name="saucer_2_col_11" type="mesh" mesh="saucer_2_col_11" class="tea_col" />
+      <geom name="saucer_2_col_12" type="mesh" mesh="saucer_2_col_12" class="tea_col" />
+      <geom name="saucer_2_col_13" type="mesh" mesh="saucer_2_col_13" class="tea_col" />
+      <geom name="saucer_2_col_14" type="mesh" mesh="saucer_2_col_14" class="tea_col" />
+      <geom name="saucer_2_col_15" type="mesh" mesh="saucer_2_col_15" class="tea_col" />
+    </body>
+    <body name="spoon_1" pos="0.88 -0.18 0.755" euler="0 1.5708 0">
+      <freejoint name="spoon_1_jnt" />
+      <geom name="spoon_1_vis" type="mesh" mesh="spoon_1_vis" material="spoon_1_mat" mass="0.015" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="spoon_1_col_0" type="mesh" mesh="spoon_1_col_0" class="tea_col" />
+      <geom name="spoon_1_col_1" type="mesh" mesh="spoon_1_col_1" class="tea_col" />
+    </body>
+    <body name="spoon_2" pos="0.88 0.18 0.755" euler="0 1.5708 0">
+      <freejoint name="spoon_2_jnt" />
+      <geom name="spoon_2_vis" type="mesh" mesh="spoon_2_vis" material="spoon_2_mat" mass="0.015" density="0" contype="0" conaffinity="0" group="1" />
+      <geom name="spoon_2_col_0" type="mesh" mesh="spoon_2_col_0" class="tea_col" />
+      <geom name="spoon_2_col_1" type="mesh" mesh="spoon_2_col_1" class="tea_col" />
+    </body>
+    <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom size="0.2975 0.65 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+  </worldbody>
+</mujoco>

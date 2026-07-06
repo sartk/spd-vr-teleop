@@ -1,0 +1,47 @@
+[project]
+name = "mujoco-vr-teleop"
+version = "0.1.0"
+description = "Lightweight VR streaming teleoperation for MuJoCo scenes"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "attrs>=25.0",
+    "mujoco==3.7.0",
+    "numpy>=1.24",
+    "tyro>=0.9",
+    "aiohttp>=3.9",
+    "trimesh>=4.0",
+    "scipy>=1.10",
+    "Pillow>=10.0",
+    "pynput>=1.7",
+    "zarr>=2.16",
+    "viser>=1.0",
+    "mjviser>=0.0.13",
+    "textual>=0.80",
+]
+
+[project.optional-dependencies]
+ik = [
+    "mink>=1.1.0",
+]
+all = [
+    "mujoco-vr-teleop[ik]",
+]
+
+[project.scripts]
+mujoco-vr-stream = "mujoco_vr_teleop.vr_streamer:main"
+mujoco-vr-tui = "mujoco_vr_teleop.tui:main"
+mujoco-build-scene = "mujoco_vr_teleop.build_scene:main"
+mujoco-vr-replay-trajectory = "mujoco_vr_teleop.replay_trajectory_open_loop:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["mujoco_vr_teleop"]

@@ -1,0 +1,23 @@
+<mujoco model="Spoon_1">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Spoon_Silver" specular="0.5" shininess="0.64" rgba="0.900000 0.900000 0.920000 1.000000"/>
+    <mesh file="Spoon_1.obj"/>
+    <mesh file="Spoon_1_collision_0.obj"/>
+    <mesh file="Spoon_1_collision_1.obj"/>
+  </asset>
+  <worldbody>
+    <body name="Spoon_1">
+      <geom material="Spoon_Silver" mesh="Spoon_1" class="visual"/>
+      <geom mesh="Spoon_1_collision_0" rgba="0.802549636024196 0.5541807700961953 0.8672212427734708 1" class="collision"/>
+      <geom mesh="Spoon_1_collision_1" rgba="0.7238884491139772 0.4633405879947875 0.2859612131168099 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,862 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="shapes_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340"><joint armature="0.032" /><position kp="40" kv="2.5" forcerange="-28 28" /></default>
+      <default class="dm4310"><joint armature="0.0018" /><position kp="10" kv="1" forcerange="-10 10" /></default>
+      <default class="visual"><geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" /></default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger"><joint type="slide" armature="0.1" frictionloss="0.1" /><position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" /></default>
+    </default>
+    <default class="shape_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="ball_toy_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="CMC_joint"><joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" /></default>
+    <default class="PCMC_joint"><joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" /></default>
+    <default class="MCP_joint"><joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" /></default>
+    <default class="PIP_joint"><joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" /></default>
+    <default class="DIP_joint"><joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" /></default>
+    <default class="elastomer_geom"><geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" /></default>
+    <default class="hand_bone"><geom friction="1.8 0.03 0.003" priority="2" condim="4" /></default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <texture type="2d" name="insert-box-texture" file="sort_shape/light_wood_planks.png" />
+    <material name="insert-box-material" texture="insert-box-texture" specular="0.1" shininess="0.1" texrepeat="1 1" />
+    <texture type="2d" name="shape-block-texture" file="sort_shape/warm_wood_planks.png" />
+    <material name="shape-block-material" texture="shape-block-texture" specular="0.1" shininess="0.1" texrepeat="1 1" />
+    <mesh name="insert-box-model" file="sort_shape_decomposed/insert_box/insert_box.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-0" file="sort_shape_decomposed/insert_box/insert_box_collision_0.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-1" file="sort_shape_decomposed/insert_box/insert_box_collision_1.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-2" file="sort_shape_decomposed/insert_box/insert_box_collision_2.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-3" file="sort_shape_decomposed/insert_box/insert_box_collision_3.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-4" file="sort_shape_decomposed/insert_box/insert_box_collision_4.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-5" file="sort_shape_decomposed/insert_box/insert_box_collision_5.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-6" file="sort_shape_decomposed/insert_box/insert_box_collision_6.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-7" file="sort_shape_decomposed/insert_box/insert_box_collision_7.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-8" file="sort_shape_decomposed/insert_box/insert_box_collision_8.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-9" file="sort_shape_decomposed/insert_box/insert_box_collision_9.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-10" file="sort_shape_decomposed/insert_box/insert_box_collision_10.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-11" file="sort_shape_decomposed/insert_box/insert_box_collision_11.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-12" file="sort_shape_decomposed/insert_box/insert_box_collision_12.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-13" file="sort_shape_decomposed/insert_box/insert_box_collision_13.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-14" file="sort_shape_decomposed/insert_box/insert_box_collision_14.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-15" file="sort_shape_decomposed/insert_box/insert_box_collision_15.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-16" file="sort_shape_decomposed/insert_box/insert_box_collision_16.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-17" file="sort_shape_decomposed/insert_box/insert_box_collision_17.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-18" file="sort_shape_decomposed/insert_box/insert_box_collision_18.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-19" file="sort_shape_decomposed/insert_box/insert_box_collision_19.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-20" file="sort_shape_decomposed/insert_box/insert_box_collision_20.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-21" file="sort_shape_decomposed/insert_box/insert_box_collision_21.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-22" file="sort_shape_decomposed/insert_box/insert_box_collision_22.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-23" file="sort_shape_decomposed/insert_box/insert_box_collision_23.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-24" file="sort_shape_decomposed/insert_box/insert_box_collision_24.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-25" file="sort_shape_decomposed/insert_box/insert_box_collision_25.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-26" file="sort_shape_decomposed/insert_box/insert_box_collision_26.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-27" file="sort_shape_decomposed/insert_box/insert_box_collision_27.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-28" file="sort_shape_decomposed/insert_box/insert_box_collision_28.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-29" file="sort_shape_decomposed/insert_box/insert_box_collision_29.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-30" file="sort_shape_decomposed/insert_box/insert_box_collision_30.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-31" file="sort_shape_decomposed/insert_box/insert_box_collision_31.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-32" file="sort_shape_decomposed/insert_box/insert_box_collision_32.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-33" file="sort_shape_decomposed/insert_box/insert_box_collision_33.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-34" file="sort_shape_decomposed/insert_box/insert_box_collision_34.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-35" file="sort_shape_decomposed/insert_box/insert_box_collision_35.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-36" file="sort_shape_decomposed/insert_box/insert_box_collision_36.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-37" file="sort_shape_decomposed/insert_box/insert_box_collision_37.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-38" file="sort_shape_decomposed/insert_box/insert_box_collision_38.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-39" file="sort_shape_decomposed/insert_box/insert_box_collision_39.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-40" file="sort_shape_decomposed/insert_box/insert_box_collision_40.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-41" file="sort_shape_decomposed/insert_box/insert_box_collision_41.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-42" file="sort_shape_decomposed/insert_box/insert_box_collision_42.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-43" file="sort_shape_decomposed/insert_box/insert_box_collision_43.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-44" file="sort_shape_decomposed/insert_box/insert_box_collision_44.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-45" file="sort_shape_decomposed/insert_box/insert_box_collision_45.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-46" file="sort_shape_decomposed/insert_box/insert_box_collision_46.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-47" file="sort_shape_decomposed/insert_box/insert_box_collision_47.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-48" file="sort_shape_decomposed/insert_box/insert_box_collision_48.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-49" file="sort_shape_decomposed/insert_box/insert_box_collision_49.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-50" file="sort_shape_decomposed/insert_box/insert_box_collision_50.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-51" file="sort_shape_decomposed/insert_box/insert_box_collision_51.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-52" file="sort_shape_decomposed/insert_box/insert_box_collision_52.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-53" file="sort_shape_decomposed/insert_box/insert_box_collision_53.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-54" file="sort_shape_decomposed/insert_box/insert_box_collision_54.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-55" file="sort_shape_decomposed/insert_box/insert_box_collision_55.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-56" file="sort_shape_decomposed/insert_box/insert_box_collision_56.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-57" file="sort_shape_decomposed/insert_box/insert_box_collision_57.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-58" file="sort_shape_decomposed/insert_box/insert_box_collision_58.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="insert-box-col-59" file="sort_shape_decomposed/insert_box/insert_box_collision_59.obj" scale="0.103125 0.103125 0.103125" />
+    <mesh name="hex-model" file="sort_shape_decomposed/hex/hex.obj" scale="0.075 0.075 0.075" />
+    <mesh name="hex-col" file="sort_shape_decomposed/hex/hex_collision_0.obj" scale="0.075 0.075 0.075" />
+    <mesh name="square-model" file="sort_shape_decomposed/square/square.obj" scale="0.075 0.075 0.075" />
+    <mesh name="square-col" file="sort_shape_decomposed/square/square_collision_0.obj" scale="0.075 0.075 0.075" />
+    <mesh name="triangle-model" file="sort_shape_decomposed/triangle/triangle.obj" scale="0.075 0.075 0.075" />
+    <mesh name="triangle-col" file="sort_shape_decomposed/triangle/triangle_collision_0.obj" scale="0.075 0.075 0.075" />
+    <mesh name="circle-model" file="sort_shape_decomposed/circle/circle.obj" scale="0.075 0.075 0.075" />
+    <mesh name="circle-col" file="sort_shape_decomposed/circle/circle_collision_0.obj" scale="0.075 0.075 0.075" />
+    <mesh name="ball-sorting-toy-model" file="ball_sorting_toy/model.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-0" file="ball_sorting_toy/model/model_collision_0.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-1" file="ball_sorting_toy/model/model_collision_1.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-2" file="ball_sorting_toy/model/model_collision_2.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-3" file="ball_sorting_toy/model/model_collision_3.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-4" file="ball_sorting_toy/model/model_collision_4.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-5" file="ball_sorting_toy/model/model_collision_5.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-6" file="ball_sorting_toy/model/model_collision_6.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-7" file="ball_sorting_toy/model/model_collision_7.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-8" file="ball_sorting_toy/model/model_collision_8.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-9" file="ball_sorting_toy/model/model_collision_9.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-10" file="ball_sorting_toy/model/model_collision_10.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-11" file="ball_sorting_toy/model/model_collision_11.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-12" file="ball_sorting_toy/model/model_collision_12.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-13" file="ball_sorting_toy/model/model_collision_13.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-14" file="ball_sorting_toy/model/model_collision_14.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-15" file="ball_sorting_toy/model/model_collision_15.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-16" file="ball_sorting_toy/model/model_collision_16.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-17" file="ball_sorting_toy/model/model_collision_17.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-18" file="ball_sorting_toy/model/model_collision_18.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-19" file="ball_sorting_toy/model/model_collision_19.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-20" file="ball_sorting_toy/model/model_collision_20.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-21" file="ball_sorting_toy/model/model_collision_21.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-22" file="ball_sorting_toy/model/model_collision_22.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-23" file="ball_sorting_toy/model/model_collision_23.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-24" file="ball_sorting_toy/model/model_collision_24.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-25" file="ball_sorting_toy/model/model_collision_25.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-26" file="ball_sorting_toy/model/model_collision_26.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-27" file="ball_sorting_toy/model/model_collision_27.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-28" file="ball_sorting_toy/model/model_collision_28.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-29" file="ball_sorting_toy/model/model_collision_29.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-30" file="ball_sorting_toy/model/model_collision_30.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-31" file="ball_sorting_toy/model/model_collision_31.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-32" file="ball_sorting_toy/model/model_collision_32.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-33" file="ball_sorting_toy/model/model_collision_33.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-34" file="ball_sorting_toy/model/model_collision_34.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-35" file="ball_sorting_toy/model/model_collision_35.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-36" file="ball_sorting_toy/model/model_collision_36.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-37" file="ball_sorting_toy/model/model_collision_37.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-38" file="ball_sorting_toy/model/model_collision_38.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-39" file="ball_sorting_toy/model/model_collision_39.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-40" file="ball_sorting_toy/model/model_collision_40.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-41" file="ball_sorting_toy/model/model_collision_41.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-42" file="ball_sorting_toy/model/model_collision_42.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-43" file="ball_sorting_toy/model/model_collision_43.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-44" file="ball_sorting_toy/model/model_collision_44.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-45" file="ball_sorting_toy/model/model_collision_45.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-46" file="ball_sorting_toy/model/model_collision_46.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-47" file="ball_sorting_toy/model/model_collision_47.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-48" file="ball_sorting_toy/model/model_collision_48.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-49" file="ball_sorting_toy/model/model_collision_49.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-50" file="ball_sorting_toy/model/model_collision_50.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-51" file="ball_sorting_toy/model/model_collision_51.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-52" file="ball_sorting_toy/model/model_collision_52.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-53" file="ball_sorting_toy/model/model_collision_53.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-54" file="ball_sorting_toy/model/model_collision_54.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-55" file="ball_sorting_toy/model/model_collision_55.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-56" file="ball_sorting_toy/model/model_collision_56.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-57" file="ball_sorting_toy/model/model_collision_57.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-58" file="ball_sorting_toy/model/model_collision_58.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-59" file="ball_sorting_toy/model/model_collision_59.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-60" file="ball_sorting_toy/model/model_collision_60.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-61" file="ball_sorting_toy/model/model_collision_61.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-62" file="ball_sorting_toy/model/model_collision_62.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-63" file="ball_sorting_toy/model/model_collision_63.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-64" file="ball_sorting_toy/model/model_collision_64.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-65" file="ball_sorting_toy/model/model_collision_65.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-66" file="ball_sorting_toy/model/model_collision_66.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-67" file="ball_sorting_toy/model/model_collision_67.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-68" file="ball_sorting_toy/model/model_collision_68.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-69" file="ball_sorting_toy/model/model_collision_69.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-70" file="ball_sorting_toy/model/model_collision_70.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-71" file="ball_sorting_toy/model/model_collision_71.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-72" file="ball_sorting_toy/model/model_collision_72.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-73" file="ball_sorting_toy/model/model_collision_73.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-74" file="ball_sorting_toy/model/model_collision_74.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-75" file="ball_sorting_toy/model/model_collision_75.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-76" file="ball_sorting_toy/model/model_collision_76.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-77" file="ball_sorting_toy/model/model_collision_77.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-78" file="ball_sorting_toy/model/model_collision_78.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-79" file="ball_sorting_toy/model/model_collision_79.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-80" file="ball_sorting_toy/model/model_collision_80.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-81" file="ball_sorting_toy/model/model_collision_81.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-82" file="ball_sorting_toy/model/model_collision_82.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-83" file="ball_sorting_toy/model/model_collision_83.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-84" file="ball_sorting_toy/model/model_collision_84.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-85" file="ball_sorting_toy/model/model_collision_85.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-86" file="ball_sorting_toy/model/model_collision_86.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-87" file="ball_sorting_toy/model/model_collision_87.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-88" file="ball_sorting_toy/model/model_collision_88.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-89" file="ball_sorting_toy/model/model_collision_89.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-90" file="ball_sorting_toy/model/model_collision_90.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-91" file="ball_sorting_toy/model/model_collision_91.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-92" file="ball_sorting_toy/model/model_collision_92.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-93" file="ball_sorting_toy/model/model_collision_93.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-94" file="ball_sorting_toy/model/model_collision_94.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-95" file="ball_sorting_toy/model/model_collision_95.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-96" file="ball_sorting_toy/model/model_collision_96.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-97" file="ball_sorting_toy/model/model_collision_97.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-98" file="ball_sorting_toy/model/model_collision_98.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-99" file="ball_sorting_toy/model/model_collision_99.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-100" file="ball_sorting_toy/model/model_collision_100.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-101" file="ball_sorting_toy/model/model_collision_101.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-102" file="ball_sorting_toy/model/model_collision_102.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-103" file="ball_sorting_toy/model/model_collision_103.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-104" file="ball_sorting_toy/model/model_collision_104.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-105" file="ball_sorting_toy/model/model_collision_105.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-106" file="ball_sorting_toy/model/model_collision_106.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-107" file="ball_sorting_toy/model/model_collision_107.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-108" file="ball_sorting_toy/model/model_collision_108.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-109" file="ball_sorting_toy/model/model_collision_109.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-110" file="ball_sorting_toy/model/model_collision_110.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-111" file="ball_sorting_toy/model/model_collision_111.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-112" file="ball_sorting_toy/model/model_collision_112.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-113" file="ball_sorting_toy/model/model_collision_113.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-114" file="ball_sorting_toy/model/model_collision_114.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-115" file="ball_sorting_toy/model/model_collision_115.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-116" file="ball_sorting_toy/model/model_collision_116.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-117" file="ball_sorting_toy/model/model_collision_117.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-118" file="ball_sorting_toy/model/model_collision_118.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-119" file="ball_sorting_toy/model/model_collision_119.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-120" file="ball_sorting_toy/model/model_collision_120.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-121" file="ball_sorting_toy/model/model_collision_121.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-122" file="ball_sorting_toy/model/model_collision_122.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-123" file="ball_sorting_toy/model/model_collision_123.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-124" file="ball_sorting_toy/model/model_collision_124.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-125" file="ball_sorting_toy/model/model_collision_125.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-126" file="ball_sorting_toy/model/model_collision_126.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-127" file="ball_sorting_toy/model/model_collision_127.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-128" file="ball_sorting_toy/model/model_collision_128.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-129" file="ball_sorting_toy/model/model_collision_129.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-130" file="ball_sorting_toy/model/model_collision_130.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-131" file="ball_sorting_toy/model/model_collision_131.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-132" file="ball_sorting_toy/model/model_collision_132.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-133" file="ball_sorting_toy/model/model_collision_133.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-134" file="ball_sorting_toy/model/model_collision_134.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-135" file="ball_sorting_toy/model/model_collision_135.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-136" file="ball_sorting_toy/model/model_collision_136.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-137" file="ball_sorting_toy/model/model_collision_137.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-138" file="ball_sorting_toy/model/model_collision_138.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-139" file="ball_sorting_toy/model/model_collision_139.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-140" file="ball_sorting_toy/model/model_collision_140.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-141" file="ball_sorting_toy/model/model_collision_141.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-142" file="ball_sorting_toy/model/model_collision_142.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-143" file="ball_sorting_toy/model/model_collision_143.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-144" file="ball_sorting_toy/model/model_collision_144.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-145" file="ball_sorting_toy/model/model_collision_145.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-146" file="ball_sorting_toy/model/model_collision_146.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-147" file="ball_sorting_toy/model/model_collision_147.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-148" file="ball_sorting_toy/model/model_collision_148.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-149" file="ball_sorting_toy/model/model_collision_149.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-150" file="ball_sorting_toy/model/model_collision_150.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-151" file="ball_sorting_toy/model/model_collision_151.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-152" file="ball_sorting_toy/model/model_collision_152.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-153" file="ball_sorting_toy/model/model_collision_153.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-154" file="ball_sorting_toy/model/model_collision_154.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-155" file="ball_sorting_toy/model/model_collision_155.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-156" file="ball_sorting_toy/model/model_collision_156.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-157" file="ball_sorting_toy/model/model_collision_157.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-158" file="ball_sorting_toy/model/model_collision_158.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-159" file="ball_sorting_toy/model/model_collision_159.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-160" file="ball_sorting_toy/model/model_collision_160.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-161" file="ball_sorting_toy/model/model_collision_161.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-162" file="ball_sorting_toy/model/model_collision_162.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-163" file="ball_sorting_toy/model/model_collision_163.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-164" file="ball_sorting_toy/model/model_collision_164.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-165" file="ball_sorting_toy/model/model_collision_165.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-166" file="ball_sorting_toy/model/model_collision_166.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-167" file="ball_sorting_toy/model/model_collision_167.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-168" file="ball_sorting_toy/model/model_collision_168.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-169" file="ball_sorting_toy/model/model_collision_169.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-170" file="ball_sorting_toy/model/model_collision_170.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-171" file="ball_sorting_toy/model/model_collision_171.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-172" file="ball_sorting_toy/model/model_collision_172.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-173" file="ball_sorting_toy/model/model_collision_173.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-174" file="ball_sorting_toy/model/model_collision_174.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-175" file="ball_sorting_toy/model/model_collision_175.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-176" file="ball_sorting_toy/model/model_collision_176.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-177" file="ball_sorting_toy/model/model_collision_177.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-178" file="ball_sorting_toy/model/model_collision_178.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-179" file="ball_sorting_toy/model/model_collision_179.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-180" file="ball_sorting_toy/model/model_collision_180.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-181" file="ball_sorting_toy/model/model_collision_181.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-182" file="ball_sorting_toy/model/model_collision_182.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-183" file="ball_sorting_toy/model/model_collision_183.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-184" file="ball_sorting_toy/model/model_collision_184.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-185" file="ball_sorting_toy/model/model_collision_185.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-186" file="ball_sorting_toy/model/model_collision_186.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-187" file="ball_sorting_toy/model/model_collision_187.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-188" file="ball_sorting_toy/model/model_collision_188.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-189" file="ball_sorting_toy/model/model_collision_189.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-190" file="ball_sorting_toy/model/model_collision_190.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-191" file="ball_sorting_toy/model/model_collision_191.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-192" file="ball_sorting_toy/model/model_collision_192.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-193" file="ball_sorting_toy/model/model_collision_193.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-194" file="ball_sorting_toy/model/model_collision_194.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-195" file="ball_sorting_toy/model/model_collision_195.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-196" file="ball_sorting_toy/model/model_collision_196.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-197" file="ball_sorting_toy/model/model_collision_197.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-198" file="ball_sorting_toy/model/model_collision_198.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-199" file="ball_sorting_toy/model/model_collision_199.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-200" file="ball_sorting_toy/model/model_collision_200.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-201" file="ball_sorting_toy/model/model_collision_201.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-202" file="ball_sorting_toy/model/model_collision_202.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-203" file="ball_sorting_toy/model/model_collision_203.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-204" file="ball_sorting_toy/model/model_collision_204.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-205" file="ball_sorting_toy/model/model_collision_205.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-206" file="ball_sorting_toy/model/model_collision_206.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-207" file="ball_sorting_toy/model/model_collision_207.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-208" file="ball_sorting_toy/model/model_collision_208.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-209" file="ball_sorting_toy/model/model_collision_209.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-210" file="ball_sorting_toy/model/model_collision_210.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-211" file="ball_sorting_toy/model/model_collision_211.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-212" file="ball_sorting_toy/model/model_collision_212.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-213" file="ball_sorting_toy/model/model_collision_213.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-214" file="ball_sorting_toy/model/model_collision_214.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-215" file="ball_sorting_toy/model/model_collision_215.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-216" file="ball_sorting_toy/model/model_collision_216.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-217" file="ball_sorting_toy/model/model_collision_217.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-218" file="ball_sorting_toy/model/model_collision_218.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-219" file="ball_sorting_toy/model/model_collision_219.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-220" file="ball_sorting_toy/model/model_collision_220.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-221" file="ball_sorting_toy/model/model_collision_221.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-222" file="ball_sorting_toy/model/model_collision_222.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-223" file="ball_sorting_toy/model/model_collision_223.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-224" file="ball_sorting_toy/model/model_collision_224.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-225" file="ball_sorting_toy/model/model_collision_225.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-226" file="ball_sorting_toy/model/model_collision_226.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-227" file="ball_sorting_toy/model/model_collision_227.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-228" file="ball_sorting_toy/model/model_collision_228.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-229" file="ball_sorting_toy/model/model_collision_229.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-230" file="ball_sorting_toy/model/model_collision_230.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-231" file="ball_sorting_toy/model/model_collision_231.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-232" file="ball_sorting_toy/model/model_collision_232.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-233" file="ball_sorting_toy/model/model_collision_233.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-234" file="ball_sorting_toy/model/model_collision_234.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-235" file="ball_sorting_toy/model/model_collision_235.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-236" file="ball_sorting_toy/model/model_collision_236.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-237" file="ball_sorting_toy/model/model_collision_237.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-238" file="ball_sorting_toy/model/model_collision_238.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-239" file="ball_sorting_toy/model/model_collision_239.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-240" file="ball_sorting_toy/model/model_collision_240.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-241" file="ball_sorting_toy/model/model_collision_241.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-242" file="ball_sorting_toy/model/model_collision_242.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-243" file="ball_sorting_toy/model/model_collision_243.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-244" file="ball_sorting_toy/model/model_collision_244.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-245" file="ball_sorting_toy/model/model_collision_245.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-246" file="ball_sorting_toy/model/model_collision_246.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-247" file="ball_sorting_toy/model/model_collision_247.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-248" file="ball_sorting_toy/model/model_collision_248.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-249" file="ball_sorting_toy/model/model_collision_249.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-250" file="ball_sorting_toy/model/model_collision_250.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-251" file="ball_sorting_toy/model/model_collision_251.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-252" file="ball_sorting_toy/model/model_collision_252.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-253" file="ball_sorting_toy/model/model_collision_253.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-254" file="ball_sorting_toy/model/model_collision_254.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-255" file="ball_sorting_toy/model/model_collision_255.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-256" file="ball_sorting_toy/model/model_collision_256.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-257" file="ball_sorting_toy/model/model_collision_257.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-258" file="ball_sorting_toy/model/model_collision_258.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-259" file="ball_sorting_toy/model/model_collision_259.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-260" file="ball_sorting_toy/model/model_collision_260.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-261" file="ball_sorting_toy/model/model_collision_261.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-262" file="ball_sorting_toy/model/model_collision_262.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-263" file="ball_sorting_toy/model/model_collision_263.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-264" file="ball_sorting_toy/model/model_collision_264.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-265" file="ball_sorting_toy/model/model_collision_265.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-266" file="ball_sorting_toy/model/model_collision_266.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-267" file="ball_sorting_toy/model/model_collision_267.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-268" file="ball_sorting_toy/model/model_collision_268.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-269" file="ball_sorting_toy/model/model_collision_269.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-270" file="ball_sorting_toy/model/model_collision_270.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-271" file="ball_sorting_toy/model/model_collision_271.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-272" file="ball_sorting_toy/model/model_collision_272.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-273" file="ball_sorting_toy/model/model_collision_273.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-274" file="ball_sorting_toy/model/model_collision_274.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-275" file="ball_sorting_toy/model/model_collision_275.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-276" file="ball_sorting_toy/model/model_collision_276.obj" scale="0.113 0.113 0.113" />
+    <mesh name="ball-sorting-toy-collision-277" file="ball_sorting_toy/model/model_collision_277.obj" scale="0.113 0.113 0.113" />
+    <texture type="2d" name="fishing-abc-tex" file="fishing_toy/abc_box/light_wood_texture.png" />
+    <material name="fishing-abc-mat" texture="fishing-abc-tex" specular="0.1" shininess="0.1" />
+    <texture type="2d" name="fish-red-tex" file="fishing_toy/red_fish/red_fish.png" />
+    <texture type="2d" name="fish-orange-tex" file="fishing_toy/red_fish/orange_fish.png" />
+    <material name="fish-red-mat" texture="fish-red-tex" specular="0.3" shininess="0.3" />
+    <material name="fish-orange-mat" texture="fish-orange-tex" specular="0.3" shininess="0.3" />
+    <mesh name="abc-box-model" file="fishing_toy/abc_box/model_small.obj" scale="1.5 1.9 1.5" />
+    <mesh name="fish-model" file="fishing_toy/red_fish/model.obj" scale="1.5 1.5 1.5" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="insert-box" pos="0.45 0.25 0.80">
+      <freejoint name="insert-box_jnt" />
+      <geom name="insert-box-vis" mesh="insert-box-model" type="mesh" material="insert-box-material" contype="0" conaffinity="0" group="1" mass="0.35" />
+      <geom name="insert-box-col-0" mesh="insert-box-col-0" class="shape_col" />
+      <geom name="insert-box-col-1" mesh="insert-box-col-1" class="shape_col" />
+      <geom name="insert-box-col-2" mesh="insert-box-col-2" class="shape_col" />
+      <geom name="insert-box-col-3" mesh="insert-box-col-3" class="shape_col" />
+      <geom name="insert-box-col-4" mesh="insert-box-col-4" class="shape_col" />
+      <geom name="insert-box-col-5" mesh="insert-box-col-5" class="shape_col" />
+      <geom name="insert-box-col-6" mesh="insert-box-col-6" class="shape_col" />
+      <geom name="insert-box-col-7" mesh="insert-box-col-7" class="shape_col" />
+      <geom name="insert-box-col-8" mesh="insert-box-col-8" class="shape_col" />
+      <geom name="insert-box-col-9" mesh="insert-box-col-9" class="shape_col" />
+      <geom name="insert-box-col-10" mesh="insert-box-col-10" class="shape_col" />
+      <geom name="insert-box-col-11" mesh="insert-box-col-11" class="shape_col" />
+      <geom name="insert-box-col-12" mesh="insert-box-col-12" class="shape_col" />
+      <geom name="insert-box-col-13" mesh="insert-box-col-13" class="shape_col" />
+      <geom name="insert-box-col-14" mesh="insert-box-col-14" class="shape_col" />
+      <geom name="insert-box-col-15" mesh="insert-box-col-15" class="shape_col" />
+      <geom name="insert-box-col-16" mesh="insert-box-col-16" class="shape_col" />
+      <geom name="insert-box-col-17" mesh="insert-box-col-17" class="shape_col" />
+      <geom name="insert-box-col-18" mesh="insert-box-col-18" class="shape_col" />
+      <geom name="insert-box-col-19" mesh="insert-box-col-19" class="shape_col" />
+      <geom name="insert-box-col-20" mesh="insert-box-col-20" class="shape_col" />
+      <geom name="insert-box-col-21" mesh="insert-box-col-21" class="shape_col" />
+      <geom name="insert-box-col-22" mesh="insert-box-col-22" class="shape_col" />
+      <geom name="insert-box-col-23" mesh="insert-box-col-23" class="shape_col" />
+      <geom name="insert-box-col-24" mesh="insert-box-col-24" class="shape_col" />
+      <geom name="insert-box-col-25" mesh="insert-box-col-25" class="shape_col" />
+      <geom name="insert-box-col-26" mesh="insert-box-col-26" class="shape_col" />
+      <geom name="insert-box-col-27" mesh="insert-box-col-27" class="shape_col" />
+      <geom name="insert-box-col-28" mesh="insert-box-col-28" class="shape_col" />
+      <geom name="insert-box-col-29" mesh="insert-box-col-29" class="shape_col" />
+      <geom name="insert-box-col-30" mesh="insert-box-col-30" class="shape_col" />
+      <geom name="insert-box-col-31" mesh="insert-box-col-31" class="shape_col" />
+      <geom name="insert-box-col-32" mesh="insert-box-col-32" class="shape_col" />
+      <geom name="insert-box-col-33" mesh="insert-box-col-33" class="shape_col" />
+      <geom name="insert-box-col-34" mesh="insert-box-col-34" class="shape_col" />
+      <geom name="insert-box-col-35" mesh="insert-box-col-35" class="shape_col" />
+      <geom name="insert-box-col-36" mesh="insert-box-col-36" class="shape_col" />
+      <geom name="insert-box-col-37" mesh="insert-box-col-37" class="shape_col" />
+      <geom name="insert-box-col-38" mesh="insert-box-col-38" class="shape_col" />
+      <geom name="insert-box-col-39" mesh="insert-box-col-39" class="shape_col" />
+      <geom name="insert-box-col-40" mesh="insert-box-col-40" class="shape_col" />
+      <geom name="insert-box-col-41" mesh="insert-box-col-41" class="shape_col" />
+      <geom name="insert-box-col-42" mesh="insert-box-col-42" class="shape_col" />
+      <geom name="insert-box-col-43" mesh="insert-box-col-43" class="shape_col" />
+      <geom name="insert-box-col-44" mesh="insert-box-col-44" class="shape_col" />
+      <geom name="insert-box-col-45" mesh="insert-box-col-45" class="shape_col" />
+      <geom name="insert-box-col-46" mesh="insert-box-col-46" class="shape_col" />
+      <geom name="insert-box-col-47" mesh="insert-box-col-47" class="shape_col" />
+      <geom name="insert-box-col-48" mesh="insert-box-col-48" class="shape_col" />
+      <geom name="insert-box-col-49" mesh="insert-box-col-49" class="shape_col" />
+      <geom name="insert-box-col-50" mesh="insert-box-col-50" class="shape_col" />
+      <geom name="insert-box-col-51" mesh="insert-box-col-51" class="shape_col" />
+      <geom name="insert-box-col-52" mesh="insert-box-col-52" class="shape_col" />
+      <geom name="insert-box-col-53" mesh="insert-box-col-53" class="shape_col" />
+      <geom name="insert-box-col-54" mesh="insert-box-col-54" class="shape_col" />
+      <geom name="insert-box-col-55" mesh="insert-box-col-55" class="shape_col" />
+      <geom name="insert-box-col-56" mesh="insert-box-col-56" class="shape_col" />
+      <geom name="insert-box-col-57" mesh="insert-box-col-57" class="shape_col" />
+      <geom name="insert-box-col-58" mesh="insert-box-col-58" class="shape_col" />
+      <geom name="insert-box-col-59" mesh="insert-box-col-59" class="shape_col" />
+    </body>
+    <body name="block-hex" pos="0.4 0.42 0.78">
+      <freejoint name="block-hex_jnt" />
+      <geom name="block-hex-vis" mesh="hex-model" type="mesh" material="shape-block-material" contype="0" conaffinity="0" group="1" mass="0.010" />
+      <geom name="block-hex-col" mesh="hex-col" class="shape_col" />
+    </body>
+    <body name="block-square" pos="0.5 0.42 0.78">
+      <freejoint name="block-square_jnt" />
+      <geom name="block-square-vis" mesh="square-model" type="mesh" material="shape-block-material" contype="0" conaffinity="0" group="1" mass="0.010" />
+      <geom name="block-square-col" mesh="square-col" class="shape_col" />
+    </body>
+    <body name="block-triangle" pos="0.4 0.55 0.78">
+      <freejoint name="block-triangle_jnt" />
+      <geom name="block-triangle-vis" mesh="triangle-model" type="mesh" material="shape-block-material" contype="0" conaffinity="0" group="1" mass="0.010" />
+      <geom name="block-triangle-col" mesh="triangle-col" class="shape_col" />
+    </body>
+    <body name="block-circle" pos="0.5 0.55 0.78">
+      <freejoint name="block-circle_jnt" />
+      <geom name="block-circle-vis" mesh="circle-model" type="mesh" material="shape-block-material" contype="0" conaffinity="0" group="1" mass="0.010" />
+      <geom name="block-circle-col" mesh="circle-col" class="shape_col" />
+    </body>
+    <body name="ball-sorting-toy" pos="0.65 0.0 0.7984" quat="0.677739 0.682136 -0.201568 -0.186361">
+      <geom name="ball-sorting-toy-vis" mesh="ball-sorting-toy-model" type="mesh" rgba="0.95 0.85 0.6 1" contype="0" conaffinity="0" group="1" mass="2.0" />
+      <geom name="ball-sorting-toy-col-0" mesh="ball-sorting-toy-collision-0" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-1" mesh="ball-sorting-toy-collision-1" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-2" mesh="ball-sorting-toy-collision-2" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-3" mesh="ball-sorting-toy-collision-3" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-4" mesh="ball-sorting-toy-collision-4" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-5" mesh="ball-sorting-toy-collision-5" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-6" mesh="ball-sorting-toy-collision-6" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-7" mesh="ball-sorting-toy-collision-7" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-8" mesh="ball-sorting-toy-collision-8" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-9" mesh="ball-sorting-toy-collision-9" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-10" mesh="ball-sorting-toy-collision-10" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-11" mesh="ball-sorting-toy-collision-11" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-12" mesh="ball-sorting-toy-collision-12" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-13" mesh="ball-sorting-toy-collision-13" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-14" mesh="ball-sorting-toy-collision-14" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-15" mesh="ball-sorting-toy-collision-15" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-16" mesh="ball-sorting-toy-collision-16" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-17" mesh="ball-sorting-toy-collision-17" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-18" mesh="ball-sorting-toy-collision-18" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-19" mesh="ball-sorting-toy-collision-19" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-20" mesh="ball-sorting-toy-collision-20" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-21" mesh="ball-sorting-toy-collision-21" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-22" mesh="ball-sorting-toy-collision-22" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-23" mesh="ball-sorting-toy-collision-23" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-24" mesh="ball-sorting-toy-collision-24" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-25" mesh="ball-sorting-toy-collision-25" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-26" mesh="ball-sorting-toy-collision-26" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-27" mesh="ball-sorting-toy-collision-27" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-28" mesh="ball-sorting-toy-collision-28" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-29" mesh="ball-sorting-toy-collision-29" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-30" mesh="ball-sorting-toy-collision-30" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-31" mesh="ball-sorting-toy-collision-31" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-32" mesh="ball-sorting-toy-collision-32" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-33" mesh="ball-sorting-toy-collision-33" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-34" mesh="ball-sorting-toy-collision-34" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-35" mesh="ball-sorting-toy-collision-35" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-36" mesh="ball-sorting-toy-collision-36" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-37" mesh="ball-sorting-toy-collision-37" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-38" mesh="ball-sorting-toy-collision-38" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-39" mesh="ball-sorting-toy-collision-39" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-40" mesh="ball-sorting-toy-collision-40" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-41" mesh="ball-sorting-toy-collision-41" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-42" mesh="ball-sorting-toy-collision-42" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-43" mesh="ball-sorting-toy-collision-43" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-44" mesh="ball-sorting-toy-collision-44" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-45" mesh="ball-sorting-toy-collision-45" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-46" mesh="ball-sorting-toy-collision-46" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-47" mesh="ball-sorting-toy-collision-47" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-48" mesh="ball-sorting-toy-collision-48" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-49" mesh="ball-sorting-toy-collision-49" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-50" mesh="ball-sorting-toy-collision-50" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-51" mesh="ball-sorting-toy-collision-51" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-52" mesh="ball-sorting-toy-collision-52" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-53" mesh="ball-sorting-toy-collision-53" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-54" mesh="ball-sorting-toy-collision-54" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-55" mesh="ball-sorting-toy-collision-55" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-56" mesh="ball-sorting-toy-collision-56" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-57" mesh="ball-sorting-toy-collision-57" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-58" mesh="ball-sorting-toy-collision-58" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-59" mesh="ball-sorting-toy-collision-59" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-60" mesh="ball-sorting-toy-collision-60" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-61" mesh="ball-sorting-toy-collision-61" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-62" mesh="ball-sorting-toy-collision-62" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-63" mesh="ball-sorting-toy-collision-63" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-64" mesh="ball-sorting-toy-collision-64" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-65" mesh="ball-sorting-toy-collision-65" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-66" mesh="ball-sorting-toy-collision-66" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-67" mesh="ball-sorting-toy-collision-67" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-68" mesh="ball-sorting-toy-collision-68" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-69" mesh="ball-sorting-toy-collision-69" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-70" mesh="ball-sorting-toy-collision-70" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-71" mesh="ball-sorting-toy-collision-71" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-72" mesh="ball-sorting-toy-collision-72" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-73" mesh="ball-sorting-toy-collision-73" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-74" mesh="ball-sorting-toy-collision-74" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-75" mesh="ball-sorting-toy-collision-75" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-76" mesh="ball-sorting-toy-collision-76" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-77" mesh="ball-sorting-toy-collision-77" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-78" mesh="ball-sorting-toy-collision-78" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-79" mesh="ball-sorting-toy-collision-79" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-80" mesh="ball-sorting-toy-collision-80" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-81" mesh="ball-sorting-toy-collision-81" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-82" mesh="ball-sorting-toy-collision-82" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-83" mesh="ball-sorting-toy-collision-83" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-84" mesh="ball-sorting-toy-collision-84" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-85" mesh="ball-sorting-toy-collision-85" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-86" mesh="ball-sorting-toy-collision-86" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-87" mesh="ball-sorting-toy-collision-87" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-88" mesh="ball-sorting-toy-collision-88" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-89" mesh="ball-sorting-toy-collision-89" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-90" mesh="ball-sorting-toy-collision-90" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-91" mesh="ball-sorting-toy-collision-91" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-92" mesh="ball-sorting-toy-collision-92" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-93" mesh="ball-sorting-toy-collision-93" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-94" mesh="ball-sorting-toy-collision-94" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-95" mesh="ball-sorting-toy-collision-95" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-96" mesh="ball-sorting-toy-collision-96" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-97" mesh="ball-sorting-toy-collision-97" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-98" mesh="ball-sorting-toy-collision-98" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-99" mesh="ball-sorting-toy-collision-99" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-100" mesh="ball-sorting-toy-collision-100" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-101" mesh="ball-sorting-toy-collision-101" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-102" mesh="ball-sorting-toy-collision-102" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-103" mesh="ball-sorting-toy-collision-103" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-104" mesh="ball-sorting-toy-collision-104" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-105" mesh="ball-sorting-toy-collision-105" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-106" mesh="ball-sorting-toy-collision-106" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-107" mesh="ball-sorting-toy-collision-107" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-108" mesh="ball-sorting-toy-collision-108" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-109" mesh="ball-sorting-toy-collision-109" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-110" mesh="ball-sorting-toy-collision-110" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-111" mesh="ball-sorting-toy-collision-111" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-112" mesh="ball-sorting-toy-collision-112" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-113" mesh="ball-sorting-toy-collision-113" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-114" mesh="ball-sorting-toy-collision-114" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-115" mesh="ball-sorting-toy-collision-115" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-116" mesh="ball-sorting-toy-collision-116" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-117" mesh="ball-sorting-toy-collision-117" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-118" mesh="ball-sorting-toy-collision-118" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-119" mesh="ball-sorting-toy-collision-119" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-120" mesh="ball-sorting-toy-collision-120" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-121" mesh="ball-sorting-toy-collision-121" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-122" mesh="ball-sorting-toy-collision-122" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-123" mesh="ball-sorting-toy-collision-123" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-124" mesh="ball-sorting-toy-collision-124" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-125" mesh="ball-sorting-toy-collision-125" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-126" mesh="ball-sorting-toy-collision-126" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-127" mesh="ball-sorting-toy-collision-127" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-128" mesh="ball-sorting-toy-collision-128" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-129" mesh="ball-sorting-toy-collision-129" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-130" mesh="ball-sorting-toy-collision-130" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-131" mesh="ball-sorting-toy-collision-131" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-132" mesh="ball-sorting-toy-collision-132" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-133" mesh="ball-sorting-toy-collision-133" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-134" mesh="ball-sorting-toy-collision-134" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-135" mesh="ball-sorting-toy-collision-135" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-136" mesh="ball-sorting-toy-collision-136" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-137" mesh="ball-sorting-toy-collision-137" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-138" mesh="ball-sorting-toy-collision-138" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-139" mesh="ball-sorting-toy-collision-139" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-140" mesh="ball-sorting-toy-collision-140" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-141" mesh="ball-sorting-toy-collision-141" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-142" mesh="ball-sorting-toy-collision-142" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-143" mesh="ball-sorting-toy-collision-143" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-144" mesh="ball-sorting-toy-collision-144" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-145" mesh="ball-sorting-toy-collision-145" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-146" mesh="ball-sorting-toy-collision-146" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-147" mesh="ball-sorting-toy-collision-147" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-148" mesh="ball-sorting-toy-collision-148" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-149" mesh="ball-sorting-toy-collision-149" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-150" mesh="ball-sorting-toy-collision-150" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-151" mesh="ball-sorting-toy-collision-151" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-152" mesh="ball-sorting-toy-collision-152" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-153" mesh="ball-sorting-toy-collision-153" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-154" mesh="ball-sorting-toy-collision-154" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-155" mesh="ball-sorting-toy-collision-155" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-156" mesh="ball-sorting-toy-collision-156" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-157" mesh="ball-sorting-toy-collision-157" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-158" mesh="ball-sorting-toy-collision-158" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-159" mesh="ball-sorting-toy-collision-159" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-160" mesh="ball-sorting-toy-collision-160" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-161" mesh="ball-sorting-toy-collision-161" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-162" mesh="ball-sorting-toy-collision-162" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-163" mesh="ball-sorting-toy-collision-163" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-164" mesh="ball-sorting-toy-collision-164" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-165" mesh="ball-sorting-toy-collision-165" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-166" mesh="ball-sorting-toy-collision-166" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-167" mesh="ball-sorting-toy-collision-167" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-168" mesh="ball-sorting-toy-collision-168" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-169" mesh="ball-sorting-toy-collision-169" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-170" mesh="ball-sorting-toy-collision-170" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-171" mesh="ball-sorting-toy-collision-171" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-172" mesh="ball-sorting-toy-collision-172" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-173" mesh="ball-sorting-toy-collision-173" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-174" mesh="ball-sorting-toy-collision-174" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-175" mesh="ball-sorting-toy-collision-175" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-176" mesh="ball-sorting-toy-collision-176" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-177" mesh="ball-sorting-toy-collision-177" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-178" mesh="ball-sorting-toy-collision-178" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-179" mesh="ball-sorting-toy-collision-179" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-180" mesh="ball-sorting-toy-collision-180" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-181" mesh="ball-sorting-toy-collision-181" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-182" mesh="ball-sorting-toy-collision-182" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-183" mesh="ball-sorting-toy-collision-183" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-184" mesh="ball-sorting-toy-collision-184" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-185" mesh="ball-sorting-toy-collision-185" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-186" mesh="ball-sorting-toy-collision-186" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-187" mesh="ball-sorting-toy-collision-187" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-188" mesh="ball-sorting-toy-collision-188" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-189" mesh="ball-sorting-toy-collision-189" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-190" mesh="ball-sorting-toy-collision-190" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-191" mesh="ball-sorting-toy-collision-191" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-192" mesh="ball-sorting-toy-collision-192" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-193" mesh="ball-sorting-toy-collision-193" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-194" mesh="ball-sorting-toy-collision-194" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-195" mesh="ball-sorting-toy-collision-195" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-196" mesh="ball-sorting-toy-collision-196" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-197" mesh="ball-sorting-toy-collision-197" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-198" mesh="ball-sorting-toy-collision-198" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-199" mesh="ball-sorting-toy-collision-199" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-200" mesh="ball-sorting-toy-collision-200" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-201" mesh="ball-sorting-toy-collision-201" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-202" mesh="ball-sorting-toy-collision-202" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-203" mesh="ball-sorting-toy-collision-203" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-204" mesh="ball-sorting-toy-collision-204" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-205" mesh="ball-sorting-toy-collision-205" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-206" mesh="ball-sorting-toy-collision-206" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-207" mesh="ball-sorting-toy-collision-207" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-208" mesh="ball-sorting-toy-collision-208" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-209" mesh="ball-sorting-toy-collision-209" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-210" mesh="ball-sorting-toy-collision-210" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-211" mesh="ball-sorting-toy-collision-211" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-212" mesh="ball-sorting-toy-collision-212" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-213" mesh="ball-sorting-toy-collision-213" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-214" mesh="ball-sorting-toy-collision-214" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-215" mesh="ball-sorting-toy-collision-215" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-216" mesh="ball-sorting-toy-collision-216" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-217" mesh="ball-sorting-toy-collision-217" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-218" mesh="ball-sorting-toy-collision-218" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-219" mesh="ball-sorting-toy-collision-219" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-220" mesh="ball-sorting-toy-collision-220" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-221" mesh="ball-sorting-toy-collision-221" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-222" mesh="ball-sorting-toy-collision-222" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-223" mesh="ball-sorting-toy-collision-223" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-224" mesh="ball-sorting-toy-collision-224" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-225" mesh="ball-sorting-toy-collision-225" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-226" mesh="ball-sorting-toy-collision-226" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-227" mesh="ball-sorting-toy-collision-227" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-228" mesh="ball-sorting-toy-collision-228" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-229" mesh="ball-sorting-toy-collision-229" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-230" mesh="ball-sorting-toy-collision-230" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-231" mesh="ball-sorting-toy-collision-231" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-232" mesh="ball-sorting-toy-collision-232" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-233" mesh="ball-sorting-toy-collision-233" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-234" mesh="ball-sorting-toy-collision-234" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-235" mesh="ball-sorting-toy-collision-235" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-236" mesh="ball-sorting-toy-collision-236" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-237" mesh="ball-sorting-toy-collision-237" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-238" mesh="ball-sorting-toy-collision-238" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-239" mesh="ball-sorting-toy-collision-239" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-240" mesh="ball-sorting-toy-collision-240" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-241" mesh="ball-sorting-toy-collision-241" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-242" mesh="ball-sorting-toy-collision-242" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-243" mesh="ball-sorting-toy-collision-243" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-244" mesh="ball-sorting-toy-collision-244" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-245" mesh="ball-sorting-toy-collision-245" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-246" mesh="ball-sorting-toy-collision-246" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-247" mesh="ball-sorting-toy-collision-247" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-248" mesh="ball-sorting-toy-collision-248" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-249" mesh="ball-sorting-toy-collision-249" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-250" mesh="ball-sorting-toy-collision-250" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-251" mesh="ball-sorting-toy-collision-251" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-252" mesh="ball-sorting-toy-collision-252" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-253" mesh="ball-sorting-toy-collision-253" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-254" mesh="ball-sorting-toy-collision-254" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-255" mesh="ball-sorting-toy-collision-255" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-256" mesh="ball-sorting-toy-collision-256" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-257" mesh="ball-sorting-toy-collision-257" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-258" mesh="ball-sorting-toy-collision-258" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-259" mesh="ball-sorting-toy-collision-259" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-260" mesh="ball-sorting-toy-collision-260" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-261" mesh="ball-sorting-toy-collision-261" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-262" mesh="ball-sorting-toy-collision-262" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-263" mesh="ball-sorting-toy-collision-263" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-264" mesh="ball-sorting-toy-collision-264" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-265" mesh="ball-sorting-toy-collision-265" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-266" mesh="ball-sorting-toy-collision-266" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-267" mesh="ball-sorting-toy-collision-267" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-268" mesh="ball-sorting-toy-collision-268" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-269" mesh="ball-sorting-toy-collision-269" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-270" mesh="ball-sorting-toy-collision-270" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-271" mesh="ball-sorting-toy-collision-271" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-272" mesh="ball-sorting-toy-collision-272" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-273" mesh="ball-sorting-toy-collision-273" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-274" mesh="ball-sorting-toy-collision-274" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-275" mesh="ball-sorting-toy-collision-275" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-276" mesh="ball-sorting-toy-collision-276" class="ball_toy_col" />
+      <geom name="ball-sorting-toy-col-277" mesh="ball-sorting-toy-collision-277" class="ball_toy_col" />
+    </body>
+    <body name="ball_cylinder_1" pos="0.78 0.3 0.7675" quat="0 0 1 0">
+      <freejoint name="ball_cylinder_1_jnt" />
+      <geom name="ball_cylinder_1_geom" type="cylinder" size="0.0175 0.0175" rgba="0.740 0.250 0.270 1" mass="0.05" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="ball_cylinder_2" pos="0.8 0.38 0.7675" quat="0 0 1 0">
+      <freejoint name="ball_cylinder_2_jnt" />
+      <geom name="ball_cylinder_2_geom" type="cylinder" size="0.0175 0.0175" rgba="0.200 0.320 0.540 1" mass="0.05" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="ball_cylinder_3" pos="0.84 0.46 0.7675" quat="0 0 1 0">
+      <freejoint name="ball_cylinder_3_jnt" />
+      <geom name="ball_cylinder_3_geom" type="cylinder" size="0.0175 0.0175" rgba="0.480 0.680 0.290 1" mass="0.05" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="ball_sphere_1" pos="0.74 0.5 0.768">
+      <freejoint name="ball_sphere_1_jnt" />
+      <geom name="ball_sphere_1_geom" type="sphere" size="0.018" rgba="0.930 0.180 0.120 1" mass="0.026" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="ball_sphere_2" pos="0.8 0.54 0.768">
+      <freejoint name="ball_sphere_2_jnt" />
+      <geom name="ball_sphere_2_geom" type="sphere" size="0.018" rgba="0.140 0.350 0.860 1" mass="0.026" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="ball_sphere_3" pos="0.86 0.5 0.768">
+      <freejoint name="ball_sphere_3_jnt" />
+      <geom name="ball_sphere_3_geom" type="sphere" size="0.018" rgba="0.960 0.760 0.120 1" mass="0.026" condim="4" solimp="0.998 0.998 0.001" solref="0.002 1" friction="1.2 0.01 0.001" priority="1" group="1" />
+    </body>
+    <body name="abc_box" pos="0.85 -0.30 0.83" quat="0 0 1 1">
+      <freejoint name="abc_box_jnt" />
+      <geom name="abc_box_vis" mesh="abc-box-model" type="mesh" material="fishing-abc-mat" contype="0" conaffinity="0" group="1" mass="0.20" />
+      <geom name="abc_box_col" mesh="abc-box-model" type="mesh" group="3" rgba="0.72 0.55 0.35 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" mass="0" />
+    </body>
+    <body name="fish_1" pos="0.84 -0.45 0.78" quat="0 0 1 1">
+      <freejoint name="fish_1_jnt" />
+      <geom name="fish_1_vis" mesh="fish-model" type="mesh" material="fish-red-mat" contype="0" conaffinity="0" group="1" mass="0.015" />
+      <geom name="fish_1_col" mesh="fish-model" type="mesh" group="3" rgba="0.95 0.30 0.20 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" mass="0" />
+    </body>
+    <body name="fish_2" pos="0.9 -0.45 0.78" quat="0 0 1 1">
+      <freejoint name="fish_2_jnt" />
+      <geom name="fish_2_vis" mesh="fish-model" type="mesh" material="fish-orange-mat" contype="0" conaffinity="0" group="1" mass="0.015" />
+      <geom name="fish_2_col" mesh="fish-model" type="mesh" group="3" rgba="0.95 0.30 0.20 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" mass="0" />
+    </body>
+    <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom size="0.2975 0.65 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+  </worldbody>
+</mujoco>

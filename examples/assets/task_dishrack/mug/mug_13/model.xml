@@ -1,0 +1,54 @@
+<mujoco model="mug_57">
+  <asset>
+    <mesh file="visual/model_normalized_0.obj" name="model_normalized_0_vis" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <texture type="2d" name="image0" file="visual/image0.png"/>
+    <material name="mugMat" texture="image0" specular="0.1" shininess="0.2" emission="0.15"/>
+    <mesh file="collision/collision_mesh_collision_0.obj" name="mug_collision_mesh_0" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_1.obj" name="mug_collision_mesh_1" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_2.obj" name="mug_collision_mesh_2" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_3.obj" name="mug_collision_mesh_3" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_4.obj" name="mug_collision_mesh_4" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_5.obj" name="mug_collision_mesh_5" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_6.obj" name="mug_collision_mesh_6" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_7.obj" name="mug_collision_mesh_7" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_8.obj" name="mug_collision_mesh_8" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_9.obj" name="mug_collision_mesh_9" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_10.obj" name="mug_collision_mesh_10" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_11.obj" name="mug_collision_mesh_11" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_12.obj" name="mug_collision_mesh_12" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_13.obj" name="mug_collision_mesh_13" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_14.obj" name="mug_collision_mesh_14" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+    <mesh file="collision/collision_mesh_collision_15.obj" name="mug_collision_mesh_15" scale="0.11 0.11 0.11" refquat="0.7071067811865472 0.0 0.0 0.7071067811865476"/>
+  </asset>
+  <default>
+    <default class="region">
+      <geom group="1" conaffinity="0" contype="0" rgba="0 1 0 0" density="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" rgba="0.5 0 0 0.5" density="0"/>
+    </default>
+  </default>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom density="0" friction="1.2 0.05 0.001" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="1" material="mugMat" mass="0.3"/>
+        <geom class="region" name="reg_bbox" type="box" pos="-1.6500000021846263e-09 0.0 3.300000001316139e-09" size="0.03931583755 0.055 0.0456374633" density="0"/>        <geom mesh="mug_collision_mesh_0" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_1" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_2" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_3" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_4" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_5" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_6" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_7" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_8" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_9" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_10" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_11" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_12" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_13" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_14" type="mesh" class="collision" density="0"/>
+        <geom mesh="mug_collision_mesh_15" type="mesh" class="collision" density="0"/>
+        <geom rgba="0 0 0 0" size="0.038 0.035" pos="0 0.015 0.0" type="cylinder" name="liquid" class="region" density="0"/>        <geom rgba="0 0 0 0 " size="0.034 0.041" pos="0 0.015 0.003" type="cylinder" name="reg_int" class="region" density="0"/>      </body>
+    </body>
+  </worldbody>
+</mujoco>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="spell_and_stow_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="letter_block">
+      <geom type="mesh" contype="0" conaffinity="0" density="0" group="1" />
+    </default>
+    <default class="letter_block_col">
+      <geom type="box" size="0.0127 0.0127 0.0127" condim="4" friction="1.0 0.002 0.0002" solref="0.004 1" solimp="0.998 0.998 0.001" priority="1" mass="0.010" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <texture name="letter_block_tex" type="2d" file="blocks/texture.png" />
+    <material name="letter_block_mat" texture="letter_block_tex" specular="0.3" shininess="0.3" />
+    <material name="robocasa-cabinet-dark" rgba="0.21 0.18 0.15 1" specular="0.25" shininess="0.25" />
+    <material name="robocasa-cabinet-panel" rgba="0.50 0.42 0.34 1" specular="0.35" shininess="0.30" />
+    <material name="robocasa-drawer-inside" rgba="0.34 0.31 0.28 1" specular="0.15" shininess="0.18" />
+    <material name="robocasa-handle-metal" rgba="0.78 0.68 0.52 1" specular="0.75" shininess="0.65" />
+    <mesh name="block_A" file="blocks/block_A.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_B" file="blocks/block_B.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_C" file="blocks/block_C.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_D" file="blocks/block_D.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_E" file="blocks/block_E.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_F" file="blocks/block_F.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_G" file="blocks/block_G.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_H" file="blocks/block_H.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_I" file="blocks/block_I.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_J" file="blocks/block_J.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_K" file="blocks/block_K.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_L" file="blocks/block_L.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_M" file="blocks/block_M.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_N" file="blocks/block_N.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_O" file="blocks/block_O.obj" scale="0.127 0.127 0.127" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <!-- 3-drawer dresser: outer cabinet 16 x 10 x 18 cm. Generated by scripts/generate_drawer.py — regenerate, do not hand-edit. -->
+    <body name="drawer_body" pos="0.8 0 0.75" quat="0.70711 0 0 -0.70711">
+      <freejoint name="drawer_body_joint" />
+      <inertial pos="0 0 0.09" mass="1" diaginertia="0.00353333 0.00483333 0.00296667" />
+      <geom material="robocasa-cabinet-dark" pos="0 0 0.005" size="0.08 0.05 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0 0 0.005" size="0.08 0.05 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="0 0 0.0616667" size="0.08 0.05 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0 0 0.0616667" size="0.08 0.05 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="0 0 0.118333" size="0.08 0.05 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0 0 0.118333" size="0.08 0.05 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="0 0 0.175" size="0.08 0.05 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0 0 0.175" size="0.08 0.05 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="0 0.045 0.09" size="0.08 0.005 0.08" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0 0.045 0.09" size="0.08 0.005 0.08" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="-0.075 0 0.09" size="0.005 0.05 0.08" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="-0.075 0 0.09" size="0.005 0.05 0.08" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <geom material="robocasa-cabinet-dark" pos="0.075 0 0.09" size="0.005 0.05 0.08" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+      <geom pos="0.075 0 0.09" size="0.005 0.05 0.08" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      <body name="drawer-slide-bottom" pos="0 0 0.0333333">
+        <inertial pos="0 0 0" mass="0.25" diaginertia="0.0012 0.0012 0.0012" />
+        <joint type="slide" range="0 0.09" axis="0 -1 0" name="joint_bottom_drawer" pos="0 0 0" damping="6.0" frictionloss="0.18" />
+        <geom material="robocasa-drawer-inside" pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-cabinet-panel" pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      </body>
+      <body name="drawer-slide-middle" pos="0 0 0.09">
+        <inertial pos="0 0 0" mass="0.25" diaginertia="0.0012 0.0012 0.0012" />
+        <joint type="slide" range="0 0.09" axis="0 -1 0" name="joint_middle_drawer" pos="0 0 0" damping="6.0" frictionloss="0.18" />
+        <geom material="robocasa-drawer-inside" pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-cabinet-panel" pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      </body>
+      <body name="drawer-slide-top" pos="0 0 0.146667">
+        <inertial pos="0 0 0" mass="0.25" diaginertia="0.0012 0.0012 0.0012" />
+        <joint type="slide" range="0 0.09" axis="0 -1 0" name="joint_top_drawer" pos="0 0 0" damping="6.0" frictionloss="0.18" />
+        <geom material="robocasa-drawer-inside" pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0 -0.0153333" size="0.067 0.037 0.005" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 0.032 0" size="0.067 0.005 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="-0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-drawer-inside" pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0.062 0 0" size="0.005 0.037 0.0203333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-cabinet-panel" pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom pos="0 -0.055 0" size="0.077 0.005 0.0253333" type="box" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="0 1.570796 0" pos="0 -0.077 0" size="0.0045 0.04235" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="-0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+        <geom material="robocasa-handle-metal" euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="cylinder" group="2" mass="0" contype="0" conaffinity="0" />
+        <geom euler="1.570796 0 0" pos="0.03388 -0.066 0" size="0.0028 0.012" type="capsule" group="3" priority="1" friction="1.2 0.01 0.001" condim="4" rgba="0 0 0 0" mass="0" solref="0.004 1" solimp="0.998 0.998 0.001" />
+      </body>
+    </body>
+    <body name="block_A" pos="0.500 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_A_jnt" />
+      <geom name="block_A_vis" mesh="block_A" material="letter_block_mat" class="letter_block" />
+      <geom name="block_A_col" class="letter_block_col" />
+    </body>
+    <body name="block_B" pos="0.500 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_B_jnt" />
+      <geom name="block_B_vis" mesh="block_B" material="letter_block_mat" class="letter_block" />
+      <geom name="block_B_col" class="letter_block_col" />
+    </body>
+    <body name="block_C" pos="0.500 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_C_jnt" />
+      <geom name="block_C_vis" mesh="block_C" material="letter_block_mat" class="letter_block" />
+      <geom name="block_C_col" class="letter_block_col" />
+    </body>
+    <body name="block_D" pos="0.620 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_D_jnt" />
+      <geom name="block_D_vis" mesh="block_D" material="letter_block_mat" class="letter_block" />
+      <geom name="block_D_col" class="letter_block_col" />
+    </body>
+    <body name="block_E" pos="0.620 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_E_jnt" />
+      <geom name="block_E_vis" mesh="block_E" material="letter_block_mat" class="letter_block" />
+      <geom name="block_E_col" class="letter_block_col" />
+    </body>
+    <body name="block_F" pos="0.620 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_F_jnt" />
+      <geom name="block_F_vis" mesh="block_F" material="letter_block_mat" class="letter_block" />
+      <geom name="block_F_col" class="letter_block_col" />
+    </body>
+    <body name="block_G" pos="0.380 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_G_jnt" />
+      <geom name="block_G_vis" mesh="block_G" material="letter_block_mat" class="letter_block" />
+      <geom name="block_G_col" class="letter_block_col" />
+    </body>
+    <body name="block_H" pos="0.380 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_H_jnt" />
+      <geom name="block_H_vis" mesh="block_H" material="letter_block_mat" class="letter_block" />
+      <geom name="block_H_col" class="letter_block_col" />
+    </body>
+    <body name="block_I" pos="0.380 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_I_jnt" />
+      <geom name="block_I_vis" mesh="block_I" material="letter_block_mat" class="letter_block" />
+      <geom name="block_I_col" class="letter_block_col" />
+    </body>
+    <body name="block_J" pos="0.500 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_J_jnt" />
+      <geom name="block_J_vis" mesh="block_J" material="letter_block_mat" class="letter_block" />
+      <geom name="block_J_col" class="letter_block_col" />
+    </body>
+    <body name="block_K" pos="0.620 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_K_jnt" />
+      <geom name="block_K_vis" mesh="block_K" material="letter_block_mat" class="letter_block" />
+      <geom name="block_K_col" class="letter_block_col" />
+    </body>
+    <body name="block_L" pos="0.380 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_L_jnt" />
+      <geom name="block_L_vis" mesh="block_L" material="letter_block_mat" class="letter_block" />
+      <geom name="block_L_col" class="letter_block_col" />
+    </body>
+    <body name="block_M" pos="0.500 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_M_jnt" />
+      <geom name="block_M_vis" mesh="block_M" material="letter_block_mat" class="letter_block" />
+      <geom name="block_M_col" class="letter_block_col" />
+    </body>
+    <body name="block_N" pos="0.620 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_N_jnt" />
+      <geom name="block_N_vis" mesh="block_N" material="letter_block_mat" class="letter_block" />
+      <geom name="block_N_col" class="letter_block_col" />
+    </body>
+    <body name="block_O" pos="0.380 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_O_jnt" />
+      <geom name="block_O_vis" mesh="block_O" material="letter_block_mat" class="letter_block" />
+      <geom name="block_O_col" class="letter_block_col" />
+    </body>
+  </worldbody>
+</mujoco>

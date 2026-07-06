@@ -1,0 +1,8 @@
+newmtl material_0
+Ka 0 0 0
+Kd 1.0 1.0 1.0  # Full diffuse color
+Ks 0.5 0.5 0.5  # Less intense specular highlights
+Tr 0
+illum 3
+Ns 10.0         # Sharper, smaller highlights
+map_Kd red_fish.png

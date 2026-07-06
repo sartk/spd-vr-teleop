@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="cups_and_mugs_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="mug_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="cup_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <texture name="mug_tree_tex" type="2d" file="mug_tree/texture.png" />
+    <material name="mug_tree_mat" texture="mug_tree_tex" specular="0.3" shininess="0.3" />
+    <mesh name="mug_tree" file="mug_tree/model.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_0" file="mug_tree/model_collision_0.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_1" file="mug_tree/model_collision_1.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_2" file="mug_tree/model_collision_2.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_3" file="mug_tree/model_collision_3.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_4" file="mug_tree/model_collision_4.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_5" file="mug_tree/model_collision_5.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_6" file="mug_tree/model_collision_6.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_7" file="mug_tree/model_collision_7.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_8" file="mug_tree/model_collision_8.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_9" file="mug_tree/model_collision_9.obj" scale="0.15 0.15 0.15" />
+    <mesh name="mug_tree_col_10" file="mug_tree/model_collision_10.obj" scale="0.15 0.15 0.15" />
+    <material name="mug_color_a" specular="0.5" shininess="0.003" rgba="0.85 0.20 0.15 1.0" />
+    <material name="mug_color_b" specular="0.5" shininess="0.003" rgba="0.172 0.78 0.435 1.0" />
+    <material name="mug_white"   specular="0.5" shininess="0.003" rgba="0.93 0.93 0.93 1.0" />
+    <mesh name="mug_vis_0" file="mug/visual/model_normalized_0.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_vis_1" file="mug/visual/model_normalized_1.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_0" file="mug/collision/model_normalized_collision_0.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_1" file="mug/collision/model_normalized_collision_1.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_2" file="mug/collision/model_normalized_collision_2.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_3" file="mug/collision/model_normalized_collision_3.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_4" file="mug/collision/model_normalized_collision_4.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_5" file="mug/collision/model_normalized_collision_5.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_6" file="mug/collision/model_normalized_collision_6.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_7" file="mug/collision/model_normalized_collision_7.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_8" file="mug/collision/model_normalized_collision_8.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_9" file="mug/collision/model_normalized_collision_9.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_10" file="mug/collision/model_normalized_collision_10.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_11" file="mug/collision/model_normalized_collision_11.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_12" file="mug/collision/model_normalized_collision_12.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_13" file="mug/collision/model_normalized_collision_13.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_14" file="mug/collision/model_normalized_collision_14.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_15" file="mug/collision/model_normalized_collision_15.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_16" file="mug/collision/model_normalized_collision_16.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_17" file="mug/collision/model_normalized_collision_17.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_18" file="mug/collision/model_normalized_collision_18.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_19" file="mug/collision/model_normalized_collision_19.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_20" file="mug/collision/model_normalized_collision_20.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_21" file="mug/collision/model_normalized_collision_21.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_22" file="mug/collision/model_normalized_collision_22.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_23" file="mug/collision/model_normalized_collision_23.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_24" file="mug/collision/model_normalized_collision_24.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_25" file="mug/collision/model_normalized_collision_25.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_26" file="mug/collision/model_normalized_collision_26.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_27" file="mug/collision/model_normalized_collision_27.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_28" file="mug/collision/model_normalized_collision_28.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_29" file="mug/collision/model_normalized_collision_29.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_30" file="mug/collision/model_normalized_collision_30.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <mesh name="mug_col_31" file="mug/collision/model_normalized_collision_31.obj" scale="0.105 0.105 0.105" refquat="-0.7071067811865477 0.0 0.0 0.7071067811865474" />
+    <material name="cup_red_mat" specular="0.5" shininess="0.49" rgba="0.850 0.150 0.150 1" />
+    <mesh name="cup_red_vis" file="cup_stacking/Cup_Red/Cup_Red.obj" />
+    <mesh name="cup_red_col_0" file="cup_stacking/Cup_Red/Cup_Red_collision_0.obj" />
+    <mesh name="cup_red_col_1" file="cup_stacking/Cup_Red/Cup_Red_collision_1.obj" />
+    <mesh name="cup_red_col_2" file="cup_stacking/Cup_Red/Cup_Red_collision_2.obj" />
+    <mesh name="cup_red_col_3" file="cup_stacking/Cup_Red/Cup_Red_collision_3.obj" />
+    <mesh name="cup_red_col_4" file="cup_stacking/Cup_Red/Cup_Red_collision_4.obj" />
+    <mesh name="cup_red_col_5" file="cup_stacking/Cup_Red/Cup_Red_collision_5.obj" />
+    <mesh name="cup_red_col_6" file="cup_stacking/Cup_Red/Cup_Red_collision_6.obj" />
+    <mesh name="cup_red_col_7" file="cup_stacking/Cup_Red/Cup_Red_collision_7.obj" />
+    <mesh name="cup_red_col_8" file="cup_stacking/Cup_Red/Cup_Red_collision_8.obj" />
+    <mesh name="cup_red_col_9" file="cup_stacking/Cup_Red/Cup_Red_collision_9.obj" />
+    <mesh name="cup_red_col_10" file="cup_stacking/Cup_Red/Cup_Red_collision_10.obj" />
+    <mesh name="cup_red_col_11" file="cup_stacking/Cup_Red/Cup_Red_collision_11.obj" />
+    <mesh name="cup_red_col_12" file="cup_stacking/Cup_Red/Cup_Red_collision_12.obj" />
+    <mesh name="cup_red_col_13" file="cup_stacking/Cup_Red/Cup_Red_collision_13.obj" />
+    <mesh name="cup_red_col_14" file="cup_stacking/Cup_Red/Cup_Red_collision_14.obj" />
+    <mesh name="cup_red_col_15" file="cup_stacking/Cup_Red/Cup_Red_collision_15.obj" />
+    <mesh name="cup_red_col_16" file="cup_stacking/Cup_Red/Cup_Red_collision_16.obj" />
+    <mesh name="cup_red_col_17" file="cup_stacking/Cup_Red/Cup_Red_collision_17.obj" />
+    <mesh name="cup_red_col_18" file="cup_stacking/Cup_Red/Cup_Red_collision_18.obj" />
+    <mesh name="cup_red_col_19" file="cup_stacking/Cup_Red/Cup_Red_collision_19.obj" />
+    <mesh name="cup_red_col_20" file="cup_stacking/Cup_Red/Cup_Red_collision_20.obj" />
+    <mesh name="cup_red_col_21" file="cup_stacking/Cup_Red/Cup_Red_collision_21.obj" />
+    <mesh name="cup_red_col_22" file="cup_stacking/Cup_Red/Cup_Red_collision_22.obj" />
+    <mesh name="cup_red_col_23" file="cup_stacking/Cup_Red/Cup_Red_collision_23.obj" />
+    <mesh name="cup_red_col_24" file="cup_stacking/Cup_Red/Cup_Red_collision_24.obj" />
+    <mesh name="cup_red_col_25" file="cup_stacking/Cup_Red/Cup_Red_collision_25.obj" />
+    <mesh name="cup_red_col_26" file="cup_stacking/Cup_Red/Cup_Red_collision_26.obj" />
+    <mesh name="cup_red_col_27" file="cup_stacking/Cup_Red/Cup_Red_collision_27.obj" />
+    <mesh name="cup_red_col_28" file="cup_stacking/Cup_Red/Cup_Red_collision_28.obj" />
+    <mesh name="cup_red_col_29" file="cup_stacking/Cup_Red/Cup_Red_collision_29.obj" />
+    <mesh name="cup_red_col_30" file="cup_stacking/Cup_Red/Cup_Red_collision_30.obj" />
+    <mesh name="cup_red_col_31" file="cup_stacking/Cup_Red/Cup_Red_collision_31.obj" />
+    <mesh name="cup_red_col_32" file="cup_stacking/Cup_Red/Cup_Red_collision_32.obj" />
+    <mesh name="cup_red_col_33" file="cup_stacking/Cup_Red/Cup_Red_collision_33.obj" />
+    <mesh name="cup_red_col_34" file="cup_stacking/Cup_Red/Cup_Red_collision_34.obj" />
+    <mesh name="cup_red_col_35" file="cup_stacking/Cup_Red/Cup_Red_collision_35.obj" />
+    <mesh name="cup_red_col_36" file="cup_stacking/Cup_Red/Cup_Red_collision_36.obj" />
+    <mesh name="cup_red_col_37" file="cup_stacking/Cup_Red/Cup_Red_collision_37.obj" />
+    <mesh name="cup_red_col_38" file="cup_stacking/Cup_Red/Cup_Red_collision_38.obj" />
+    <mesh name="cup_red_col_39" file="cup_stacking/Cup_Red/Cup_Red_collision_39.obj" />
+    <mesh name="cup_red_col_40" file="cup_stacking/Cup_Red/Cup_Red_collision_40.obj" />
+    <mesh name="cup_red_col_41" file="cup_stacking/Cup_Red/Cup_Red_collision_41.obj" />
+    <mesh name="cup_red_col_42" file="cup_stacking/Cup_Red/Cup_Red_collision_42.obj" />
+    <mesh name="cup_red_col_43" file="cup_stacking/Cup_Red/Cup_Red_collision_43.obj" />
+    <mesh name="cup_red_col_44" file="cup_stacking/Cup_Red/Cup_Red_collision_44.obj" />
+    <mesh name="cup_red_col_45" file="cup_stacking/Cup_Red/Cup_Red_collision_45.obj" />
+    <mesh name="cup_red_col_46" file="cup_stacking/Cup_Red/Cup_Red_collision_46.obj" />
+    <mesh name="cup_red_col_47" file="cup_stacking/Cup_Red/Cup_Red_collision_47.obj" />
+    <material name="cup_yellow_mat" specular="0.5" shininess="0.49" rgba="0.950 0.800 0.150 1" />
+    <mesh name="cup_yellow_vis" file="cup_stacking/Cup_Yellow/Cup_Yellow.obj" />
+    <mesh name="cup_yellow_col_0" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_0.obj" />
+    <mesh name="cup_yellow_col_1" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_1.obj" />
+    <mesh name="cup_yellow_col_2" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_2.obj" />
+    <mesh name="cup_yellow_col_3" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_3.obj" />
+    <mesh name="cup_yellow_col_4" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_4.obj" />
+    <mesh name="cup_yellow_col_5" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_5.obj" />
+    <mesh name="cup_yellow_col_6" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_6.obj" />
+    <mesh name="cup_yellow_col_7" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_7.obj" />
+    <mesh name="cup_yellow_col_8" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_8.obj" />
+    <mesh name="cup_yellow_col_9" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_9.obj" />
+    <mesh name="cup_yellow_col_10" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_10.obj" />
+    <mesh name="cup_yellow_col_11" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_11.obj" />
+    <mesh name="cup_yellow_col_12" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_12.obj" />
+    <mesh name="cup_yellow_col_13" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_13.obj" />
+    <mesh name="cup_yellow_col_14" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_14.obj" />
+    <mesh name="cup_yellow_col_15" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_15.obj" />
+    <mesh name="cup_yellow_col_16" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_16.obj" />
+    <mesh name="cup_yellow_col_17" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_17.obj" />
+    <mesh name="cup_yellow_col_18" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_18.obj" />
+    <mesh name="cup_yellow_col_19" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_19.obj" />
+    <mesh name="cup_yellow_col_20" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_20.obj" />
+    <mesh name="cup_yellow_col_21" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_21.obj" />
+    <mesh name="cup_yellow_col_22" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_22.obj" />
+    <mesh name="cup_yellow_col_23" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_23.obj" />
+    <mesh name="cup_yellow_col_24" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_24.obj" />
+    <mesh name="cup_yellow_col_25" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_25.obj" />
+    <mesh name="cup_yellow_col_26" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_26.obj" />
+    <mesh name="cup_yellow_col_27" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_27.obj" />
+    <mesh name="cup_yellow_col_28" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_28.obj" />
+    <mesh name="cup_yellow_col_29" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_29.obj" />
+    <mesh name="cup_yellow_col_30" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_30.obj" />
+    <mesh name="cup_yellow_col_31" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_31.obj" />
+    <mesh name="cup_yellow_col_32" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_32.obj" />
+    <mesh name="cup_yellow_col_33" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_33.obj" />
+    <mesh name="cup_yellow_col_34" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_34.obj" />
+    <mesh name="cup_yellow_col_35" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_35.obj" />
+    <mesh name="cup_yellow_col_36" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_36.obj" />
+    <mesh name="cup_yellow_col_37" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_37.obj" />
+    <mesh name="cup_yellow_col_38" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_38.obj" />
+    <mesh name="cup_yellow_col_39" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_39.obj" />
+    <mesh name="cup_yellow_col_40" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_40.obj" />
+    <mesh name="cup_yellow_col_41" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_41.obj" />
+    <mesh name="cup_yellow_col_42" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_42.obj" />
+    <mesh name="cup_yellow_col_43" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_43.obj" />
+    <mesh name="cup_yellow_col_44" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_44.obj" />
+    <mesh name="cup_yellow_col_45" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_45.obj" />
+    <mesh name="cup_yellow_col_46" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_46.obj" />
+    <mesh name="cup_yellow_col_47" file="cup_stacking/Cup_Yellow/Cup_Yellow_collision_47.obj" />
+    <material name="cup_green_mat" specular="0.5" shininess="0.49" rgba="0.200 0.700 0.300 1" />
+    <mesh name="cup_green_vis" file="cup_stacking/Cup_Green/Cup_Green.obj" />
+    <mesh name="cup_green_col_0" file="cup_stacking/Cup_Green/Cup_Green_collision_0.obj" />
+    <mesh name="cup_green_col_1" file="cup_stacking/Cup_Green/Cup_Green_collision_1.obj" />
+    <mesh name="cup_green_col_2" file="cup_stacking/Cup_Green/Cup_Green_collision_2.obj" />
+    <mesh name="cup_green_col_3" file="cup_stacking/Cup_Green/Cup_Green_collision_3.obj" />
+    <mesh name="cup_green_col_4" file="cup_stacking/Cup_Green/Cup_Green_collision_4.obj" />
+    <mesh name="cup_green_col_5" file="cup_stacking/Cup_Green/Cup_Green_collision_5.obj" />
+    <mesh name="cup_green_col_6" file="cup_stacking/Cup_Green/Cup_Green_collision_6.obj" />
+    <mesh name="cup_green_col_7" file="cup_stacking/Cup_Green/Cup_Green_collision_7.obj" />
+    <mesh name="cup_green_col_8" file="cup_stacking/Cup_Green/Cup_Green_collision_8.obj" />
+    <mesh name="cup_green_col_9" file="cup_stacking/Cup_Green/Cup_Green_collision_9.obj" />
+    <mesh name="cup_green_col_10" file="cup_stacking/Cup_Green/Cup_Green_collision_10.obj" />
+    <mesh name="cup_green_col_11" file="cup_stacking/Cup_Green/Cup_Green_collision_11.obj" />
+    <mesh name="cup_green_col_12" file="cup_stacking/Cup_Green/Cup_Green_collision_12.obj" />
+    <mesh name="cup_green_col_13" file="cup_stacking/Cup_Green/Cup_Green_collision_13.obj" />
+    <mesh name="cup_green_col_14" file="cup_stacking/Cup_Green/Cup_Green_collision_14.obj" />
+    <mesh name="cup_green_col_15" file="cup_stacking/Cup_Green/Cup_Green_collision_15.obj" />
+    <mesh name="cup_green_col_16" file="cup_stacking/Cup_Green/Cup_Green_collision_16.obj" />
+    <mesh name="cup_green_col_17" file="cup_stacking/Cup_Green/Cup_Green_collision_17.obj" />
+    <mesh name="cup_green_col_18" file="cup_stacking/Cup_Green/Cup_Green_collision_18.obj" />
+    <mesh name="cup_green_col_19" file="cup_stacking/Cup_Green/Cup_Green_collision_19.obj" />
+    <mesh name="cup_green_col_20" file="cup_stacking/Cup_Green/Cup_Green_collision_20.obj" />
+    <mesh name="cup_green_col_21" file="cup_stacking/Cup_Green/Cup_Green_collision_21.obj" />
+    <mesh name="cup_green_col_22" file="cup_stacking/Cup_Green/Cup_Green_collision_22.obj" />
+    <mesh name="cup_green_col_23" file="cup_stacking/Cup_Green/Cup_Green_collision_23.obj" />
+    <mesh name="cup_green_col_24" file="cup_stacking/Cup_Green/Cup_Green_collision_24.obj" />
+    <mesh name="cup_green_col_25" file="cup_stacking/Cup_Green/Cup_Green_collision_25.obj" />
+    <mesh name="cup_green_col_26" file="cup_stacking/Cup_Green/Cup_Green_collision_26.obj" />
+    <mesh name="cup_green_col_27" file="cup_stacking/Cup_Green/Cup_Green_collision_27.obj" />
+    <mesh name="cup_green_col_28" file="cup_stacking/Cup_Green/Cup_Green_collision_28.obj" />
+    <mesh name="cup_green_col_29" file="cup_stacking/Cup_Green/Cup_Green_collision_29.obj" />
+    <mesh name="cup_green_col_30" file="cup_stacking/Cup_Green/Cup_Green_collision_30.obj" />
+    <mesh name="cup_green_col_31" file="cup_stacking/Cup_Green/Cup_Green_collision_31.obj" />
+    <mesh name="cup_green_col_32" file="cup_stacking/Cup_Green/Cup_Green_collision_32.obj" />
+    <mesh name="cup_green_col_33" file="cup_stacking/Cup_Green/Cup_Green_collision_33.obj" />
+    <mesh name="cup_green_col_34" file="cup_stacking/Cup_Green/Cup_Green_collision_34.obj" />
+    <mesh name="cup_green_col_35" file="cup_stacking/Cup_Green/Cup_Green_collision_35.obj" />
+    <mesh name="cup_green_col_36" file="cup_stacking/Cup_Green/Cup_Green_collision_36.obj" />
+    <mesh name="cup_green_col_37" file="cup_stacking/Cup_Green/Cup_Green_collision_37.obj" />
+    <mesh name="cup_green_col_38" file="cup_stacking/Cup_Green/Cup_Green_collision_38.obj" />
+    <mesh name="cup_green_col_39" file="cup_stacking/Cup_Green/Cup_Green_collision_39.obj" />
+    <mesh name="cup_green_col_40" file="cup_stacking/Cup_Green/Cup_Green_collision_40.obj" />
+    <mesh name="cup_green_col_41" file="cup_stacking/Cup_Green/Cup_Green_collision_41.obj" />
+    <mesh name="cup_green_col_42" file="cup_stacking/Cup_Green/Cup_Green_collision_42.obj" />
+    <mesh name="cup_green_col_43" file="cup_stacking/Cup_Green/Cup_Green_collision_43.obj" />
+    <mesh name="cup_green_col_44" file="cup_stacking/Cup_Green/Cup_Green_collision_44.obj" />
+    <mesh name="cup_green_col_45" file="cup_stacking/Cup_Green/Cup_Green_collision_45.obj" />
+    <mesh name="cup_green_col_46" file="cup_stacking/Cup_Green/Cup_Green_collision_46.obj" />
+    <mesh name="cup_green_col_47" file="cup_stacking/Cup_Green/Cup_Green_collision_47.obj" />
+    <material name="cup_blue_mat" specular="0.5" shininess="0.49" rgba="0.150 0.350 0.800 1" />
+    <mesh name="cup_blue_vis" file="cup_stacking/Cup_Blue/Cup_Blue.obj" />
+    <mesh name="cup_blue_col_0" file="cup_stacking/Cup_Blue/Cup_Blue_collision_0.obj" />
+    <mesh name="cup_blue_col_1" file="cup_stacking/Cup_Blue/Cup_Blue_collision_1.obj" />
+    <mesh name="cup_blue_col_2" file="cup_stacking/Cup_Blue/Cup_Blue_collision_2.obj" />
+    <mesh name="cup_blue_col_3" file="cup_stacking/Cup_Blue/Cup_Blue_collision_3.obj" />
+    <mesh name="cup_blue_col_4" file="cup_stacking/Cup_Blue/Cup_Blue_collision_4.obj" />
+    <mesh name="cup_blue_col_5" file="cup_stacking/Cup_Blue/Cup_Blue_collision_5.obj" />
+    <mesh name="cup_blue_col_6" file="cup_stacking/Cup_Blue/Cup_Blue_collision_6.obj" />
+    <mesh name="cup_blue_col_7" file="cup_stacking/Cup_Blue/Cup_Blue_collision_7.obj" />
+    <mesh name="cup_blue_col_8" file="cup_stacking/Cup_Blue/Cup_Blue_collision_8.obj" />
+    <mesh name="cup_blue_col_9" file="cup_stacking/Cup_Blue/Cup_Blue_collision_9.obj" />
+    <mesh name="cup_blue_col_10" file="cup_stacking/Cup_Blue/Cup_Blue_collision_10.obj" />
+    <mesh name="cup_blue_col_11" file="cup_stacking/Cup_Blue/Cup_Blue_collision_11.obj" />
+    <mesh name="cup_blue_col_12" file="cup_stacking/Cup_Blue/Cup_Blue_collision_12.obj" />
+    <mesh name="cup_blue_col_13" file="cup_stacking/Cup_Blue/Cup_Blue_collision_13.obj" />
+    <mesh name="cup_blue_col_14" file="cup_stacking/Cup_Blue/Cup_Blue_collision_14.obj" />
+    <mesh name="cup_blue_col_15" file="cup_stacking/Cup_Blue/Cup_Blue_collision_15.obj" />
+    <mesh name="cup_blue_col_16" file="cup_stacking/Cup_Blue/Cup_Blue_collision_16.obj" />
+    <mesh name="cup_blue_col_17" file="cup_stacking/Cup_Blue/Cup_Blue_collision_17.obj" />
+    <mesh name="cup_blue_col_18" file="cup_stacking/Cup_Blue/Cup_Blue_collision_18.obj" />
+    <mesh name="cup_blue_col_19" file="cup_stacking/Cup_Blue/Cup_Blue_collision_19.obj" />
+    <mesh name="cup_blue_col_20" file="cup_stacking/Cup_Blue/Cup_Blue_collision_20.obj" />
+    <mesh name="cup_blue_col_21" file="cup_stacking/Cup_Blue/Cup_Blue_collision_21.obj" />
+    <mesh name="cup_blue_col_22" file="cup_stacking/Cup_Blue/Cup_Blue_collision_22.obj" />
+    <mesh name="cup_blue_col_23" file="cup_stacking/Cup_Blue/Cup_Blue_collision_23.obj" />
+    <mesh name="cup_blue_col_24" file="cup_stacking/Cup_Blue/Cup_Blue_collision_24.obj" />
+    <mesh name="cup_blue_col_25" file="cup_stacking/Cup_Blue/Cup_Blue_collision_25.obj" />
+    <mesh name="cup_blue_col_26" file="cup_stacking/Cup_Blue/Cup_Blue_collision_26.obj" />
+    <mesh name="cup_blue_col_27" file="cup_stacking/Cup_Blue/Cup_Blue_collision_27.obj" />
+    <mesh name="cup_blue_col_28" file="cup_stacking/Cup_Blue/Cup_Blue_collision_28.obj" />
+    <mesh name="cup_blue_col_29" file="cup_stacking/Cup_Blue/Cup_Blue_collision_29.obj" />
+    <mesh name="cup_blue_col_30" file="cup_stacking/Cup_Blue/Cup_Blue_collision_30.obj" />
+    <mesh name="cup_blue_col_31" file="cup_stacking/Cup_Blue/Cup_Blue_collision_31.obj" />
+    <mesh name="cup_blue_col_32" file="cup_stacking/Cup_Blue/Cup_Blue_collision_32.obj" />
+    <mesh name="cup_blue_col_33" file="cup_stacking/Cup_Blue/Cup_Blue_collision_33.obj" />
+    <mesh name="cup_blue_col_34" file="cup_stacking/Cup_Blue/Cup_Blue_collision_34.obj" />
+    <mesh name="cup_blue_col_35" file="cup_stacking/Cup_Blue/Cup_Blue_collision_35.obj" />
+    <mesh name="cup_blue_col_36" file="cup_stacking/Cup_Blue/Cup_Blue_collision_36.obj" />
+    <mesh name="cup_blue_col_37" file="cup_stacking/Cup_Blue/Cup_Blue_collision_37.obj" />
+    <mesh name="cup_blue_col_38" file="cup_stacking/Cup_Blue/Cup_Blue_collision_38.obj" />
+    <mesh name="cup_blue_col_39" file="cup_stacking/Cup_Blue/Cup_Blue_collision_39.obj" />
+    <mesh name="cup_blue_col_40" file="cup_stacking/Cup_Blue/Cup_Blue_collision_40.obj" />
+    <mesh name="cup_blue_col_41" file="cup_stacking/Cup_Blue/Cup_Blue_collision_41.obj" />
+    <mesh name="cup_blue_col_42" file="cup_stacking/Cup_Blue/Cup_Blue_collision_42.obj" />
+    <mesh name="cup_blue_col_43" file="cup_stacking/Cup_Blue/Cup_Blue_collision_43.obj" />
+    <mesh name="cup_blue_col_44" file="cup_stacking/Cup_Blue/Cup_Blue_collision_44.obj" />
+    <mesh name="cup_blue_col_45" file="cup_stacking/Cup_Blue/Cup_Blue_collision_45.obj" />
+    <mesh name="cup_blue_col_46" file="cup_stacking/Cup_Blue/Cup_Blue_collision_46.obj" />
+    <mesh name="cup_blue_col_47" file="cup_stacking/Cup_Blue/Cup_Blue_collision_47.obj" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="mug_tree" pos="0.65 -0.3 0.9" euler="1.5708 0.0 0.0">
+      <geom name="mug_tree_vis" type="mesh" mesh="mug_tree" material="mug_tree_mat" mass="1.0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_tree_col_0" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_1" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_2" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_3" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_4" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_5" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_6" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_7" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_8" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_9" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" mesh="mug_tree_col_10" group="3" rgba="0 0 0 0" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="mug_a" pos="0.5 0.05 0.76">
+      <freejoint name="mug_a_jnt" />
+      <geom type="mesh" mesh="mug_vis_0" material="mug_white" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_vis_1" material="mug_color_a" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_col_0" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_1" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_2" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_3" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_4" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_5" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_6" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_7" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_8" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_9" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_10" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_11" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_12" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_13" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_14" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_15" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_16" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_17" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_18" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_19" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_20" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_21" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_22" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_23" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_24" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_25" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_26" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_27" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_28" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_29" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_30" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_31" class="mug_col" />
+    </body>
+    <body name="mug_b" pos="0.74 0.05 0.76">
+      <freejoint name="mug_b_jnt" />
+      <geom type="mesh" mesh="mug_vis_0" material="mug_white" mass="0.05" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_vis_1" material="mug_color_b" density="0" contype="0" conaffinity="0" group="1" />
+      <geom type="mesh" mesh="mug_col_0" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_1" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_2" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_3" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_4" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_5" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_6" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_7" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_8" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_9" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_10" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_11" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_12" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_13" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_14" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_15" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_16" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_17" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_18" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_19" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_20" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_21" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_22" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_23" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_24" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_25" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_26" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_27" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_28" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_29" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_30" class="mug_col" />
+      <geom type="mesh" mesh="mug_col_31" class="mug_col" />
+    </body>
+    <body name="cup_red" pos="0.42 0.3 0.76">
+      <inertial pos="0 0 0.0515" mass="0.030" diaginertia="4.5445e-05 4.5445e-05 3.7845e-05" />
+      <freejoint name="cup_red_jnt" />
+      <geom name="cup_red_vis" type="mesh" mesh="cup_red_vis" material="cup_red_mat" group="1" density="0" contype="0" conaffinity="0" />
+      <geom name="cup_red_col_0" type="mesh" mesh="cup_red_col_0" class="cup_col" />
+      <geom name="cup_red_col_1" type="mesh" mesh="cup_red_col_1" class="cup_col" />
+      <geom name="cup_red_col_2" type="mesh" mesh="cup_red_col_2" class="cup_col" />
+      <geom name="cup_red_col_3" type="mesh" mesh="cup_red_col_3" class="cup_col" />
+      <geom name="cup_red_col_4" type="mesh" mesh="cup_red_col_4" class="cup_col" />
+      <geom name="cup_red_col_5" type="mesh" mesh="cup_red_col_5" class="cup_col" />
+      <geom name="cup_red_col_6" type="mesh" mesh="cup_red_col_6" class="cup_col" />
+      <geom name="cup_red_col_7" type="mesh" mesh="cup_red_col_7" class="cup_col" />
+      <geom name="cup_red_col_8" type="mesh" mesh="cup_red_col_8" class="cup_col" />
+      <geom name="cup_red_col_9" type="mesh" mesh="cup_red_col_9" class="cup_col" />
+      <geom name="cup_red_col_10" type="mesh" mesh="cup_red_col_10" class="cup_col" />
+      <geom name="cup_red_col_11" type="mesh" mesh="cup_red_col_11" class="cup_col" />
+      <geom name="cup_red_col_12" type="mesh" mesh="cup_red_col_12" class="cup_col" />
+      <geom name="cup_red_col_13" type="mesh" mesh="cup_red_col_13" class="cup_col" />
+      <geom name="cup_red_col_14" type="mesh" mesh="cup_red_col_14" class="cup_col" />
+      <geom name="cup_red_col_15" type="mesh" mesh="cup_red_col_15" class="cup_col" />
+      <geom name="cup_red_col_16" type="mesh" mesh="cup_red_col_16" class="cup_col" />
+      <geom name="cup_red_col_17" type="mesh" mesh="cup_red_col_17" class="cup_col" />
+      <geom name="cup_red_col_18" type="mesh" mesh="cup_red_col_18" class="cup_col" />
+      <geom name="cup_red_col_19" type="mesh" mesh="cup_red_col_19" class="cup_col" />
+      <geom name="cup_red_col_20" type="mesh" mesh="cup_red_col_20" class="cup_col" />
+      <geom name="cup_red_col_21" type="mesh" mesh="cup_red_col_21" class="cup_col" />
+      <geom name="cup_red_col_22" type="mesh" mesh="cup_red_col_22" class="cup_col" />
+      <geom name="cup_red_col_23" type="mesh" mesh="cup_red_col_23" class="cup_col" />
+      <geom name="cup_red_col_24" type="mesh" mesh="cup_red_col_24" class="cup_col" />
+      <geom name="cup_red_col_25" type="mesh" mesh="cup_red_col_25" class="cup_col" />
+      <geom name="cup_red_col_26" type="mesh" mesh="cup_red_col_26" class="cup_col" />
+      <geom name="cup_red_col_27" type="mesh" mesh="cup_red_col_27" class="cup_col" />
+      <geom name="cup_red_col_28" type="mesh" mesh="cup_red_col_28" class="cup_col" />
+      <geom name="cup_red_col_29" type="mesh" mesh="cup_red_col_29" class="cup_col" />
+      <geom name="cup_red_col_30" type="mesh" mesh="cup_red_col_30" class="cup_col" />
+      <geom name="cup_red_col_31" type="mesh" mesh="cup_red_col_31" class="cup_col" />
+      <geom name="cup_red_col_32" type="mesh" mesh="cup_red_col_32" class="cup_col" />
+      <geom name="cup_red_col_33" type="mesh" mesh="cup_red_col_33" class="cup_col" />
+      <geom name="cup_red_col_34" type="mesh" mesh="cup_red_col_34" class="cup_col" />
+      <geom name="cup_red_col_35" type="mesh" mesh="cup_red_col_35" class="cup_col" />
+      <geom name="cup_red_col_36" type="mesh" mesh="cup_red_col_36" class="cup_col" />
+      <geom name="cup_red_col_37" type="mesh" mesh="cup_red_col_37" class="cup_col" />
+      <geom name="cup_red_col_38" type="mesh" mesh="cup_red_col_38" class="cup_col" />
+      <geom name="cup_red_col_39" type="mesh" mesh="cup_red_col_39" class="cup_col" />
+      <geom name="cup_red_col_40" type="mesh" mesh="cup_red_col_40" class="cup_col" />
+      <geom name="cup_red_col_41" type="mesh" mesh="cup_red_col_41" class="cup_col" />
+      <geom name="cup_red_col_42" type="mesh" mesh="cup_red_col_42" class="cup_col" />
+      <geom name="cup_red_col_43" type="mesh" mesh="cup_red_col_43" class="cup_col" />
+      <geom name="cup_red_col_44" type="mesh" mesh="cup_red_col_44" class="cup_col" />
+      <geom name="cup_red_col_45" type="mesh" mesh="cup_red_col_45" class="cup_col" />
+      <geom name="cup_red_col_46" type="mesh" mesh="cup_red_col_46" class="cup_col" />
+      <geom name="cup_red_col_47" type="mesh" mesh="cup_red_col_47" class="cup_col" />
+    </body>
+    <body name="cup_yellow" pos="0.52 0.3 0.76">
+      <inertial pos="0 0 0.0515" mass="0.030" diaginertia="4.5445e-05 4.5445e-05 3.7845e-05" />
+      <freejoint name="cup_yellow_jnt" />
+      <geom name="cup_yellow_vis" type="mesh" mesh="cup_yellow_vis" material="cup_yellow_mat" group="1" density="0" contype="0" conaffinity="0" />
+      <geom name="cup_yellow_col_0" type="mesh" mesh="cup_yellow_col_0" class="cup_col" />
+      <geom name="cup_yellow_col_1" type="mesh" mesh="cup_yellow_col_1" class="cup_col" />
+      <geom name="cup_yellow_col_2" type="mesh" mesh="cup_yellow_col_2" class="cup_col" />
+      <geom name="cup_yellow_col_3" type="mesh" mesh="cup_yellow_col_3" class="cup_col" />
+      <geom name="cup_yellow_col_4" type="mesh" mesh="cup_yellow_col_4" class="cup_col" />
+      <geom name="cup_yellow_col_5" type="mesh" mesh="cup_yellow_col_5" class="cup_col" />
+      <geom name="cup_yellow_col_6" type="mesh" mesh="cup_yellow_col_6" class="cup_col" />
+      <geom name="cup_yellow_col_7" type="mesh" mesh="cup_yellow_col_7" class="cup_col" />
+      <geom name="cup_yellow_col_8" type="mesh" mesh="cup_yellow_col_8" class="cup_col" />
+      <geom name="cup_yellow_col_9" type="mesh" mesh="cup_yellow_col_9" class="cup_col" />
+      <geom name="cup_yellow_col_10" type="mesh" mesh="cup_yellow_col_10" class="cup_col" />
+      <geom name="cup_yellow_col_11" type="mesh" mesh="cup_yellow_col_11" class="cup_col" />
+      <geom name="cup_yellow_col_12" type="mesh" mesh="cup_yellow_col_12" class="cup_col" />
+      <geom name="cup_yellow_col_13" type="mesh" mesh="cup_yellow_col_13" class="cup_col" />
+      <geom name="cup_yellow_col_14" type="mesh" mesh="cup_yellow_col_14" class="cup_col" />
+      <geom name="cup_yellow_col_15" type="mesh" mesh="cup_yellow_col_15" class="cup_col" />
+      <geom name="cup_yellow_col_16" type="mesh" mesh="cup_yellow_col_16" class="cup_col" />
+      <geom name="cup_yellow_col_17" type="mesh" mesh="cup_yellow_col_17" class="cup_col" />
+      <geom name="cup_yellow_col_18" type="mesh" mesh="cup_yellow_col_18" class="cup_col" />
+      <geom name="cup_yellow_col_19" type="mesh" mesh="cup_yellow_col_19" class="cup_col" />
+      <geom name="cup_yellow_col_20" type="mesh" mesh="cup_yellow_col_20" class="cup_col" />
+      <geom name="cup_yellow_col_21" type="mesh" mesh="cup_yellow_col_21" class="cup_col" />
+      <geom name="cup_yellow_col_22" type="mesh" mesh="cup_yellow_col_22" class="cup_col" />
+      <geom name="cup_yellow_col_23" type="mesh" mesh="cup_yellow_col_23" class="cup_col" />
+      <geom name="cup_yellow_col_24" type="mesh" mesh="cup_yellow_col_24" class="cup_col" />
+      <geom name="cup_yellow_col_25" type="mesh" mesh="cup_yellow_col_25" class="cup_col" />
+      <geom name="cup_yellow_col_26" type="mesh" mesh="cup_yellow_col_26" class="cup_col" />
+      <geom name="cup_yellow_col_27" type="mesh" mesh="cup_yellow_col_27" class="cup_col" />
+      <geom name="cup_yellow_col_28" type="mesh" mesh="cup_yellow_col_28" class="cup_col" />
+      <geom name="cup_yellow_col_29" type="mesh" mesh="cup_yellow_col_29" class="cup_col" />
+      <geom name="cup_yellow_col_30" type="mesh" mesh="cup_yellow_col_30" class="cup_col" />
+      <geom name="cup_yellow_col_31" type="mesh" mesh="cup_yellow_col_31" class="cup_col" />
+      <geom name="cup_yellow_col_32" type="mesh" mesh="cup_yellow_col_32" class="cup_col" />
+      <geom name="cup_yellow_col_33" type="mesh" mesh="cup_yellow_col_33" class="cup_col" />
+      <geom name="cup_yellow_col_34" type="mesh" mesh="cup_yellow_col_34" class="cup_col" />
+      <geom name="cup_yellow_col_35" type="mesh" mesh="cup_yellow_col_35" class="cup_col" />
+      <geom name="cup_yellow_col_36" type="mesh" mesh="cup_yellow_col_36" class="cup_col" />
+      <geom name="cup_yellow_col_37" type="mesh" mesh="cup_yellow_col_37" class="cup_col" />
+      <geom name="cup_yellow_col_38" type="mesh" mesh="cup_yellow_col_38" class="cup_col" />
+      <geom name="cup_yellow_col_39" type="mesh" mesh="cup_yellow_col_39" class="cup_col" />
+      <geom name="cup_yellow_col_40" type="mesh" mesh="cup_yellow_col_40" class="cup_col" />
+      <geom name="cup_yellow_col_41" type="mesh" mesh="cup_yellow_col_41" class="cup_col" />
+      <geom name="cup_yellow_col_42" type="mesh" mesh="cup_yellow_col_42" class="cup_col" />
+      <geom name="cup_yellow_col_43" type="mesh" mesh="cup_yellow_col_43" class="cup_col" />
+      <geom name="cup_yellow_col_44" type="mesh" mesh="cup_yellow_col_44" class="cup_col" />
+      <geom name="cup_yellow_col_45" type="mesh" mesh="cup_yellow_col_45" class="cup_col" />
+      <geom name="cup_yellow_col_46" type="mesh" mesh="cup_yellow_col_46" class="cup_col" />
+      <geom name="cup_yellow_col_47" type="mesh" mesh="cup_yellow_col_47" class="cup_col" />
+    </body>
+    <body name="cup_green" pos="0.62 0.3 0.76">
+      <inertial pos="0 0 0.0515" mass="0.030" diaginertia="4.5445e-05 4.5445e-05 3.7845e-05" />
+      <freejoint name="cup_green_jnt" />
+      <geom name="cup_green_vis" type="mesh" mesh="cup_green_vis" material="cup_green_mat" group="1" density="0" contype="0" conaffinity="0" />
+      <geom name="cup_green_col_0" type="mesh" mesh="cup_green_col_0" class="cup_col" />
+      <geom name="cup_green_col_1" type="mesh" mesh="cup_green_col_1" class="cup_col" />
+      <geom name="cup_green_col_2" type="mesh" mesh="cup_green_col_2" class="cup_col" />
+      <geom name="cup_green_col_3" type="mesh" mesh="cup_green_col_3" class="cup_col" />
+      <geom name="cup_green_col_4" type="mesh" mesh="cup_green_col_4" class="cup_col" />
+      <geom name="cup_green_col_5" type="mesh" mesh="cup_green_col_5" class="cup_col" />
+      <geom name="cup_green_col_6" type="mesh" mesh="cup_green_col_6" class="cup_col" />
+      <geom name="cup_green_col_7" type="mesh" mesh="cup_green_col_7" class="cup_col" />
+      <geom name="cup_green_col_8" type="mesh" mesh="cup_green_col_8" class="cup_col" />
+      <geom name="cup_green_col_9" type="mesh" mesh="cup_green_col_9" class="cup_col" />
+      <geom name="cup_green_col_10" type="mesh" mesh="cup_green_col_10" class="cup_col" />
+      <geom name="cup_green_col_11" type="mesh" mesh="cup_green_col_11" class="cup_col" />
+      <geom name="cup_green_col_12" type="mesh" mesh="cup_green_col_12" class="cup_col" />
+      <geom name="cup_green_col_13" type="mesh" mesh="cup_green_col_13" class="cup_col" />
+      <geom name="cup_green_col_14" type="mesh" mesh="cup_green_col_14" class="cup_col" />
+      <geom name="cup_green_col_15" type="mesh" mesh="cup_green_col_15" class="cup_col" />
+      <geom name="cup_green_col_16" type="mesh" mesh="cup_green_col_16" class="cup_col" />
+      <geom name="cup_green_col_17" type="mesh" mesh="cup_green_col_17" class="cup_col" />
+      <geom name="cup_green_col_18" type="mesh" mesh="cup_green_col_18" class="cup_col" />
+      <geom name="cup_green_col_19" type="mesh" mesh="cup_green_col_19" class="cup_col" />
+      <geom name="cup_green_col_20" type="mesh" mesh="cup_green_col_20" class="cup_col" />
+      <geom name="cup_green_col_21" type="mesh" mesh="cup_green_col_21" class="cup_col" />
+      <geom name="cup_green_col_22" type="mesh" mesh="cup_green_col_22" class="cup_col" />
+      <geom name="cup_green_col_23" type="mesh" mesh="cup_green_col_23" class="cup_col" />
+      <geom name="cup_green_col_24" type="mesh" mesh="cup_green_col_24" class="cup_col" />
+      <geom name="cup_green_col_25" type="mesh" mesh="cup_green_col_25" class="cup_col" />
+      <geom name="cup_green_col_26" type="mesh" mesh="cup_green_col_26" class="cup_col" />
+      <geom name="cup_green_col_27" type="mesh" mesh="cup_green_col_27" class="cup_col" />
+      <geom name="cup_green_col_28" type="mesh" mesh="cup_green_col_28" class="cup_col" />
+      <geom name="cup_green_col_29" type="mesh" mesh="cup_green_col_29" class="cup_col" />
+      <geom name="cup_green_col_30" type="mesh" mesh="cup_green_col_30" class="cup_col" />
+      <geom name="cup_green_col_31" type="mesh" mesh="cup_green_col_31" class="cup_col" />
+      <geom name="cup_green_col_32" type="mesh" mesh="cup_green_col_32" class="cup_col" />
+      <geom name="cup_green_col_33" type="mesh" mesh="cup_green_col_33" class="cup_col" />
+      <geom name="cup_green_col_34" type="mesh" mesh="cup_green_col_34" class="cup_col" />
+      <geom name="cup_green_col_35" type="mesh" mesh="cup_green_col_35" class="cup_col" />
+      <geom name="cup_green_col_36" type="mesh" mesh="cup_green_col_36" class="cup_col" />
+      <geom name="cup_green_col_37" type="mesh" mesh="cup_green_col_37" class="cup_col" />
+      <geom name="cup_green_col_38" type="mesh" mesh="cup_green_col_38" class="cup_col" />
+      <geom name="cup_green_col_39" type="mesh" mesh="cup_green_col_39" class="cup_col" />
+      <geom name="cup_green_col_40" type="mesh" mesh="cup_green_col_40" class="cup_col" />
+      <geom name="cup_green_col_41" type="mesh" mesh="cup_green_col_41" class="cup_col" />
+      <geom name="cup_green_col_42" type="mesh" mesh="cup_green_col_42" class="cup_col" />
+      <geom name="cup_green_col_43" type="mesh" mesh="cup_green_col_43" class="cup_col" />
+      <geom name="cup_green_col_44" type="mesh" mesh="cup_green_col_44" class="cup_col" />
+      <geom name="cup_green_col_45" type="mesh" mesh="cup_green_col_45" class="cup_col" />
+      <geom name="cup_green_col_46" type="mesh" mesh="cup_green_col_46" class="cup_col" />
+      <geom name="cup_green_col_47" type="mesh" mesh="cup_green_col_47" class="cup_col" />
+    </body>
+    <body name="cup_blue" pos="0.72 0.3 0.76">
+      <inertial pos="0 0 0.0515" mass="0.030" diaginertia="4.5445e-05 4.5445e-05 3.7845e-05" />
+      <freejoint name="cup_blue_jnt" />
+      <geom name="cup_blue_vis" type="mesh" mesh="cup_blue_vis" material="cup_blue_mat" group="1" density="0" contype="0" conaffinity="0" />
+      <geom name="cup_blue_col_0" type="mesh" mesh="cup_blue_col_0" class="cup_col" />
+      <geom name="cup_blue_col_1" type="mesh" mesh="cup_blue_col_1" class="cup_col" />
+      <geom name="cup_blue_col_2" type="mesh" mesh="cup_blue_col_2" class="cup_col" />
+      <geom name="cup_blue_col_3" type="mesh" mesh="cup_blue_col_3" class="cup_col" />
+      <geom name="cup_blue_col_4" type="mesh" mesh="cup_blue_col_4" class="cup_col" />
+      <geom name="cup_blue_col_5" type="mesh" mesh="cup_blue_col_5" class="cup_col" />
+      <geom name="cup_blue_col_6" type="mesh" mesh="cup_blue_col_6" class="cup_col" />
+      <geom name="cup_blue_col_7" type="mesh" mesh="cup_blue_col_7" class="cup_col" />
+      <geom name="cup_blue_col_8" type="mesh" mesh="cup_blue_col_8" class="cup_col" />
+      <geom name="cup_blue_col_9" type="mesh" mesh="cup_blue_col_9" class="cup_col" />
+      <geom name="cup_blue_col_10" type="mesh" mesh="cup_blue_col_10" class="cup_col" />
+      <geom name="cup_blue_col_11" type="mesh" mesh="cup_blue_col_11" class="cup_col" />
+      <geom name="cup_blue_col_12" type="mesh" mesh="cup_blue_col_12" class="cup_col" />
+      <geom name="cup_blue_col_13" type="mesh" mesh="cup_blue_col_13" class="cup_col" />
+      <geom name="cup_blue_col_14" type="mesh" mesh="cup_blue_col_14" class="cup_col" />
+      <geom name="cup_blue_col_15" type="mesh" mesh="cup_blue_col_15" class="cup_col" />
+      <geom name="cup_blue_col_16" type="mesh" mesh="cup_blue_col_16" class="cup_col" />
+      <geom name="cup_blue_col_17" type="mesh" mesh="cup_blue_col_17" class="cup_col" />
+      <geom name="cup_blue_col_18" type="mesh" mesh="cup_blue_col_18" class="cup_col" />
+      <geom name="cup_blue_col_19" type="mesh" mesh="cup_blue_col_19" class="cup_col" />
+      <geom name="cup_blue_col_20" type="mesh" mesh="cup_blue_col_20" class="cup_col" />
+      <geom name="cup_blue_col_21" type="mesh" mesh="cup_blue_col_21" class="cup_col" />
+      <geom name="cup_blue_col_22" type="mesh" mesh="cup_blue_col_22" class="cup_col" />
+      <geom name="cup_blue_col_23" type="mesh" mesh="cup_blue_col_23" class="cup_col" />
+      <geom name="cup_blue_col_24" type="mesh" mesh="cup_blue_col_24" class="cup_col" />
+      <geom name="cup_blue_col_25" type="mesh" mesh="cup_blue_col_25" class="cup_col" />
+      <geom name="cup_blue_col_26" type="mesh" mesh="cup_blue_col_26" class="cup_col" />
+      <geom name="cup_blue_col_27" type="mesh" mesh="cup_blue_col_27" class="cup_col" />
+      <geom name="cup_blue_col_28" type="mesh" mesh="cup_blue_col_28" class="cup_col" />
+      <geom name="cup_blue_col_29" type="mesh" mesh="cup_blue_col_29" class="cup_col" />
+      <geom name="cup_blue_col_30" type="mesh" mesh="cup_blue_col_30" class="cup_col" />
+      <geom name="cup_blue_col_31" type="mesh" mesh="cup_blue_col_31" class="cup_col" />
+      <geom name="cup_blue_col_32" type="mesh" mesh="cup_blue_col_32" class="cup_col" />
+      <geom name="cup_blue_col_33" type="mesh" mesh="cup_blue_col_33" class="cup_col" />
+      <geom name="cup_blue_col_34" type="mesh" mesh="cup_blue_col_34" class="cup_col" />
+      <geom name="cup_blue_col_35" type="mesh" mesh="cup_blue_col_35" class="cup_col" />
+      <geom name="cup_blue_col_36" type="mesh" mesh="cup_blue_col_36" class="cup_col" />
+      <geom name="cup_blue_col_37" type="mesh" mesh="cup_blue_col_37" class="cup_col" />
+      <geom name="cup_blue_col_38" type="mesh" mesh="cup_blue_col_38" class="cup_col" />
+      <geom name="cup_blue_col_39" type="mesh" mesh="cup_blue_col_39" class="cup_col" />
+      <geom name="cup_blue_col_40" type="mesh" mesh="cup_blue_col_40" class="cup_col" />
+      <geom name="cup_blue_col_41" type="mesh" mesh="cup_blue_col_41" class="cup_col" />
+      <geom name="cup_blue_col_42" type="mesh" mesh="cup_blue_col_42" class="cup_col" />
+      <geom name="cup_blue_col_43" type="mesh" mesh="cup_blue_col_43" class="cup_col" />
+      <geom name="cup_blue_col_44" type="mesh" mesh="cup_blue_col_44" class="cup_col" />
+      <geom name="cup_blue_col_45" type="mesh" mesh="cup_blue_col_45" class="cup_col" />
+      <geom name="cup_blue_col_46" type="mesh" mesh="cup_blue_col_46" class="cup_col" />
+      <geom name="cup_blue_col_47" type="mesh" mesh="cup_blue_col_47" class="cup_col" />
+    </body>
+    <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom size="0.2975 0.65 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+  </worldbody>
+</mujoco>

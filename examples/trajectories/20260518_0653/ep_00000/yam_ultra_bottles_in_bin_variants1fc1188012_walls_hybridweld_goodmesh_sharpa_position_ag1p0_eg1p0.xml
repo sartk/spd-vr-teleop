@@ -1,0 +1,1338 @@
+<mujoco model="workcell_base">
+  <compiler angle="radian" meshdir="../assets/" texturedir="../assets/"/>
+
+  <option integrator="implicitfast" cone="elliptic" noslip_iterations="1">
+    <flag sleep="enable"/>
+  </option>
+
+  <size memory="256M"/>
+
+  <visual>
+    <global azimuth="120" elevation="-20" offwidth="1920" offheight="1080"/>
+    <quality shadowsize="8192" offsamples="16"/>
+    <headlight ambient="0.5 0.5 0.5" diffuse="0.15 0.15 0.15" specular="0.03 0.03 0.03"/>
+  </visual>
+
+  <default>
+    <default class="bottles_in_bin_task"/>
+    <default class="bin_slot__main">
+      <default class="bin_slot__visual">
+        <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+      </default>
+      <default class="bin_slot__collision">
+        <geom type="mesh" group="3"/>
+      </default>
+    </default>
+    <default class="bottle_slot_a__main">
+      <default class="bottle_slot_a__region">
+        <geom contype="0" conaffinity="0" group="1" rgba="0 1 0 0"/>
+      </default>
+      <default class="bottle_slot_a__collision">
+        <geom group="3" rgba="0.5 0 0 0.5"/>
+      </default>
+    </default>
+    <default class="bottle_slot_b__main">
+      <default class="bottle_slot_b__region">
+        <geom contype="0" conaffinity="0" group="1" rgba="0 1 0 0"/>
+      </default>
+    </default>
+    <default class="bottle_slot_c__main">
+      <default class="bottle_slot_c__region">
+        <geom contype="0" conaffinity="0" group="1" rgba="0 1 0 0"/>
+      </default>
+      <default class="bottle_slot_c__collision">
+        <geom group="3" rgba="0.5 0 0 0.5"/>
+      </default>
+    </default>
+    <default class="bottle_slot_d__main">
+      <default class="bottle_slot_d__region">
+        <geom contype="0" conaffinity="0" group="1" rgba="0 1 0 0"/>
+      </default>
+      <default class="bottle_slot_d__collision">
+        <geom group="3" rgba="0.5 0 0 0.5"/>
+      </default>
+    </default>
+    <default class="bottle_slot_e__main">
+      <default class="bottle_slot_e__region">
+        <geom contype="0" conaffinity="0" group="1" rgba="0 1 0 0"/>
+      </default>
+      <default class="bottle_slot_e__collision">
+        <geom group="3" rgba="0.5 0 0 0.5"/>
+      </default>
+    </default>
+    <default class="left-arm-main">
+      <default class="left-arm-yam">
+        <joint frictionloss="0.1"/>
+        <general biastype="affine" biasprm="0 -1"/>
+        <default class="left-arm-dm4340">
+          <joint armature="0.032"/>
+          <general forcerange="-28 28" gainprm="40" biasprm="0 -40 -2.5"/>
+        </default>
+        <default class="left-arm-dm4310">
+          <joint armature="0.0018"/>
+          <general forcerange="-10 10" gainprm="10" biasprm="0 -10 -1"/>
+        </default>
+        <default class="left-arm-visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" material="black"/>
+        </default>
+        <default class="left-arm-collision">
+          <geom type="capsule" condim="6" group="3" friction="2 0.1 0.01"/>
+          <default class="left-arm-sphere_collision">
+            <geom size="0.0006 0 0" type="sphere" priority="2" friction="4" solref="0.004" solimp="0.998 0.998" rgba="1 0 0 1"/>
+          </default>
+        </default>
+        <default class="left-arm-finger">
+          <joint type="slide" armature="0.1"/>
+          <general ctrlrange="0 0.0495" gainprm="400" biasprm="0 -400 -14"/>
+        </default>
+      </default>
+      <default class="left-arm-jenga_block">
+        <geom type="mesh" contype="0" conaffinity="0" condim="6" group="1" priority="1" density="0"/>
+      </default>
+      <default class="left-arm-jenga_col">
+        <geom type="box" group="3" priority="1" friction="0.4 0.005 0.001" solref="0.002" solimp="0.999 0.999" rgba="0 0 0 0"/>
+      </default>
+    </default>
+    <default class="right-arm-main">
+      <default class="right-arm-yam">
+        <joint frictionloss="0.1"/>
+        <general biastype="affine" biasprm="0 -1"/>
+        <default class="right-arm-dm4340">
+          <joint armature="0.032"/>
+          <general forcerange="-28 28" gainprm="40" biasprm="0 -40 -2.5"/>
+        </default>
+        <default class="right-arm-dm4310">
+          <joint armature="0.0018"/>
+          <general forcerange="-10 10" gainprm="10" biasprm="0 -10 -1"/>
+        </default>
+        <default class="right-arm-visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" material="black"/>
+        </default>
+        <default class="right-arm-collision">
+          <geom type="capsule" condim="6" group="3" friction="2 0.1 0.01"/>
+          <default class="right-arm-sphere_collision">
+            <geom size="0.0006 0 0" type="sphere" priority="2" friction="4" solref="0.004" solimp="0.998 0.998" rgba="1 0 0 1"/>
+          </default>
+        </default>
+        <default class="right-arm-finger">
+          <joint type="slide" armature="0.1"/>
+          <general ctrlrange="0 0.0495" gainprm="400" biasprm="0 -400 -14"/>
+        </default>
+      </default>
+      <default class="right-arm-jenga_block">
+        <geom type="mesh" contype="0" conaffinity="0" condim="6" group="1" priority="1" density="0"/>
+      </default>
+      <default class="right-arm-jenga_col">
+        <geom type="box" group="3" priority="1" friction="0.4 0.005 0.001" solref="0.002" solimp="0.999 0.999" rgba="0 0 0 0"/>
+      </default>
+    </default>
+    <default class="right_sharpa"/>
+    <default class="left_sharpa"/>
+  </default>
+
+  <asset>
+    <texture type="skybox" colorspace="auto" builtin="gradient" rgb1="1 1 1" rgb2="0.98 0.98 0.98" width="512" height="3072"/>
+    <texture type="2d" colorspace="auto" name="groundplane" builtin="checker" mark="edge" rgb1="0.55 0.55 0.55" markrgb="0.6 0.6 0.6" width="300" height="300"/>
+    <texture type="2d" colorspace="linear" name="bin_slot__material_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/material_0.png"/>
+    <texture type="2d" colorspace="linear" name="bottle_slot_a__image3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/visual/image3.png"/>
+    <texture type="2d" colorspace="linear" name="bottle_slot_b__image1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/visual/image1.png"/>
+    <texture type="2d" colorspace="linear" name="bottle_slot_b__image0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/visual/image0.png"/>
+    <texture type="2d" colorspace="linear" name="bottle_slot_c__image0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/visual/image0.png"/>
+    <texture type="2d" colorspace="linear" name="left-arm-jenga_tex" file="jenga/blinn1.png"/>
+    <texture type="2d" colorspace="auto" name="left-arm-groundplane" builtin="checker" mark="edge" rgb1="0.55 0.55 0.55" markrgb="0.6 0.6 0.6" width="300" height="300"/>
+    <texture type="2d" colorspace="linear" name="right-arm-jenga_tex" file="jenga/blinn1.png"/>
+    <texture type="2d" colorspace="auto" name="right-arm-groundplane" builtin="checker" mark="edge" rgb1="0.55 0.55 0.55" markrgb="0.6 0.6 0.6" width="300" height="300"/>
+    <texture type="2d" colorspace="linear" name="right_sharpa_alb" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_alb.png"/>
+    <texture type="2d" colorspace="linear" name="right_sharpa_nor" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_nor.png"/>
+    <texture type="2d" colorspace="linear" name="right_sharpa_orm" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_orm.png"/>
+    <texture type="2d" colorspace="linear" name="left_sharpa_alb" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_alb.png"/>
+    <texture type="2d" colorspace="linear" name="left_sharpa_nor" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_nor.png"/>
+    <texture type="2d" colorspace="linear" name="left_sharpa_orm" content_type="image/png" file="sharpa_hand/usd/textures_1k/t_Sharpa_orm.png"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <material name="bin_slot__material_0" texture="bin_slot__material_0" specular="0.4" shininess="0.001"/>
+    <material name="bottle_slot_a__Plastic_-_regular" shininess="0.81" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_a__label_1" texture="bottle_slot_a__image3" shininess="0.25"/>
+    <material name="bottle_slot_a__orange_plastic" shininess="0.36" rgba="1 0.105974 0.003746 1"/>
+    <material name="bottle_slot_b__Fizzy_Bottle_MAT" texture="bottle_slot_b__image1" shininess="0.25"/>
+    <material name="bottle_slot_b__Soda_MAT" texture="bottle_slot_b__image0" shininess="0"/>
+    <material name="bottle_slot_c__Material_141" texture="bottle_slot_c__image0" shininess="0.36"/>
+    <material name="bottle_slot_c__lable" texture="bottle_slot_c__image0" shininess="0.36"/>
+    <material name="bottle_slot_c__material.007" texture="bottle_slot_c__image0" shininess="0.36"/>
+    <material name="bottle_slot_c__water.001" texture="bottle_slot_c__image0" shininess="0.36"/>
+    <material name="bottle_slot_d__Plastic_transparent" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_d__label" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_d__plastic_blue" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_d__water" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_e__Plastic_transparent" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_e__label" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_e__plastic_blue" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="bottle_slot_e__water" shininess="0.36" rgba="0.8 0.8 0.8 1"/>
+    <material name="left-arm-black" rgba="0.3 0.3 0.3 1"/>
+    <material name="left-arm-white" rgba="0.9 0.9 0.9 1"/>
+    <material name="left-arm-jenga_mat" texture="left-arm-jenga_tex" specular="0.3" shininess="0.3"/>
+    <material name="left-arm-groundplane" texture="left-arm-groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <material name="right-arm-black" rgba="0.3 0.3 0.3 1"/>
+    <material name="right-arm-white" rgba="0.9 0.9 0.9 1"/>
+    <material name="right-arm-jenga_mat" texture="right-arm-jenga_tex" specular="0.3" shininess="0.3"/>
+    <material name="right-arm-groundplane" texture="right-arm-groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+    <material name="right_sharpa" specular="0.3" shininess="0.4">
+      <layer texture="right_sharpa_alb" role="rgb"/>
+      <layer texture="right_sharpa_nor" role="normal"/>
+      <layer texture="right_sharpa_orm" role="orm"/>
+    </material>
+    <material name="left_sharpa" specular="0.3" shininess="0.4">
+      <layer texture="left_sharpa_alb" role="rgb"/>
+      <layer texture="left_sharpa_nor" role="normal"/>
+      <layer texture="left_sharpa_orm" role="orm"/>
+    </material>
+    <mesh name="base_visual_gate" file="i2rt_yam/assets/base_visual_gate.stl"/>
+    <mesh name="camera_d405" file="i2rt_yam/assets/d405.stl"/>
+    <mesh name="bin_slot__garbage_can" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_0.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_1.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_2" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_2.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_3.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_4" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_4.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_5" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_5.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_6" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_6.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_7" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_7.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_8" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_8.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_9" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_9.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_10" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_10.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bin_slot__garbage_can_collision_11" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/garbage_can/garbage_can_collision_11.obj" refquat="0.707107 -0.707107 0 0" scale="0.8 0.8 0.8"/>
+    <mesh name="bottle_slot_a__model_normalized_0_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/visual/model_normalized_0.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__model_normalized_1_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/visual/model_normalized_1.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__model_normalized_2_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/visual/model_normalized_2.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_0.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_1.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_2" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_2.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_3.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_4" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_4.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_5" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_5.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_6" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_6.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_a__bottled_collision_mesh_7" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_11/collision/collision_mesh_collision_7.obj" scale="0.206061 0.206061 0.206061"/>
+    <mesh name="bottle_slot_b__model_normalized_0_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/visual/model_normalized_0.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_1_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/visual/model_normalized_1.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_22._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_22.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_23._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_23.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_21._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_21.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_20._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_20.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_24._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_24.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_30._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_30.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_18._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_18.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_19._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_19.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_31._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_31.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_25._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_25.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_27._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_27.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_26._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_26.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_9._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_9.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_8._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_8.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_6._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_6.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_7._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_7.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_5._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_5.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_4._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_4.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_0._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_0.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_1._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_1.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_3._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_3.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_2._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_2.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_17._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_17.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_16._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_16.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_28._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_28.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_14._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_14.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_15._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_15.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_29._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_29.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_11._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_11.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_10._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_10.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_12._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_12.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_b__model_normalized_collision_13._coll" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_5/collision/model_normalized_collision_13.obj" scale="0.193939 0.193939 0.193939"/>
+    <mesh name="bottle_slot_c__model_normalized_0_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/visual/model_normalized_0.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__model_normalized_1_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/visual/model_normalized_1.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__model_normalized_2_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/visual/model_normalized_2.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__model_normalized_3_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/visual/model_normalized_3.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_0.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_1.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_2" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_2.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_3.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_4" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_4.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_5" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_5.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_6" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_6.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_7" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_7.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_8" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_8.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_9" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_9.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_c__bottled_collision_mesh_10" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_18/collision/collision_mesh_collision_10.obj" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__model_normalized_0_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_0.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__model_normalized_1_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_1.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__model_normalized_2_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_2.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__model_normalized_3_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_3.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_0.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_1.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_2" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_2.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_3.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_4" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_4.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_5" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_5.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_d__bottled_collision_mesh_6" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_6.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__model_normalized_0_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_0.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__model_normalized_1_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_1.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__model_normalized_2_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_2.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__model_normalized_3_vis" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/visual/model_normalized_3.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_0" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_0.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_1" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_1.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_2" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_2.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_3" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_3.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_4" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_4.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_5" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_5.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="bottle_slot_e__bottled_collision_mesh_6" file="/home/sartk/vd/mujoco-vr-teleop/examples/assets/task_bottles_in_bin/bottle/bottle_14/collision/collision_mesh_collision_6.obj" refquat="0.5 -0.5 -0.5 -0.5" scale="0.181818 0.181818 0.181818"/>
+    <mesh name="left-arm-model2" file="i2rt_yam/assets/model2.stl"/>
+    <mesh name="left-arm-model2__2" file="i2rt_yam/assets/model2__2.stl"/>
+    <mesh name="left-arm-model2__3" file="i2rt_yam/assets/model2__3.stl"/>
+    <mesh name="left-arm-model2__4" file="i2rt_yam/assets/model2__4.stl"/>
+    <mesh name="left-arm-model2__5" file="i2rt_yam/assets/model2__5.stl"/>
+    <mesh name="left-arm-model2__6" file="i2rt_yam/assets/model2__6.stl"/>
+    <mesh name="left-arm-model2__7" file="i2rt_yam/assets/model2__7.stl"/>
+    <mesh name="left-arm-model2__8" file="i2rt_yam/assets/model2__8.stl"/>
+    <mesh name="left-arm-model2__9" file="i2rt_yam/assets/model2__9.stl"/>
+    <mesh name="left-arm-model2__10" file="i2rt_yam/assets/model2__10.stl"/>
+    <mesh name="left-arm-model2__11" file="i2rt_yam/assets/model2__11.stl"/>
+    <mesh name="left-arm-yam_sharpa_mount_stub_12mm" file="i2rt_yam/assets/yam_sharpa_mount_stub_12mm.stl"/>
+    <mesh name="left-arm-base_visual_gate" file="i2rt_yam/assets/base_visual_gate.stl"/>
+    <mesh name="left-arm-jenga_block" file="jenga/jenga_block.obj" scale="0.025 0.025 0.025"/>
+    <mesh name="left-arm-jenga_block_col" file="jenga/jenga_block_collision.obj" scale="0.025 0.025 0.025"/>
+    <mesh name="right-arm-model2" file="i2rt_yam/assets/model2.stl"/>
+    <mesh name="right-arm-model2__2" file="i2rt_yam/assets/model2__2.stl"/>
+    <mesh name="right-arm-model2__3" file="i2rt_yam/assets/model2__3.stl"/>
+    <mesh name="right-arm-model2__4" file="i2rt_yam/assets/model2__4.stl"/>
+    <mesh name="right-arm-model2__5" file="i2rt_yam/assets/model2__5.stl"/>
+    <mesh name="right-arm-model2__6" file="i2rt_yam/assets/model2__6.stl"/>
+    <mesh name="right-arm-model2__7" file="i2rt_yam/assets/model2__7.stl"/>
+    <mesh name="right-arm-model2__8" file="i2rt_yam/assets/model2__8.stl"/>
+    <mesh name="right-arm-model2__9" file="i2rt_yam/assets/model2__9.stl"/>
+    <mesh name="right-arm-model2__10" file="i2rt_yam/assets/model2__10.stl"/>
+    <mesh name="right-arm-model2__11" file="i2rt_yam/assets/model2__11.stl"/>
+    <mesh name="right-arm-yam_sharpa_mount_stub_12mm" file="i2rt_yam/assets/yam_sharpa_mount_stub_12mm.stl"/>
+    <mesh name="right-arm-base_visual_gate" file="i2rt_yam/assets/base_visual_gate.stl"/>
+    <mesh name="right-arm-jenga_block" file="jenga/jenga_block.obj" scale="0.025 0.025 0.025"/>
+    <mesh name="right-arm-jenga_block_col" file="jenga/jenga_block_collision.obj" scale="0.025 0.025 0.025"/>
+    <mesh name="right_MCP_VL" file="sharpa_hand/MCP_VL.STL"/>
+    <mesh name="right_elastomer" file="sharpa_hand/elastomer.STL"/>
+    <mesh name="right_DP" file="sharpa_hand/right_DP.STL"/>
+    <mesh name="right_MP" file="sharpa_hand/right_MP.STL"/>
+    <mesh name="right_PP" file="sharpa_hand/right_PP.STL"/>
+    <mesh name="right_hand_C_MC" file="sharpa_hand/right_hand_C_MC.STL"/>
+    <mesh name="right_pinky_MC" file="sharpa_hand/right_pinky_MC.STL"/>
+    <mesh name="right_thumb_DP" file="sharpa_hand/right_thumb_DP.STL"/>
+    <mesh name="right_thumb_MC" file="sharpa_hand/right_thumb_MC.STL"/>
+    <mesh name="right_thumb_PP" file="sharpa_hand/right_thumb_PP.STL"/>
+    <mesh name="right_thumb_elastomer" file="sharpa_hand/thumb_elastomer.STL"/>
+    <mesh name="right_DP_visual" file="sharpa_hand/usd/obj/right_DP_visual.obj"/>
+    <mesh name="right_MCP_VL_visual" file="sharpa_hand/usd/obj/right_MCP_VL_visual.obj"/>
+    <mesh name="right_MP_visual" file="sharpa_hand/usd/obj/right_MP_visual.obj"/>
+    <mesh name="right_PP_visual" file="sharpa_hand/usd/obj/right_PP_visual.obj"/>
+    <mesh name="right_hand_C_MC_visual" file="sharpa_hand/usd/obj/right_hand_C_MC_visual.obj"/>
+    <mesh name="right_pinky_MC_visual" file="sharpa_hand/usd/obj/right_pinky_MC_visual.obj"/>
+    <mesh name="right_thumb_CMC_VL_visual" file="sharpa_hand/usd/obj/right_thumb_CMC_VL_visual.obj"/>
+    <mesh name="right_thumb_DP_visual" file="sharpa_hand/usd/obj/right_thumb_DP_visual.obj"/>
+    <mesh name="right_thumb_MCP_VL_visual" file="sharpa_hand/usd/obj/right_thumb_MCP_VL_visual.obj"/>
+    <mesh name="right_thumb_MC_visual" file="sharpa_hand/usd/obj/right_thumb_MC_visual.obj"/>
+    <mesh name="right_thumb_PP_visual" file="sharpa_hand/usd/obj/right_thumb_PP_visual.obj"/>
+    <mesh name="right_elastomer_visual" file="sharpa_hand/usd/obj/elastomer_surface.obj"/>
+    <mesh name="right_thumb_elastomer_visual" file="sharpa_hand/usd/obj/thumb_elastomer_surface.obj"/>
+    <mesh name="right_wrist_mount_visual" file="slanted_final_mounts/slanted_final_right_mount.stl"/>
+    <mesh name="right_wrist_mount_collision_0" content_type="model/stl" file="slanted_final_mounts/slanted_final_right_mount.stl"/>
+    <mesh name="right_camera_d405" file="i2rt_yam/assets/d405.stl"/>
+    <mesh name="left_MCP_VL" file="sharpa_hand/MCP_VL.STL"/>
+    <mesh name="left_elastomer" file="sharpa_hand/elastomer.STL"/>
+    <mesh name="left_DP" file="sharpa_hand/left_DP.STL"/>
+    <mesh name="left_MP" file="sharpa_hand/left_MP.STL"/>
+    <mesh name="left_PP" file="sharpa_hand/left_PP.STL"/>
+    <mesh name="left_hand_C_MC" file="sharpa_hand/left_hand_C_MC.STL"/>
+    <mesh name="left_pinky_MC" file="sharpa_hand/left_pinky_MC.STL"/>
+    <mesh name="left_thumb_DP" file="sharpa_hand/left_thumb_DP.STL"/>
+    <mesh name="left_thumb_MC" file="sharpa_hand/left_thumb_MC.STL"/>
+    <mesh name="left_thumb_PP" file="sharpa_hand/left_thumb_PP.STL"/>
+    <mesh name="left_thumb_elastomer" file="sharpa_hand/thumb_elastomer.STL"/>
+    <mesh name="left_DP_visual" file="sharpa_hand/usd/obj_left/right_DP_visual.obj"/>
+    <mesh name="left_MCP_VL_visual" file="sharpa_hand/usd/obj_left/right_MCP_VL_visual.obj"/>
+    <mesh name="left_MP_visual" file="sharpa_hand/usd/obj_left/right_MP_visual.obj"/>
+    <mesh name="left_PP_visual" file="sharpa_hand/usd/obj_left/right_PP_visual.obj"/>
+    <mesh name="left_hand_C_MC_visual" file="sharpa_hand/usd/obj_left/right_hand_C_MC_visual.obj"/>
+    <mesh name="left_pinky_MC_visual" file="sharpa_hand/usd/obj_left/right_pinky_MC_visual.obj"/>
+    <mesh name="left_thumb_CMC_VL_visual" file="sharpa_hand/usd/obj_left/right_thumb_CMC_VL_visual.obj"/>
+    <mesh name="left_thumb_DP_visual" file="sharpa_hand/usd/obj_left/right_thumb_DP_visual.obj"/>
+    <mesh name="left_thumb_MCP_VL_visual" file="sharpa_hand/usd/obj_left/right_thumb_MCP_VL_visual.obj"/>
+    <mesh name="left_thumb_MC_visual" file="sharpa_hand/usd/obj_left/right_thumb_MC_visual.obj"/>
+    <mesh name="left_thumb_PP_visual" file="sharpa_hand/usd/obj_left/right_thumb_PP_visual.obj"/>
+    <mesh name="left_elastomer_visual" file="sharpa_hand/usd/obj_left/elastomer_surface.obj"/>
+    <mesh name="left_thumb_elastomer_visual" file="sharpa_hand/usd/obj_left/thumb_elastomer_surface.obj"/>
+    <mesh name="left_wrist_mount_visual" file="slanted_final_mounts/slanted_final_left_mount.stl"/>
+    <mesh name="left_wrist_mount_collision_0" content_type="model/stl" file="slanted_final_mounts/slanted_final_left_mount.stl"/>
+    <mesh name="left_camera_d405" file="i2rt_yam/assets/d405.stl"/>
+  </asset>
+
+  <worldbody>
+    <geom name="floor" size="0 0 0.05" type="plane" rgba="0.75 0.75 0.75 1"/>
+    <geom name="base_visual_gate" type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.6 0.62 0.68 1" mesh="base_visual_gate"/>
+    <geom name="base_gate_collision" size="0.305 0.61 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0"/>
+    <geom name="back_wall" size="0.005 0.61 1" pos="1.2144 0 1" type="box" group="2" rgba="0.88 0.88 0.88 0.2"/>
+    <geom name="left_wall" size="0.4572 0.005 1" pos="0.7522 0.61 1" type="box" group="2" rgba="0.88 0.88 0.88 0.2"/>
+    <geom name="right_wall" size="0.4572 0.005 1" pos="0.7522 -0.61 1" type="box" group="2" rgba="0.88 0.88 0.88 0.2"/>
+    <light name="overhead_key" pos="0.55 0 1.8" dir="0 0 -1" type="directional" diffuse="0.65 0.65 0.65" specular="0.12 0.12 0.12"/>
+    <body name="top_camera_d405" pos="0.3125 -0.009 1.5" quat="-0.183004 -0.683015 -0.683015 -0.183004">
+      <geom type="mesh" contype="0" conaffinity="0" group="2" mass="0.001" rgba="0 0 0 0" mesh="camera_d405"/>
+      <body name="top_camera_frame" pos="0.009 0 0" quat="0 0 0 1">
+        <camera name="top" pos="0 0 0" quat="0 1 0 0" fovy="63"/>
+      </body>
+    </body>
+    <body name="overhead_camera" pos="0.55 0 1.6">
+      <camera name="overhead" pos="0 0 0" quat="0.707107 0 0 -0.707107" fovy="60"/>
+    </body>
+    <body name="mid_camera" pos="0.4 0 1.05">
+      <camera name="mid" pos="0 0 0" quat="0.666058 0.237417 -0.237417 -0.666058" fovy="90"/>
+    </body>
+    <body name="left_side_camera" pos="0.5 0.55 1.05" quat="1.05624e-06 -8.02958e-07 0.605186 0.796084">
+      <camera name="left_side" pos="0 0 0" fovy="70"/>
+    </body>
+    <body name="right_side_camera" pos="0.5 -0.55 1.05" quat="0.796084 0.605186 0 0">
+      <camera name="right_side" pos="0 0 0" fovy="70"/>
+    </body>
+    <body name="play_table">
+      <geom name="table_visual" size="0.4572 0.61 0.05" pos="0.7522 0 0.72921" type="box" contype="0" conaffinity="0" group="2" rgba="0.24 0.25 0.27 1"/>
+      <geom name="table_plane" size="0.4572 0.61 0.05" pos="0.7522 0 0.72921" type="box" condim="4" group="3" priority="1" friction="1 0.05 0.001" solref="0.008" solimp="0.998 0.998" rgba="0 0 0 0"/>
+    </body>
+    <body name="bin_slot" pos="0.82 0 0.85">
+      <joint name="bin_slot_joint" type="free"/>
+      <frame name="bin_slot_frame">
+        <body name="bin_slot__garbage_can">
+          <geom class="bin_slot__visual" material="bin_slot__material_0" mesh="bin_slot__garbage_can"/>
+          <geom class="bin_slot__collision" rgba="0.801281 0.831791 0.0471001 1" mesh="bin_slot__garbage_can_collision_0"/>
+          <geom class="bin_slot__collision" rgba="0.182803 0.640775 0.796569 1" mesh="bin_slot__garbage_can_collision_1"/>
+          <geom class="bin_slot__collision" rgba="0.969756 0.33378 0.67561 1" mesh="bin_slot__garbage_can_collision_2"/>
+          <geom class="bin_slot__collision" rgba="0.639636 0.160667 0.103029 1" mesh="bin_slot__garbage_can_collision_3"/>
+          <geom class="bin_slot__collision" rgba="0.449567 0.713584 0.129934 1" mesh="bin_slot__garbage_can_collision_4"/>
+          <geom class="bin_slot__collision" rgba="0.034945 0.354516 0.899759 1" mesh="bin_slot__garbage_can_collision_5"/>
+          <geom class="bin_slot__collision" rgba="0.466993 0.303569 0.649595 1" mesh="bin_slot__garbage_can_collision_6"/>
+          <geom class="bin_slot__collision" rgba="0.743137 0.440185 0.367021 1" mesh="bin_slot__garbage_can_collision_7"/>
+          <geom class="bin_slot__collision" rgba="0.810167 0.0347678 0.207249 1" mesh="bin_slot__garbage_can_collision_8"/>
+          <geom class="bin_slot__collision" rgba="0.0489701 0.437115 0.895636 1" mesh="bin_slot__garbage_can_collision_9"/>
+          <geom class="bin_slot__collision" rgba="0.682943 0.192864 0.163012 1" mesh="bin_slot__garbage_can_collision_10"/>
+          <geom class="bin_slot__collision" rgba="0.61597 0.838346 0.209509 1" mesh="bin_slot__garbage_can_collision_11"/>
+        </body>
+      </frame>
+    </body>
+    <body name="bottle_slot_a" pos="0.55 -0.3 0.85">
+      <joint name="bottle_slot_a_joint" type="free"/>
+      <frame name="bottle_slot_a_frame">
+        <body>
+          <body name="bottle_slot_a__object">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_a__label_1" mesh="bottle_slot_a__model_normalized_0_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_a__orange_plastic" mesh="bottle_slot_a__model_normalized_1_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_a__Plastic_-_regular" mesh="bottle_slot_a__model_normalized_2_vis"/>
+            <geom name="bottle_slot_a__reg_bbox" class="bottle_slot_a__region" size="0.0211366 0.0220941 0.0845303" pos="1.0823e-05 0.000100334 0.000155644" type="box"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_0"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_1"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_2"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_3"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_4"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_5"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_6"/>
+            <geom class="bottle_slot_a__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_a__bottled_collision_mesh_7"/>
+          </body>
+        </body>
+      </frame>
+    </body>
+    <body name="bottle_slot_b" pos="0.55 -0.1 0.85">
+      <joint name="bottle_slot_b_joint" type="free"/>
+      <frame name="bottle_slot_b_frame">
+        <body>
+          <body name="bottle_slot_b__object">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_b__Fizzy_Bottle_MAT" mesh="bottle_slot_b__model_normalized_0_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_b__Soda_MAT" mesh="bottle_slot_b__model_normalized_1_vis"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_22._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_23._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_21._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_20._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_24._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_30._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_18._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_19._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_31._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_25._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_27._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_26._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_9._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_8._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_6._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_7._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_5._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_4._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_0._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_1._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_3._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_2._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_17._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_16._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_28._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_14._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_15._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_29._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_11._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_10._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_12._coll"/>
+            <geom type="mesh" friction="0.95 0.3 0.1" solref="0.004" solimp="0.998 0.998" density="100" rgba="0.8 0.8 0.8 0" mesh="bottle_slot_b__model_normalized_collision_13._coll"/>
+            <geom name="bottle_slot_b__reg_bbox" class="bottle_slot_b__region" size="0.0221589 0.0212467 0.0795725" pos="9.5672e-06 -0.000456123 -0.000427532" type="box"/>
+          </body>
+        </body>
+      </frame>
+    </body>
+    <body name="bottle_slot_c" pos="0.55 0.1 0.85">
+      <joint name="bottle_slot_c_joint" type="free"/>
+      <frame name="bottle_slot_c_frame">
+        <body>
+          <body name="bottle_slot_c__object">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_c__lable" mesh="bottle_slot_c__model_normalized_0_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_c__water.001" mesh="bottle_slot_c__model_normalized_1_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_c__Material_141" mesh="bottle_slot_c__model_normalized_2_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_c__material.007" mesh="bottle_slot_c__model_normalized_3_vis"/>
+            <geom name="bottle_slot_c__reg_bbox" class="bottle_slot_c__region" size="0.0215018 0.021048 0.0747151" pos="0.000211109 -0.000173077 -1.8471e-05" type="box"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_0"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_1"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_2"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_3"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_4"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_5"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_6"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_7"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_8"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_9"/>
+            <geom class="bottle_slot_c__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_c__bottled_collision_mesh_10"/>
+          </body>
+        </body>
+      </frame>
+    </body>
+    <body name="bottle_slot_d" pos="0.55 0.3 0.85">
+      <joint name="bottle_slot_d_joint" type="free"/>
+      <frame name="bottle_slot_d_frame">
+        <body>
+          <body name="bottle_slot_d__object">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_d__water" mesh="bottle_slot_d__model_normalized_0_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_d__label" mesh="bottle_slot_d__model_normalized_1_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_d__plastic_blue" mesh="bottle_slot_d__model_normalized_2_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_d__Plastic_transparent" mesh="bottle_slot_d__model_normalized_3_vis"/>
+            <geom name="bottle_slot_d__reg_bbox" class="bottle_slot_d__region" size="0.0214345 0.021154 0.0748881" pos="-0.000128886 -0.000431047 0.000108465" type="box"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_0"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_1"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_2"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_3"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_4"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_5"/>
+            <geom class="bottle_slot_d__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_d__bottled_collision_mesh_6"/>
+          </body>
+        </body>
+      </frame>
+    </body>
+    <body name="bottle_slot_e" pos="0.68 -0.2 0.85">
+      <joint name="bottle_slot_e_joint" type="free"/>
+      <frame name="bottle_slot_e_frame">
+        <body>
+          <body name="bottle_slot_e__object">
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_e__water" mesh="bottle_slot_e__model_normalized_0_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_e__label" mesh="bottle_slot_e__model_normalized_1_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_e__plastic_blue" mesh="bottle_slot_e__model_normalized_2_vis"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" friction="0.95 0.3 0.1" density="100" material="bottle_slot_e__Plastic_transparent" mesh="bottle_slot_e__model_normalized_3_vis"/>
+            <geom name="bottle_slot_e__reg_bbox" class="bottle_slot_e__region" size="0.0214345 0.021154 0.0748881" pos="-0.000128886 -0.000431047 0.000108465" type="box"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_0"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_1"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_2"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_3"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_4"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_5"/>
+            <geom class="bottle_slot_e__collision" type="mesh" solref="0.004" solimp="0.998 0.998" mesh="bottle_slot_e__bottled_collision_mesh_6"/>
+          </body>
+        </body>
+      </frame>
+    </body>
+    <frame name="bottles_in_bin_task_frame"/>
+    <frame name="left-arm_frame">
+      <body name="left-arm" childclass="left-arm-yam" pos="0.2525 0.31 0.76">
+        <geom class="left-arm-visual" pos="0 0 -0.0006" quat="0.707107 0 0 0.707107" material="left-arm-black" mesh="left-arm-model2"/>
+        <geom class="left-arm-collision" size="0.033 0.01" pos="0 0 0.026"/>
+        <body name="left-arm-link_1" pos="0 0 0.0631" quat="0.707107 0 0 0.707107" gravcomp="1">
+          <inertial pos="-0.00192861 -0.00795735 0.0208176" quat="0.297851 0.642634 0.360045 0.607185" mass="0.12415" diaginertia="0.000180751 0.000145532 5.89179e-05"/>
+          <joint name="left-arm-joint1" class="left-arm-dm4340" pos="0 0 0" axis="0 0 1" range="-2.61799 3.05433"/>
+          <geom class="left-arm-visual" pos="5.26159e-07 2.34355e-07 -0.0632" quat="1 0 0 0" material="left-arm-black" mesh="left-arm-model2__2"/>
+          <body name="left-arm-link_2" pos="2.5e-05 -0.02 0.0409" quat="0.5 0.5 0.5 0.5" gravcomp="1">
+            <inertial pos="0.132008 2.10599e-06 0.000293073" quat="0.5 0.5 0.5 0.5" mass="1.24434" diaginertia="0.0121902 0.0121318 0.000683304"/>
+            <joint name="left-arm-joint2" class="left-arm-dm4340" pos="0 0 0" axis="0 0 1" range="0 3.66519"/>
+            <geom class="left-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__3"/>
+            <geom class="left-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__4"/>
+            <geom class="left-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__5"/>
+            <geom class="left-arm-collision" size="0.032 0.11" pos="0.13 0 0" quat="0.707107 0 0.707107 0"/>
+            <geom class="left-arm-collision" size="0.033 0.02"/>
+            <geom class="left-arm-collision" size="0.033 0.025" pos="0.265 0 0"/>
+            <body name="left-arm-link_3" pos="0.264 0 0" quat="0 1 0 0" gravcomp="1">
+              <inertial pos="-0.121816 -0.054846 -0.000111108" quat="0.5 0.5 0.5 0.5" mass="0.853698" diaginertia="0.00699732 0.00696112 0.000788244"/>
+              <joint name="left-arm-joint3" class="left-arm-dm4340" pos="0 0 0" axis="0 0 1" range="0 3.66519"/>
+              <geom class="left-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__6"/>
+              <geom class="left-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__7"/>
+              <geom class="left-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__8"/>
+              <geom class="left-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__9"/>
+              <geom class="left-arm-collision" size="0.034 0.12" pos="-0.14 -0.06 0" quat="0.707107 0 0.707107 0"/>
+              <geom class="left-arm-collision" size="0.034 0.015" pos="-0.24 -0.06 0"/>
+              <body name="left-arm-link_4" pos="-0.245 -0.06 0" gravcomp="1">
+                <inertial pos="-0.0769778 -0.0527104 0.000154878" quat="0.66661 0.66661 -0.235862 -0.235862" mass="0.463511" diaginertia="0.000791532 0.000744733 0.000282116"/>
+                <joint name="left-arm-joint4" class="left-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708"/>
+                <geom class="left-arm-visual" pos="0.00100023 0.164101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="left-arm-black" mesh="left-arm-model2__10"/>
+                <geom class="left-arm-collision" size="0.03 0.015" pos="-0.073 -0.06 0" quat="0.707107 0.707107 0 0"/>
+                <body name="left-arm-link_5" pos="-0.074 -0.0395 2.5e-05" quat="0.5 -0.5 0.5 0.5" gravcomp="1">
+                  <inertial pos="3.64861e-05 0.00025665 0.0353526" mass="0.350962" diaginertia="0.000197802 0.0001775 0.000147402"/>
+                  <joint name="left-arm-joint5" class="left-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708"/>
+                  <geom class="left-arm-visual" pos="0 -0.0749971 0.203601" quat="1.32679e-06 1 0 0" material="left-arm-black" mesh="left-arm-model2__11"/>
+                  <geom class="left-arm-collision" size="0.03 0.015" pos="0 0.025 0.0395" quat="0.707107 0.707107 0 0"/>
+                  <body name="left-arm-link_6" pos="0 0.0353 0.0395" quat="0.707107 -0.707107 0 0" gravcomp="1">
+                    <inertial pos="-0.000217767 7.37059e-05 0.0270545" quat="0.707107 0.707107 0 0" mass="0.367476" diaginertia="0.000265958 0.000242686 0.000227409"/>
+                    <joint name="left-arm-joint6" class="left-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-2.0944 2.0944"/>
+                    <geom class="left-arm-visual" pos="0 -0.164101 -0.110597" quat="0.707107 -0.707107 0 0" material="left-arm-black" mesh="left-arm-yam_sharpa_mount_stub_12mm"/>
+                    <site name="left-arm-tcp_site" pos="0 0 0" quat="0.707107 0 0 -0.707107" group="4" rgba="1 0 0 1"/>
+                    <site name="left-arm-grasp_site" pos="0 0 0.1347" quat="0.707107 0 0 -0.707107" group="4" rgba="0 1 0 1"/>
+                    <frame name="left_sharpa_frame">
+                      <body name="sharpa_hand_left" pos="0 0 0.04" quat="0 0 0 -1" gravcomp="1">
+                        <geom name="left_sharpa_spacer" size="0.02 0.0075" pos="0 0 -0.0075" type="cylinder" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa"/>
+                        <geom name="left_wrist_mount_collision_0" pos="0 0 -0.0366" quat="1 0 0 0" type="mesh" group="3" solref="0.002" solimp="0.999 0.999" rgba="0.3 0.3 0.3 1" mesh="left_wrist_mount_collision_0"/>
+                        <geom name="left_wrist_mount_visual" pos="0 0 -0.0366" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.3 0.3 0.3 1" mesh="left_wrist_mount_visual"/>
+                        <body name="left_camera_d405" pos="0.0462 0.0443 0.0007" quat="0 0 -0.173603 0.984816" gravcomp="1">
+                          <geom type="mesh" contype="0" conaffinity="0" group="3" mass="0.001" rgba="0 0 0 0" mesh="left_camera_d405"/>
+                          <geom name="left_cam_col" size="0.02" group="3" mass="0.001" rgba="0 0 1 0"/>
+                          <body name="left_camera_frame" pos="0.009 0 0" quat="0 0 0 1" gravcomp="1">
+                            <camera name="left" pos="0 0 0" quat="0 0.707107 -0.707107 0" fovy="58"/>
+                          </body>
+                        </body>
+                        <body name="left_hand_C_MC" gravcomp="1">
+                          <inertial pos="0.0060282 0.00091891 0.038914" mass="0.72045" diaginertia="0.00071328 0.00081371 0.00020795"/>
+                          <geom name="left_hand_C_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_hand_C_MC_visual"/>
+                          <geom name="left_hand_C_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_hand_C_MC"/>
+                          <camera name="wrist_left" pos="0.1 0 0" quat="0.183013 -0.683013 0.683013 -0.183013" fovy="77.5521"/>
+                          <body name="left_sharpa_palm_site" pos="0 0 0.02" quat="-0.5 -0.5 0.5 0.5" gravcomp="1">
+                            <site name="left_sharpa_palm_site" pos="0 0 0" size="0.002" group="4"/>
+                          </body>
+                          <body name="left_thumb_CMC_VL" pos="0.01 -0.026 0.0212" quat="0.707105 0 0 -0.707108" gravcomp="1">
+                            <inertial pos="0 0 0" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="left_thumb_CMC_FE" pos="0 0 0" axis="0 0 1" range="-0.1745 1.9199" armature="0.0032" damping="4.2e-05" frictionloss="0.132"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_CMC_VL_visual"/>
+                            <body name="left_thumb_MC" pos="0 -0.005 0" quat="0.65328 0.653282 -0.270598 0.270599" gravcomp="1">
+                              <inertial pos="0.0385056 -0.0105846 -0.00991873" quat="0.158428 0.667584 0.222963 0.692474" mass="0.116" diaginertia="3.83518e-05 3.34032e-05 1.641e-05"/>
+                              <joint name="left_thumb_CMC_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.0032" damping="4.2e-05" frictionloss="0.132"/>
+                              <geom name="left_thumb_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_MC_visual"/>
+                              <geom name="left_thumb_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_thumb_MC"/>
+                              <body name="left_thumb_MCP_VL" pos="0.065 -0.006 -0.010392" quat="0.965926 -0.25882 0 0" gravcomp="1">
+                                <inertial pos="4.8e-09 0.000869809 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12"/>
+                                <joint name="left_thumb_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.5236 1.3963" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_MCP_VL_visual"/>
+                                <body name="left_thumb_PP" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                  <inertial pos="0.0219483 -0.00015581 0.00149446" quat="0.526585 0.473016 0.473458 0.524215" mass="0.04955" diaginertia="4.60001e-06 4.35675e-06 2.57733e-06"/>
+                                  <joint name="left_thumb_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                  <geom name="left_thumb_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_PP_visual"/>
+                                  <geom name="left_thumb_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_thumb_PP"/>
+                                  <body name="left_sharpa_thumb_proximal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_thumb_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="left_thumb_DP" pos="0.039 0 0" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                    <inertial pos="0.00985829 -0.0101254 0.00044771" quat="0.649916 0.20258 -0.647399 0.342703" mass="0.006986" diaginertia="8.79989e-07 8.08573e-07 2.50588e-07"/>
+                                    <joint name="left_thumb_IP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                    <geom name="left_thumb_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_DP_visual"/>
+                                    <geom name="left_thumb_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_thumb_DP"/>
+                                    <geom quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_thumb_elastomer_visual"/>
+                                    <geom name="left_thumb_elastomer" quat="0.5 0.5 -0.5 0.5" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="left_thumb_elastomer"/>
+                                    <body name="left_sharpa_thumb_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="left_sharpa_thumb_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                    <body name="left_sharpa_thumb_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="left_sharpa_thumb_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="left_index_MCP_VL" pos="0.001 -0.0303 0.0957" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="left_index_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom name="left_index_MCP_VL_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual"/>
+                            <geom name="left_index_MCP_VL" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MCP_VL"/>
+                            <body name="left_index_PP" quat="0.707105 0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="left_index_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="left_index_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual"/>
+                              <geom name="left_index_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_PP"/>
+                              <body name="left_sharpa_index_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="left_sharpa_index_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="left_index_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="left_index_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="left_index_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual"/>
+                                <geom name="left_index_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MP"/>
+                                <body name="left_sharpa_index_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="left_sharpa_index_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="left_index_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931302 -0.00769378 0.000111984" quat="0.643869 0.245527 -0.649442 0.321517" mass="0.005102" diaginertia="4.23794e-07 3.8546e-07 1.37255e-07"/>
+                                  <joint name="left_index_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="left_index_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual"/>
+                                  <geom name="left_index_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_DP"/>
+                                  <geom name="left_index_elastomer_visual" quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" solref="0.06 0.9" density="0" material="left_sharpa" mesh="left_elastomer_visual"/>
+                                  <geom name="left_index_elastomer" quat="0.5 0.5 -0.5 0.5" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="left_elastomer"/>
+                                  <body name="left_sharpa_index_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_index_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="left_sharpa_index_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_index_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="left_middle_MCP_VL" pos="0 -0.01 0.0987" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="left_middle_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom name="left_middle_MCP_VL_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual"/>
+                            <geom name="left_middle_MCP_VL" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MCP_VL"/>
+                            <body name="left_middle_PP" quat="0.707105 0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="left_middle_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="left_middle_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual"/>
+                              <geom name="left_middle_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_PP"/>
+                              <body name="left_sharpa_middle_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="left_sharpa_middle_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="left_middle_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="left_middle_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="left_middle_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual"/>
+                                <geom name="left_middle_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MP"/>
+                                <body name="left_sharpa_middle_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="left_sharpa_middle_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="left_middle_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931302 -0.00769378 0.000111984" quat="0.643869 0.245527 -0.649442 0.321517" mass="0.005102" diaginertia="4.23794e-07 3.8546e-07 1.37255e-07"/>
+                                  <joint name="left_middle_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="left_middle_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual"/>
+                                  <geom name="left_middle_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_DP"/>
+                                  <geom name="left_middle_elastomer_visual" quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" solref="0.06 0.9" density="0" material="left_sharpa" mesh="left_elastomer_visual"/>
+                                  <geom name="left_middle_elastomer" quat="0.5 0.5 -0.5 0.5" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="left_elastomer"/>
+                                  <body name="left_sharpa_middle_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_middle_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="left_sharpa_middle_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_middle_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="left_ring_MCP_VL" pos="0.0015 0.0103 0.0927" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="4.8e-09 0.00086981 3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="left_ring_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom name="left_ring_MCP_VL_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual"/>
+                            <geom name="left_ring_MCP_VL" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MCP_VL"/>
+                            <body name="left_ring_PP" quat="0.707105 0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="left_ring_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="left_ring_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual"/>
+                              <geom name="left_ring_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_PP"/>
+                              <body name="left_sharpa_ring_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="left_sharpa_ring_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="left_ring_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="left_ring_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="left_ring_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual"/>
+                                <geom name="left_ring_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MP"/>
+                                <body name="left_sharpa_ring_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="left_sharpa_ring_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="left_ring_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931208 -0.00769378 0.000111984" quat="0.643953 0.245771 -0.649317 0.321417" mass="0.005102" diaginertia="4.23686e-07 3.85387e-07 1.37226e-07"/>
+                                  <joint name="left_ring_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="left_ring_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual"/>
+                                  <geom name="left_ring_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_DP"/>
+                                  <geom name="left_ring_elastomer_visual" quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" solref="0.06 0.9" density="0" material="left_sharpa" mesh="left_elastomer_visual"/>
+                                  <geom name="left_ring_elastomer" quat="0.499998 0.5 -0.5 0.500002" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="left_elastomer"/>
+                                  <body name="left_sharpa_ring_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_ring_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="left_sharpa_ring_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_ring_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="left_pinky_MC" pos="0.01136 0.0263 0.0867" quat="1.34924e-11 3.67321e-06 -1 -3.67321e-06" gravcomp="1">
+                            <inertial pos="0.0107985 0.00598801 0.0335125" quat="0.709657 0.106152 0.0812795 0.691746" mass="0.12541" diaginertia="3.57685e-05 2.46485e-05 2.14424e-05"/>
+                            <joint name="left_pinky_CMC" pos="0 0 0" axis="0 0 1" range="0 0.2618" armature="0.00012" damping="4.2e-05" frictionloss="0.012"/>
+                            <geom name="left_pinky_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_pinky_MC_visual"/>
+                            <geom name="left_pinky_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_pinky_MC"/>
+                            <body name="left_pinky_MCP_VL" pos="0.00836 0.0048 0" quat="0.499998 -0.5 0.5 0.500002" gravcomp="1">
+                              <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="0.001" diaginertia="2e-12 2e-12 2e-12"/>
+                              <joint name="left_pinky_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="left_pinky_MCP_VL_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MCP_VL_visual"/>
+                              <geom name="left_pinky_MCP_VL" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MCP_VL"/>
+                              <body name="left_pinky_PP" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.0243772 -1.00263e-06 0.000755901" quat="0.519877 0.479286 0.479204 0.519977" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                                <joint name="left_pinky_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                <geom name="left_pinky_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_PP_visual"/>
+                                <geom name="left_pinky_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_PP"/>
+                                <body name="left_sharpa_pinky_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                  <site name="left_sharpa_pinky_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="left_pinky_MP" pos="0.047 0 0" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                  <inertial pos="0.015316 -0.00138561 6.27987e-08" quat="-0.0196259 0.706839 0.0195186 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                  <joint name="left_pinky_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                  <geom name="left_pinky_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_MP_visual"/>
+                                  <geom name="left_pinky_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_MP"/>
+                                  <body name="left_sharpa_pinky_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="left_sharpa_pinky_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="left_pinky_DP" pos="0.0315 0 0" gravcomp="1">
+                                    <inertial pos="0.00931208 -0.00769378 0.000111984" quat="0.643953 0.245771 -0.649317 0.321417" mass="0.005102" diaginertia="4.23686e-07 3.85387e-07 1.37226e-07"/>
+                                    <joint name="left_pinky_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                    <geom name="left_pinky_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="left_sharpa" mesh="left_DP_visual"/>
+                                    <geom name="left_pinky_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="left_sharpa" mesh="left_DP"/>
+                                    <geom name="left_pinky_elastomer_visual" quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" solref="0.06 0.9" density="0" material="left_sharpa" mesh="left_elastomer_visual"/>
+                                    <geom name="left_pinky_elastomer" quat="0.5 0.5 -0.5 0.5" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="left_elastomer"/>
+                                    <body name="left_sharpa_pinky_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="left_sharpa_pinky_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                    <body name="left_sharpa_pinky_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="left_sharpa_pinky_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </frame>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </frame>
+    <frame name="right-arm_frame">
+      <body name="right-arm" childclass="right-arm-yam" pos="0.2525 -0.31 0.76">
+        <geom class="right-arm-visual" pos="0 0 -0.0006" quat="0.707107 0 0 0.707107" material="right-arm-black" mesh="right-arm-model2"/>
+        <geom class="right-arm-collision" size="0.033 0.01" pos="0 0 0.026"/>
+        <body name="right-arm-link_1" pos="0 0 0.0631" quat="0.707107 0 0 0.707107" gravcomp="1">
+          <inertial pos="-0.00192861 -0.00795735 0.0208176" quat="0.297851 0.642634 0.360045 0.607185" mass="0.12415" diaginertia="0.000180751 0.000145532 5.89179e-05"/>
+          <joint name="right-arm-joint1" class="right-arm-dm4340" pos="0 0 0" axis="0 0 1" range="-2.61799 3.05433"/>
+          <geom class="right-arm-visual" pos="5.26159e-07 2.34355e-07 -0.0632" quat="1 0 0 0" material="right-arm-black" mesh="right-arm-model2__2"/>
+          <body name="right-arm-link_2" pos="2.5e-05 -0.02 0.0409" quat="0.5 0.5 0.5 0.5" gravcomp="1">
+            <inertial pos="0.132008 2.10599e-06 0.000293073" quat="0.5 0.5 0.5 0.5" mass="1.24434" diaginertia="0.0121902 0.0121318 0.000683304"/>
+            <joint name="right-arm-joint2" class="right-arm-dm4340" pos="0 0 0" axis="0 0 1" range="0 3.66519"/>
+            <geom class="right-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__3"/>
+            <geom class="right-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__4"/>
+            <geom class="right-arm-visual" pos="0.0199992 -0.1041 -2.44738e-05" quat="0.5 -0.5 -0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__5"/>
+            <geom class="right-arm-collision" size="0.032 0.11" pos="0.13 0 0" quat="0.707107 0 0.707107 0"/>
+            <geom class="right-arm-collision" size="0.033 0.02"/>
+            <geom class="right-arm-collision" size="0.033 0.025" pos="0.265 0 0"/>
+            <body name="right-arm-link_3" pos="0.264 0 0" quat="0 1 0 0" gravcomp="1">
+              <inertial pos="-0.121816 -0.054846 -0.000111108" quat="0.5 0.5 0.5 0.5" mass="0.853698" diaginertia="0.00699732 0.00696112 0.000788244"/>
+              <joint name="right-arm-joint3" class="right-arm-dm4340" pos="0 0 0" axis="0 0 1" range="0 3.66519"/>
+              <geom class="right-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__6"/>
+              <geom class="right-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__7"/>
+              <geom class="right-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__8"/>
+              <geom class="right-arm-visual" pos="-0.244001 0.104101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__9"/>
+              <geom class="right-arm-collision" size="0.034 0.12" pos="-0.14 -0.06 0" quat="0.707107 0 0.707107 0"/>
+              <geom class="right-arm-collision" size="0.034 0.015" pos="-0.24 -0.06 0"/>
+              <body name="right-arm-link_4" pos="-0.245 -0.06 0" gravcomp="1">
+                <inertial pos="-0.0769778 -0.0527104 0.000154878" quat="0.66661 0.66661 -0.235862 -0.235862" mass="0.463511" diaginertia="0.000791532 0.000744733 0.000282116"/>
+                <joint name="right-arm-joint4" class="right-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708"/>
+                <geom class="right-arm-visual" pos="0.00100023 0.164101 2.44738e-05" quat="0.5 0.5 0.5 -0.5" material="right-arm-black" mesh="right-arm-model2__10"/>
+                <geom class="right-arm-collision" size="0.03 0.015" pos="-0.073 -0.06 0" quat="0.707107 0.707107 0 0"/>
+                <body name="right-arm-link_5" pos="-0.074 -0.0395 2.5e-05" quat="0.5 -0.5 0.5 0.5" gravcomp="1">
+                  <inertial pos="3.64861e-05 0.00025665 0.0353526" mass="0.350962" diaginertia="0.000197802 0.0001775 0.000147402"/>
+                  <joint name="right-arm-joint5" class="right-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-1.5708 1.5708"/>
+                  <geom class="right-arm-visual" pos="0 -0.0749971 0.203601" quat="1.32679e-06 1 0 0" material="right-arm-black" mesh="right-arm-model2__11"/>
+                  <geom class="right-arm-collision" size="0.03 0.015" pos="0 0.025 0.0395" quat="0.707107 0.707107 0 0"/>
+                  <body name="right-arm-link_6" pos="0 0.0353 0.0395" quat="0.707107 -0.707107 0 0" gravcomp="1">
+                    <inertial pos="-0.000217767 7.37059e-05 0.0270545" quat="0.707107 0.707107 0 0" mass="0.367476" diaginertia="0.000265958 0.000242686 0.000227409"/>
+                    <joint name="right-arm-joint6" class="right-arm-dm4310" pos="0 0 0" axis="0 0 1" range="-2.0944 2.0944"/>
+                    <geom class="right-arm-visual" pos="0 -0.164101 -0.110597" quat="0.707107 -0.707107 0 0" material="right-arm-black" mesh="right-arm-yam_sharpa_mount_stub_12mm"/>
+                    <site name="right-arm-tcp_site" pos="0 0 0" quat="0.707107 0 0 -0.707107" group="4" rgba="1 0 0 1"/>
+                    <site name="right-arm-grasp_site" pos="0 0 0.1347" quat="0.707107 0 0 -0.707107" group="4" rgba="0 1 0 1"/>
+                    <frame name="right_sharpa_frame">
+                      <body name="sharpa_hand_right" pos="0 0 0.04" gravcomp="1">
+                        <geom name="right_sharpa_spacer" size="0.02 0.0075" pos="0 0 -0.0075" type="cylinder" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa"/>
+                        <geom name="right_wrist_mount_collision_0" pos="0 0 -0.0366" quat="1 0 0 0" type="mesh" group="3" solref="0.002" solimp="0.999 0.999" rgba="0.3 0.3 0.3 1" mesh="right_wrist_mount_collision_0"/>
+                        <geom name="right_wrist_mount_visual" pos="0 0 -0.0366" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.3 0.3 0.3 1" mesh="right_wrist_mount_visual"/>
+                        <body name="right_camera_d405" pos="0.0462 -0.0443 0.0007" quat="0 0 0.173603 0.984816" gravcomp="1">
+                          <geom type="mesh" contype="0" conaffinity="0" group="3" mass="0.001" rgba="0 0 0 0" mesh="right_camera_d405"/>
+                          <geom name="right_cam_col" size="0.02" group="3" mass="0.001" rgba="0 0 1 0"/>
+                          <body name="right_camera_frame" pos="0.009 0 0" quat="0 0 0 1" gravcomp="1">
+                            <camera name="right" pos="0 0 0" quat="0 0.707107 -0.707107 0" fovy="58"/>
+                          </body>
+                        </body>
+                        <body name="right_hand_C_MC" gravcomp="1">
+                          <inertial pos="0.0060282 0.00091891 0.038914" mass="0.72045" diaginertia="0.00071328 0.00081371 0.00020795"/>
+                          <geom name="right_hand_C_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_hand_C_MC_visual"/>
+                          <geom name="right_hand_C_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_hand_C_MC"/>
+                          <camera name="wrist_right" pos="0.1 0 0" quat="0.183013 -0.683013 0.683013 -0.183013" fovy="77.5521"/>
+                          <body name="sharpa_palm_site" pos="0 0 0.02" quat="-0.5 -0.5 0.5 0.5" gravcomp="1">
+                            <site name="sharpa_palm_site" pos="0 0 0" size="0.002" group="4"/>
+                          </body>
+                          <body name="right_thumb_CMC_VL" pos="0.01 0.026 0.0212" quat="-2.59734e-06 0.707105 0.707108 -2.59735e-06" gravcomp="1">
+                            <inertial pos="0 0 0" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="right_thumb_CMC_FE" pos="0 0 0" axis="0 0 1" range="-0.1745 1.9199" armature="0.0032" damping="4.2e-05" frictionloss="0.132"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_CMC_VL_visual"/>
+                            <body name="right_thumb_MC" pos="0 -0.005 0" quat="0.65328 -0.653282 0.270598 0.270599" gravcomp="1">
+                              <inertial pos="0.0378875 -0.0105001 0.00999649" quat="-0.224946 0.690249 -0.156115 0.669764" mass="0.116" diaginertia="3.87084e-05 3.37238e-05 1.64399e-05"/>
+                              <joint name="right_thumb_CMC_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.0032" damping="4.2e-05" frictionloss="0.132"/>
+                              <geom name="right_thumb_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_MC_visual"/>
+                              <geom name="right_thumb_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_thumb_MC"/>
+                              <body name="right_thumb_MCP_VL" pos="0.065 -0.006 0.010392" quat="0.965926 0.25882 0 0" gravcomp="1">
+                                <inertial pos="4.8e-09 0.000869809 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                                <joint name="right_thumb_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.5236 1.3963" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_MCP_VL_visual"/>
+                                <body name="right_thumb_PP" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                  <inertial pos="0.0219649 -0.000155785 -0.00149071" quat="0.47361 0.526063 0.5236 0.474125" mass="0.04955" diaginertia="4.63211e-06 4.39424e-06 2.59479e-06"/>
+                                  <joint name="right_thumb_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                  <geom name="right_thumb_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_PP_visual"/>
+                                  <geom name="right_thumb_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_thumb_PP"/>
+                                  <body name="sharpa_thumb_proximal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_thumb_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="right_thumb_DP" pos="0.039 0 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                    <inertial pos="0.009858 -0.0101251 0.00044685" quat="0.650084 0.202839 -0.647252 0.342507" mass="0.005987" diaginertia="8.79951e-07 8.08527e-07 2.50483e-07"/>
+                                    <joint name="right_thumb_IP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                    <geom name="right_thumb_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_DP_visual"/>
+                                    <geom name="right_thumb_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_thumb_DP"/>
+                                    <geom name="right_thumb_elastomer_visual" quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_thumb_elastomer_visual"/>
+                                    <geom name="right_thumb_elastomer" quat="0.499998 0.5 -0.5 0.500002" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="right_thumb_elastomer"/>
+                                    <body name="sharpa_thumb_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="sharpa_thumb_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                    <body name="sharpa_thumb_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="sharpa_thumb_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="right_index_MCP_VL" pos="0.001 0.0303 0.0957" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="right_index_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MCP_VL_visual"/>
+                            <geom type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MCP_VL"/>
+                            <body name="right_index_PP" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 1.00263e-06 -0.000755901" quat="0.479204 0.519977 0.519877 0.479286" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="right_index_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="right_index_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_PP_visual"/>
+                              <geom name="right_index_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_PP"/>
+                              <body name="sharpa_index_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="sharpa_index_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="right_index_MP" pos="0.047 0 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.28778e-08" quat="-0.0196261 0.706839 0.0195184 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="right_index_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="right_index_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MP_visual"/>
+                                <geom name="right_index_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MP"/>
+                                <body name="sharpa_index_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="sharpa_index_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="right_index_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931268 -0.00769378 0.000111581" quat="0.64397 0.245697 -0.649334 0.321406" mass="0.004103" diaginertia="4.23752e-07 3.85411e-07 1.37217e-07"/>
+                                  <joint name="right_index_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="right_index_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_DP_visual"/>
+                                  <geom name="right_index_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_DP"/>
+                                  <geom name="right_index_elastomer_visual" quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_elastomer_visual"/>
+                                  <geom name="right_index_elastomer" quat="0.499998 0.5 -0.5 0.500002" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="right_elastomer"/>
+                                  <body name="sharpa_index_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_index_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="sharpa_index_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_index_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="right_middle_MCP_VL" pos="0 0.01 0.0987" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="0 0 0" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="right_middle_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MCP_VL_visual"/>
+                            <geom type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MCP_VL"/>
+                            <body name="right_middle_PP" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 1.00263e-06 -0.000755901" quat="0.479204 0.519977 0.519877 0.479286" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="right_middle_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="right_middle_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_PP_visual"/>
+                              <geom name="right_middle_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_PP"/>
+                              <body name="sharpa_middle_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="sharpa_middle_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="right_middle_MP" pos="0.047 0 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.28778e-08" quat="-0.0196261 0.706839 0.0195184 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="right_middle_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="right_middle_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MP_visual"/>
+                                <geom name="right_middle_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MP"/>
+                                <body name="sharpa_middle_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="sharpa_middle_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="right_middle_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931268 -0.00769378 0.000111581" quat="0.64397 0.245697 -0.649334 0.321406" mass="0.004103" diaginertia="4.23752e-07 3.85411e-07 1.37217e-07"/>
+                                  <joint name="right_middle_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="right_middle_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_DP_visual"/>
+                                  <geom name="right_middle_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_DP"/>
+                                  <geom name="right_middle_elastomer_visual" quat="0.5 0.5 -0.5 0.5" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_elastomer_visual"/>
+                                  <geom name="right_middle_elastomer" quat="0.5 0.5 -0.5 0.5" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="right_elastomer"/>
+                                  <body name="sharpa_middle_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_middle_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="sharpa_middle_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_middle_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="right_ring_MCP_VL" pos="0.0015 -0.0103 0.0927" quat="0.499998 -0.500002 -0.5 -0.5" gravcomp="1">
+                            <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                            <joint name="right_ring_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MCP_VL_visual"/>
+                            <geom type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MCP_VL"/>
+                            <body name="right_ring_PP" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                              <inertial pos="0.0243772 1.00263e-06 -0.000755901" quat="0.479204 0.519977 0.519877 0.479286" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                              <joint name="right_ring_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom name="right_ring_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_PP_visual"/>
+                              <geom name="right_ring_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_PP"/>
+                              <body name="sharpa_ring_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                <site name="sharpa_ring_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                              </body>
+                              <body name="right_ring_MP" pos="0.047 0 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.015316 -0.00138561 6.28778e-08" quat="-0.0196261 0.706839 0.0195184 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                <joint name="right_ring_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                <geom name="right_ring_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MP_visual"/>
+                                <geom name="right_ring_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MP"/>
+                                <body name="sharpa_ring_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                  <site name="sharpa_ring_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="right_ring_DP" pos="0.0315 0 0" gravcomp="1">
+                                  <inertial pos="0.00931268 -0.00769378 0.000111581" quat="0.64397 0.245697 -0.649334 0.321406" mass="0.004103" diaginertia="4.23752e-07 3.85411e-07 1.37217e-07"/>
+                                  <joint name="right_ring_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                  <geom name="right_ring_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_DP_visual"/>
+                                  <geom name="right_ring_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_DP"/>
+                                  <geom name="right_ring_elastomer_visual" quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_elastomer_visual"/>
+                                  <geom name="right_ring_elastomer" quat="0.499998 0.5 -0.5 0.500002" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.2 1 0.2 1" mesh="right_elastomer"/>
+                                  <body name="sharpa_ring_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_ring_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="sharpa_ring_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_ring_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                          <body name="right_pinky_MC" pos="0.01136 -0.0263 0.0867" quat="-3.67321e-06 0 0 1" gravcomp="1">
+                            <inertial pos="0.0107985 0.00598801 -0.0335125" quat="0.709657 -0.106152 -0.0812795 0.691746" mass="0.12541" diaginertia="3.57685e-05 2.46485e-05 2.14424e-05"/>
+                            <joint name="right_pinky_CMC" pos="0 0 0" axis="0 0 1" range="0 0.2618" armature="0.00012" damping="4.2e-05" frictionloss="0.012"/>
+                            <geom name="right_pinky_MC_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_pinky_MC_visual"/>
+                            <geom name="right_pinky_MC" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_pinky_MC"/>
+                            <body name="right_pinky_MCP_VL" pos="0.00836 0.0048 0" quat="0.499998 0.5 -0.5 0.500002" gravcomp="1">
+                              <inertial pos="4.8e-09 0.00086981 -3.6e-09" mass="1e-06" diaginertia="2e-12 2e-12 2e-12"/>
+                              <joint name="right_pinky_MCP_FE" pos="0 0 0" axis="0 0 1" range="-0.174533 1.5708" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MCP_VL_visual"/>
+                              <geom type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MCP_VL"/>
+                              <body name="right_pinky_PP" quat="0.707105 -0.707108 0 0" gravcomp="1">
+                                <inertial pos="0.0243772 1.00263e-06 -0.000755901" quat="0.479204 0.519977 0.519877 0.479286" mass="0.04138" diaginertia="6.82371e-06 6.54097e-06 2.16753e-06"/>
+                                <joint name="right_pinky_MCP_AA" pos="0 0 0" axis="0 0 1" range="-0.3491 0.3491" armature="0.00265" damping="2.38e-05" frictionloss="0.07456"/>
+                                <geom name="right_pinky_PP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_PP_visual"/>
+                                <geom name="right_pinky_PP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_PP"/>
+                                <body name="sharpa_pinky_proximal_site" quat="0 0.707107 0.707107 0" gravcomp="1">
+                                  <site name="sharpa_pinky_proximal_site" pos="0 0 0" size="0.002" group="4"/>
+                                </body>
+                                <body name="right_pinky_MP" pos="0.047 0 0" quat="0.707105 0.707108 0 0" gravcomp="1">
+                                  <inertial pos="0.015316 -0.00138561 6.28778e-08" quat="-0.0196261 0.706839 0.0195184 0.706832" mass="0.02509" diaginertia="2.28516e-06 2.26758e-06 9.99868e-07"/>
+                                  <joint name="right_pinky_PIP" pos="0 0 0" axis="0 0 1" range="0 1.7453" armature="0.0006" damping="4.06e-06" frictionloss="0.01276"/>
+                                  <geom name="right_pinky_MP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_MP_visual"/>
+                                  <geom name="right_pinky_MP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_MP"/>
+                                  <body name="sharpa_pinky_intermediate_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                    <site name="sharpa_pinky_intermediate_site" pos="0 0 0" size="0.002" group="4"/>
+                                  </body>
+                                  <body name="right_pinky_DP" pos="0.0315 0 0" gravcomp="1">
+                                    <inertial pos="0.00931268 -0.00769376 0.000111581" quat="0.64397 0.245701 -0.649333 0.321403" mass="0.004103" diaginertia="4.23753e-07 3.85412e-07 1.37217e-07"/>
+                                    <joint name="right_pinky_DIP" pos="0 0 0" axis="0 0 1" range="0 1.3963" armature="0.00042" damping="1.21e-06" frictionloss="0.00378738"/>
+                                    <geom name="right_pinky_DP_visual" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_DP_visual"/>
+                                    <geom name="right_pinky_DP" type="mesh" condim="6" group="3" priority="2" solref="0.002" solimp="0.999 0.999" material="right_sharpa" mesh="right_DP"/>
+                                    <geom name="right_pinky_elastomer_visual" quat="0.499998 0.5 -0.5 0.500002" type="mesh" contype="0" conaffinity="0" group="1" density="0" material="right_sharpa" mesh="right_elastomer_visual"/>
+                                    <geom name="right_pinky_elastomer" quat="0.499998 0.5 -0.5 0.500002" type="mesh" group="3" priority="2" friction="1.5" solref="0.002" solimp="0.999 0.999" rgba="0.1 1 0.2 1" mesh="right_elastomer"/>
+                                    <body name="sharpa_pinky_distal_site" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="sharpa_pinky_distal_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                    <body name="sharpa_pinky_tip_site" pos="0.027 0 0" quat="0.5 0.5 0.5 -0.5" gravcomp="1">
+                                      <site name="sharpa_pinky_tip_site" pos="0 0 0" size="0.002" group="4"/>
+                                    </body>
+                                  </body>
+                                </body>
+                              </body>
+                            </body>
+                          </body>
+                        </body>
+                      </body>
+                    </frame>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </frame>
+    <body name="right-wrist" pos="0.4228 -0.31 0.924" quat="0.5 0.5 0.5 -0.5" mocap="true">
+      <site name="right-wrist-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-thumb-tip" pos="0.32 -0.28 1.017" quat="0.270593 0.653284 0.270593 -0.653284" mocap="true">
+      <site name="right-thumb-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-thumb-phalanx-distal" pos="0.301 -0.259 1.016" quat="0.270593 0.653284 0.270593 -0.653284" mocap="true">
+      <site name="right-thumb-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-thumb-phalanx-proximal" pos="0.274 -0.231 1.016" quat="0.270593 0.653284 0.270593 -0.653284" mocap="true">
+      <site name="right-thumb-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-index-finger-tip" pos="0.41 -0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-index-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-index-finger-phalanx-distal" pos="0.383 -0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-index-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-index-finger-phalanx-intermediate" pos="0.3515 -0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-index-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-index-finger-phalanx-proximal" pos="0.305 -0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-index-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-middle-finger-tip" pos="0.415 -0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-middle-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-middle-finger-phalanx-distal" pos="0.387 -0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-middle-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-middle-finger-phalanx-intermediate" pos="0.3555 -0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-middle-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-middle-finger-phalanx-proximal" pos="0.309 -0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-middle-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-ring-finger-tip" pos="0.409 -0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-ring-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-ring-finger-phalanx-distal" pos="0.381 -0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-ring-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-ring-finger-phalanx-intermediate" pos="0.35 -0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-ring-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-ring-finger-phalanx-proximal" pos="0.303 -0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-ring-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-pinky-finger-tip" pos="0.403 -0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-pinky-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-pinky-finger-phalanx-distal" pos="0.3755 -0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-pinky-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-pinky-finger-phalanx-intermediate" pos="0.3435 -0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-pinky-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="right-pinky-finger-phalanx-proximal" pos="0.2965 -0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="right-pinky-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-wrist" pos="0.4228 0.31 0.924" quat="-0.5 0.5 0.5 0.5" mocap="true">
+      <site name="left-wrist-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-thumb-tip" pos="-0.1 0.28 1.017" quat="0.653284 -0.270593 -0.653284 -0.270593" mocap="true">
+      <site name="left-thumb-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-thumb-phalanx-distal" pos="-0.12 0.253 1.016" quat="0.270593 0.653284 0.270593 -0.653284" mocap="true">
+      <site name="left-thumb-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-thumb-phalanx-proximal" pos="-0.147 0.225 1.016" quat="0.270593 0.653284 0.270593 -0.653284" mocap="true">
+      <site name="left-thumb-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-index-finger-tip" pos="-0.01 0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-index-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-index-finger-phalanx-distal" pos="-0.037 0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-index-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-index-finger-phalanx-intermediate" pos="-0.0685 0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-index-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-index-finger-phalanx-proximal" pos="-0.115 0.18 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-index-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-middle-finger-tip" pos="-0.005 0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-middle-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-middle-finger-phalanx-distal" pos="-0.033 0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-middle-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-middle-finger-phalanx-intermediate" pos="-0.0645 0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-middle-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-middle-finger-phalanx-proximal" pos="-0.111 0.16 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-middle-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-ring-finger-tip" pos="-0.011 0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-ring-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-ring-finger-phalanx-distal" pos="-0.039 0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-ring-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-ring-finger-phalanx-intermediate" pos="-0.07 0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-ring-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-ring-finger-phalanx-proximal" pos="-0.117 0.14 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-ring-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-pinky-finger-tip" pos="-0.017 0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-pinky-finger-tip-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-pinky-finger-phalanx-distal" pos="-0.0445 0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-pinky-finger-phalanx-distal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-pinky-finger-phalanx-intermediate" pos="-0.0765 0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-pinky-finger-phalanx-intermediate-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+    <body name="left-pinky-finger-phalanx-proximal" pos="-0.1235 0.12 1" quat="0 0.707107 0.707107 0" mocap="true">
+      <site name="left-pinky-finger-phalanx-proximal-site-mocap" pos="0 0 0" size="0.002" group="5" rgba="0.658 0.411 0.75 1"/>
+    </body>
+  </worldbody>
+
+  <contact>
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC"/>
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL"/>
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC"/>
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL"/>
+    <exclude body1="left_hand_C_MC" body2="left_index_PP"/>
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL"/>
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP"/>
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL"/>
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP"/>
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC"/>
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL"/>
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP"/>
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP"/>
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP"/>
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP"/>
+    <exclude body1="left_index_PP" body2="left_index_MP"/>
+    <exclude body1="left_index_MP" body2="left_index_DP"/>
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP"/>
+    <exclude body1="left_middle_PP" body2="left_middle_MP"/>
+    <exclude body1="left_middle_MP" body2="left_middle_DP"/>
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP"/>
+    <exclude body1="left_ring_PP" body2="left_ring_MP"/>
+    <exclude body1="left_ring_MP" body2="left_ring_DP"/>
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL"/>
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP"/>
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP"/>
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP"/>
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP"/>
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC"/>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL"/>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC"/>
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL"/>
+    <exclude body1="right_hand_C_MC" body2="right_index_PP"/>
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL"/>
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP"/>
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL"/>
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP"/>
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC"/>
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL"/>
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP"/>
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP"/>
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP"/>
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP"/>
+    <exclude body1="right_index_PP" body2="right_index_MP"/>
+    <exclude body1="right_index_MP" body2="right_index_DP"/>
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP"/>
+    <exclude body1="right_middle_PP" body2="right_middle_MP"/>
+    <exclude body1="right_middle_MP" body2="right_middle_DP"/>
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP"/>
+    <exclude body1="right_ring_PP" body2="right_ring_MP"/>
+    <exclude body1="right_ring_MP" body2="right_ring_DP"/>
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL"/>
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP"/>
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP"/>
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP"/>
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP"/>
+  </contact>
+
+  <equality>
+    <weld name="right_wrist_weld" site1="right-wrist-site-mocap" site2="sharpa_palm_site" torquescale="1" solref="0.03"/>
+    <weld name="left_wrist_weld" site1="left-wrist-site-mocap" site2="left_sharpa_palm_site" torquescale="1" solref="0.03"/>
+  </equality>
+
+  <actuator>
+    <general name="left-arm-joint1" joint="left-arm-joint1" ctrllimited="true" ctrlrange="-2.61799 3.05433" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="left-arm-joint2" joint="left-arm-joint2" ctrllimited="true" ctrlrange="0 3.66519" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="left-arm-joint3" joint="left-arm-joint3" ctrllimited="true" ctrlrange="0 3.66519" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="left-arm-joint4" joint="left-arm-joint4" ctrllimited="true" ctrlrange="-1.5708 1.5708" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="20" biasprm="0 -20 -0.5"/>
+    <general name="left-arm-joint5" joint="left-arm-joint5" ctrllimited="true" ctrlrange="-1.5708 1.5708" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="10" biasprm="0 -10 -1"/>
+    <general name="left-arm-joint6" joint="left-arm-joint6" ctrllimited="true" ctrlrange="-2.0944 2.0944" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="10" biasprm="0 -10 -1"/>
+    <general name="right-arm-joint1" joint="right-arm-joint1" ctrllimited="true" ctrlrange="-2.61799 3.05433" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="right-arm-joint2" joint="right-arm-joint2" ctrllimited="true" ctrlrange="0 3.66519" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="right-arm-joint3" joint="right-arm-joint3" ctrllimited="true" ctrlrange="0 3.66519" forcelimited="true" forcerange="-28 28" biastype="affine" gainprm="40" biasprm="0 -40 -2.5"/>
+    <general name="right-arm-joint4" joint="right-arm-joint4" ctrllimited="true" ctrlrange="-1.5708 1.5708" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="20" biasprm="0 -20 -0.5"/>
+    <general name="right-arm-joint5" joint="right-arm-joint5" ctrllimited="true" ctrlrange="-1.5708 1.5708" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="10" biasprm="0 -10 -1"/>
+    <general name="right-arm-joint6" joint="right-arm-joint6" ctrllimited="true" ctrlrange="-2.0944 2.0944" forcelimited="true" forcerange="-10 10" biastype="affine" gainprm="10" biasprm="0 -10 -1"/>
+    <general name="right_thumb_CMC_FE_ctrl" joint="right_thumb_CMC_FE" ctrllimited="true" ctrlrange="-0.1745 1.9199" biastype="affine" gainprm="6.95" biasprm="0 -6.95 0.9"/>
+    <general name="right_thumb_CMC_AA_ctrl" joint="right_thumb_CMC_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="13.2" biasprm="0 -13.2 0.9"/>
+    <general name="right_thumb_MCP_FE_ctrl" joint="right_thumb_MCP_FE" ctrllimited="true" ctrlrange="-0.5236 1.3963" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="right_thumb_MCP_AA_ctrl" joint="right_thumb_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="right_thumb_IP_ctrl" joint="right_thumb_IP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_index_MCP_FE_ctrl" joint="right_index_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="right_index_MCP_AA_ctrl" joint="right_index_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="right_index_PIP_ctrl" joint="right_index_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_index_DIP_ctrl" joint="right_index_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_middle_MCP_FE_ctrl" joint="right_middle_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="right_middle_MCP_AA_ctrl" joint="right_middle_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="right_middle_PIP_ctrl" joint="right_middle_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_middle_DIP_ctrl" joint="right_middle_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_ring_MCP_FE_ctrl" joint="right_ring_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="right_ring_MCP_AA_ctrl" joint="right_ring_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="right_ring_PIP_ctrl" joint="right_ring_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_ring_DIP_ctrl" joint="right_ring_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_pinky_CMC_ctrl" joint="right_pinky_CMC" ctrllimited="true" ctrlrange="0 0.2618" biastype="affine" gainprm="1.38" biasprm="0 -1.38 0.9"/>
+    <general name="right_pinky_MCP_FE_ctrl" joint="right_pinky_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="right_pinky_MCP_AA_ctrl" joint="right_pinky_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="right_pinky_PIP_ctrl" joint="right_pinky_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="right_pinky_DIP_ctrl" joint="right_pinky_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_thumb_CMC_FE_ctrl" joint="left_thumb_CMC_FE" ctrllimited="true" ctrlrange="-0.1745 1.9199" biastype="affine" gainprm="6.95" biasprm="0 -6.95 0.9"/>
+    <general name="left_thumb_CMC_AA_ctrl" joint="left_thumb_CMC_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="13.2" biasprm="0 -13.2 0.9"/>
+    <general name="left_thumb_MCP_FE_ctrl" joint="left_thumb_MCP_FE" ctrllimited="true" ctrlrange="-0.5236 1.3963" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="left_thumb_MCP_AA_ctrl" joint="left_thumb_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="left_thumb_IP_ctrl" joint="left_thumb_IP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_index_MCP_FE_ctrl" joint="left_index_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="left_index_MCP_AA_ctrl" joint="left_index_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="left_index_PIP_ctrl" joint="left_index_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_index_DIP_ctrl" joint="left_index_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_middle_MCP_FE_ctrl" joint="left_middle_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="left_middle_MCP_AA_ctrl" joint="left_middle_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="left_middle_PIP_ctrl" joint="left_middle_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_middle_DIP_ctrl" joint="left_middle_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_ring_MCP_FE_ctrl" joint="left_ring_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="left_ring_MCP_AA_ctrl" joint="left_ring_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="left_ring_PIP_ctrl" joint="left_ring_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_ring_DIP_ctrl" joint="left_ring_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_pinky_CMC_ctrl" joint="left_pinky_CMC" ctrllimited="true" ctrlrange="0 0.2618" biastype="affine" gainprm="1.38" biasprm="0 -1.38 0.9"/>
+    <general name="left_pinky_MCP_FE_ctrl" joint="left_pinky_MCP_FE" ctrllimited="true" ctrlrange="-0.174533 1.5708" biastype="affine" gainprm="4.76" biasprm="0 -4.76 0.9"/>
+    <general name="left_pinky_MCP_AA_ctrl" joint="left_pinky_MCP_AA" ctrllimited="true" ctrlrange="-0.3491 0.3491" biastype="affine" gainprm="6.62" biasprm="0 -6.62 0.9"/>
+    <general name="left_pinky_PIP_ctrl" joint="left_pinky_PIP" ctrllimited="true" ctrlrange="0 1.7453" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+    <general name="left_pinky_DIP_ctrl" joint="left_pinky_DIP" ctrllimited="true" ctrlrange="0 1.3963" biastype="affine" gainprm="0.9" biasprm="0 -0.9 0.9"/>
+  </actuator>
+</mujoco>

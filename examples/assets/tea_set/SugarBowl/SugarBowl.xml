@@ -1,0 +1,51 @@
+<mujoco model="SugarBowl">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Porcelain_White" specular="0.5" shininess="0.672400024" rgba="0.940000 0.940000 0.920000 1.000000"/>
+    <mesh file="SugarBowl.obj"/>
+    <mesh file="SugarBowl_collision_0.obj"/>
+    <mesh file="SugarBowl_collision_1.obj"/>
+    <mesh file="SugarBowl_collision_2.obj"/>
+    <mesh file="SugarBowl_collision_3.obj"/>
+    <mesh file="SugarBowl_collision_4.obj"/>
+    <mesh file="SugarBowl_collision_5.obj"/>
+    <mesh file="SugarBowl_collision_6.obj"/>
+    <mesh file="SugarBowl_collision_7.obj"/>
+    <mesh file="SugarBowl_collision_8.obj"/>
+    <mesh file="SugarBowl_collision_9.obj"/>
+    <mesh file="SugarBowl_collision_10.obj"/>
+    <mesh file="SugarBowl_collision_11.obj"/>
+    <mesh file="SugarBowl_collision_12.obj"/>
+    <mesh file="SugarBowl_collision_13.obj"/>
+    <mesh file="SugarBowl_collision_14.obj"/>
+    <mesh file="SugarBowl_collision_15.obj"/>
+  </asset>
+  <worldbody>
+    <body name="SugarBowl">
+      <geom material="Porcelain_White" mesh="SugarBowl" class="visual"/>
+      <geom mesh="SugarBowl_collision_0" rgba="0.593397901965558 0.6643668152775772 0.8459374964510618 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_1" rgba="0.5663013836719292 0.2626974354309085 0.8744073167513885 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_2" rgba="0.05289871914225297 0.2809435453892005 0.5102960784021918 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_3" rgba="0.908833309878532 0.6765603660819093 0.9744365275380434 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_4" rgba="0.7963229779222315 0.7167878017498931 0.2697997753013802 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_5" rgba="0.12516574675190262 0.13791700086794545 0.9678781792133082 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_6" rgba="0.13069923893181634 0.8516972532321845 0.07852585526095068 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_7" rgba="0.006824091466276161 0.9009168283906712 0.6950404510101991 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_8" rgba="0.6590025701484551 0.9765097961979917 0.8540726463695484 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_9" rgba="0.8027000125042432 0.3021712981229455 0.2691080252168586 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_10" rgba="0.9762441363169184 0.27205035622444773 0.0819539308532542 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_11" rgba="0.06523504918878364 0.8283464739820058 0.08390804725163559 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_12" rgba="0.3166833855185388 0.9389058522000719 0.5633430564553524 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_13" rgba="0.7211389823622046 0.8910802095228674 0.7787104506943263 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_14" rgba="0.24433418673733764 0.9891127553968029 0.18086065965741216 1" class="collision"/>
+      <geom mesh="SugarBowl_collision_15" rgba="0.9111108125879154 0.7107344560841955 0.5548379964879578 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

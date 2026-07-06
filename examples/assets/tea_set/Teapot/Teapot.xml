@@ -1,0 +1,51 @@
+<mujoco model="Teapot">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Porcelain_White" specular="0.5" shininess="0.672400024" rgba="0.940000 0.940000 0.920000 1.000000"/>
+    <mesh file="Teapot.obj"/>
+    <mesh file="Teapot_collision_0.obj"/>
+    <mesh file="Teapot_collision_1.obj"/>
+    <mesh file="Teapot_collision_2.obj"/>
+    <mesh file="Teapot_collision_3.obj"/>
+    <mesh file="Teapot_collision_4.obj"/>
+    <mesh file="Teapot_collision_5.obj"/>
+    <mesh file="Teapot_collision_6.obj"/>
+    <mesh file="Teapot_collision_7.obj"/>
+    <mesh file="Teapot_collision_8.obj"/>
+    <mesh file="Teapot_collision_9.obj"/>
+    <mesh file="Teapot_collision_10.obj"/>
+    <mesh file="Teapot_collision_11.obj"/>
+    <mesh file="Teapot_collision_12.obj"/>
+    <mesh file="Teapot_collision_13.obj"/>
+    <mesh file="Teapot_collision_14.obj"/>
+    <mesh file="Teapot_collision_15.obj"/>
+  </asset>
+  <worldbody>
+    <body name="Teapot">
+      <geom material="Porcelain_White" mesh="Teapot" class="visual"/>
+      <geom mesh="Teapot_collision_0" rgba="0.8248325591377424 0.22491006440429295 0.3281854542306861 1" class="collision"/>
+      <geom mesh="Teapot_collision_1" rgba="0.23759766570635354 0.8296301728944272 0.23142253047924877 1" class="collision"/>
+      <geom mesh="Teapot_collision_2" rgba="0.1380915465228828 0.9970146793147767 0.14289446132172134 1" class="collision"/>
+      <geom mesh="Teapot_collision_3" rgba="0.6022818113145653 0.709670106992824 0.7072488205481425 1" class="collision"/>
+      <geom mesh="Teapot_collision_4" rgba="0.6037382684604286 0.9604472403354439 0.05261042739128852 1" class="collision"/>
+      <geom mesh="Teapot_collision_5" rgba="0.3856857554542077 0.17070014554888868 0.5341139353204748 1" class="collision"/>
+      <geom mesh="Teapot_collision_6" rgba="0.8704898466989754 0.2381163043096578 0.7659301555384962 1" class="collision"/>
+      <geom mesh="Teapot_collision_7" rgba="0.7915652314151813 0.16522751996789442 0.7588060747421529 1" class="collision"/>
+      <geom mesh="Teapot_collision_8" rgba="0.5811480735436665 0.1459586320757803 0.49404702392641286 1" class="collision"/>
+      <geom mesh="Teapot_collision_9" rgba="0.5717514308545673 0.7396784940167744 0.7859394792331884 1" class="collision"/>
+      <geom mesh="Teapot_collision_10" rgba="0.9326520912716335 0.680859498086214 0.6187915671049019 1" class="collision"/>
+      <geom mesh="Teapot_collision_11" rgba="0.08072105415899322 0.18151246981986846 0.9992610634383163 1" class="collision"/>
+      <geom mesh="Teapot_collision_12" rgba="0.9674238109999446 0.6174990515525984 0.44563111206676653 1" class="collision"/>
+      <geom mesh="Teapot_collision_13" rgba="0.6002243296842326 0.8437367323466586 0.622581404836276 1" class="collision"/>
+      <geom mesh="Teapot_collision_14" rgba="0.19928901111278718 0.6025466084003627 0.5411962178897533 1" class="collision"/>
+      <geom mesh="Teapot_collision_15" rgba="0.045550754717051944 0.6921919496405635 0.3276005816204054 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

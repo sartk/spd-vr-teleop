@@ -1,0 +1,57 @@
+<mujoco model="plastic_tray">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Scene_-_Root" specular="0.5" shininess="0.5" rgba="0.0 0.188 1.0 1.0"/>
+    <mesh file="plastic_tray.obj"/>
+    <mesh file="plastic_tray_collision_0.obj"/>
+    <mesh file="plastic_tray_collision_1.obj"/>
+    <mesh file="plastic_tray_collision_2.obj"/>
+    <mesh file="plastic_tray_collision_3.obj"/>
+    <mesh file="plastic_tray_collision_4.obj"/>
+    <mesh file="plastic_tray_collision_5.obj"/>
+    <mesh file="plastic_tray_collision_6.obj"/>
+    <mesh file="plastic_tray_collision_7.obj"/>
+    <mesh file="plastic_tray_collision_8.obj"/>
+    <mesh file="plastic_tray_collision_9.obj"/>
+    <mesh file="plastic_tray_collision_10.obj"/>
+    <mesh file="plastic_tray_collision_11.obj"/>
+    <mesh file="plastic_tray_collision_12.obj"/>
+    <mesh file="plastic_tray_collision_13.obj"/>
+    <mesh file="plastic_tray_collision_14.obj"/>
+    <mesh file="plastic_tray_collision_15.obj"/>
+    <mesh file="plastic_tray_collision_16.obj"/>
+    <mesh file="plastic_tray_collision_17.obj"/>
+    <mesh file="plastic_tray_collision_18.obj"/>
+  </asset>
+  <worldbody>
+    <body name="plastic_tray">
+      <geom material="Scene_-_Root" mesh="plastic_tray" class="visual"/>
+      <geom mesh="plastic_tray_collision_0" rgba="0.2926464310846024 0.6933596182519725 0.6512364499881491 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_1" rgba="0.05977715941432338 0.13648964807063224 0.3653005488144375 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_2" rgba="0.7622713142831377 0.3143409975538586 0.034838496006220576 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_3" rgba="0.8647563786287354 0.970339718694574 0.21238506339546115 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_4" rgba="0.9404505893631658 0.36306418337218394 0.6419925265426905 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_5" rgba="0.36806346873532003 0.8509167575514661 0.1336960307574152 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_6" rgba="0.8186913020313109 0.28034596396058864 0.12191986110137543 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_7" rgba="0.32743525557094944 0.09167349980857697 0.6454718657265803 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_8" rgba="0.7874543964093276 0.5786416183200335 0.13422679402058268 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_9" rgba="0.6493921072746868 0.9871252730023414 0.22442047709401836 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_10" rgba="0.7012364001065878 0.7241002750557607 0.8394466719066325 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_11" rgba="0.44852828086596297 0.6097502735038701 0.15973752782416173 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_12" rgba="0.3458203879889662 0.5455667472170839 0.32581925490416264 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_13" rgba="0.8544093794042854 0.8271410863806951 0.8378040287635576 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_14" rgba="0.1294212082749876 0.5047667435741712 0.7623011487694425 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_15" rgba="0.11357820329120882 0.7016162391361417 0.6246011386001509 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_16" rgba="0.4708000193195986 0.30215413983151795 0.9679229837178073 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_17" rgba="0.03461991218959659 0.8454856987942089 0.24662750099643016 1" class="collision"/>
+      <geom mesh="plastic_tray_collision_18" rgba="0.096937512538387 0.669187903898981 0.7203979308644851 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

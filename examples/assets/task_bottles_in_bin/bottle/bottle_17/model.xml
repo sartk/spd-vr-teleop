@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="bottled_water_15">
+  <asset>
+    <mesh file="visual/model_normalized_0.obj" name="model_normalized_0_vis" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="visual/model_normalized_1.obj" name="model_normalized_1_vis" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="visual/model_normalized_2.obj" name="model_normalized_2_vis" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <texture type="2d" name="image1" file="visual/image1.png" />
+    <texture type="2d" name="image0" file="visual/image0.png" />
+    <material name="Bottle.003" specular="0.5" shininess="0.811813944" rgba="1.000000 1.000000 1.000000 1.0" />
+    <material name="Label.001" texture="image1" specular="0.5" shininess="0.25" />
+    <material name="material.008" texture="image0" specular="0.5" shininess="0.25" />
+    <mesh file="collision/collision_mesh_collision_0.obj" name="bottled_collision_mesh_0" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_1.obj" name="bottled_collision_mesh_1" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    <mesh file="collision/collision_mesh_collision_2.obj" name="bottled_collision_mesh_2" scale="0.193939 0.193939 0.193939" refquat="1.0 0.0 0.0 0.0" />
+    </asset>
+  <default>
+    <default class="region">
+      <geom group="1" conaffinity="0" contype="0" rgba="0 1 0 0" />
+      </default>
+    <default class="collision">
+      <geom group="3" rgba="0.5 0 0 0.5" density="1000.0" />
+      </default>
+    </default>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="1" material="Label.001" />
+        <geom density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_1_vis" conaffinity="0" contype="0" group="1" material="Bottle.003" />
+        <geom density="100" friction="0.95 0.3 0.1" type="mesh" mesh="model_normalized_2_vis" conaffinity="0" contype="0" group="1" material="material.008" />
+        <geom class="region" name="reg_bbox" type="box" pos="3.818160000000015e-05 0.0002536240000000012 -6.763039999999748e-05" size="0.023344934400000003 0.0232692384 0.07971717919999999" />
+        <geom mesh="bottled_collision_mesh_0" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_1" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        <geom mesh="bottled_collision_mesh_2" type="mesh" class="collision"  solref="0.004 1" solimp="0.998 0.998 0.001"/>
+        </body>
+      </body>
+    </worldbody>
+  </mujoco>

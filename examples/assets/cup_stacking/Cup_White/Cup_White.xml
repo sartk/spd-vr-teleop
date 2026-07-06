@@ -1,0 +1,115 @@
+<mujoco model="Cup_White">
+  <default>
+    <default class="visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="collision">
+      <geom group="3" type="mesh"/>
+    </default>
+  </default>
+  <asset>
+    <material name="Cup_White_Mat" specular="0.5" shininess="0.49" rgba="0.920000 0.920000 0.900000 1.000000"/>
+    <mesh file="Cup_White.obj"/>
+    <mesh file="Cup_White_collision_0.obj"/>
+    <mesh file="Cup_White_collision_1.obj"/>
+    <mesh file="Cup_White_collision_2.obj"/>
+    <mesh file="Cup_White_collision_3.obj"/>
+    <mesh file="Cup_White_collision_4.obj"/>
+    <mesh file="Cup_White_collision_5.obj"/>
+    <mesh file="Cup_White_collision_6.obj"/>
+    <mesh file="Cup_White_collision_7.obj"/>
+    <mesh file="Cup_White_collision_8.obj"/>
+    <mesh file="Cup_White_collision_9.obj"/>
+    <mesh file="Cup_White_collision_10.obj"/>
+    <mesh file="Cup_White_collision_11.obj"/>
+    <mesh file="Cup_White_collision_12.obj"/>
+    <mesh file="Cup_White_collision_13.obj"/>
+    <mesh file="Cup_White_collision_14.obj"/>
+    <mesh file="Cup_White_collision_15.obj"/>
+    <mesh file="Cup_White_collision_16.obj"/>
+    <mesh file="Cup_White_collision_17.obj"/>
+    <mesh file="Cup_White_collision_18.obj"/>
+    <mesh file="Cup_White_collision_19.obj"/>
+    <mesh file="Cup_White_collision_20.obj"/>
+    <mesh file="Cup_White_collision_21.obj"/>
+    <mesh file="Cup_White_collision_22.obj"/>
+    <mesh file="Cup_White_collision_23.obj"/>
+    <mesh file="Cup_White_collision_24.obj"/>
+    <mesh file="Cup_White_collision_25.obj"/>
+    <mesh file="Cup_White_collision_26.obj"/>
+    <mesh file="Cup_White_collision_27.obj"/>
+    <mesh file="Cup_White_collision_28.obj"/>
+    <mesh file="Cup_White_collision_29.obj"/>
+    <mesh file="Cup_White_collision_30.obj"/>
+    <mesh file="Cup_White_collision_31.obj"/>
+    <mesh file="Cup_White_collision_32.obj"/>
+    <mesh file="Cup_White_collision_33.obj"/>
+    <mesh file="Cup_White_collision_34.obj"/>
+    <mesh file="Cup_White_collision_35.obj"/>
+    <mesh file="Cup_White_collision_36.obj"/>
+    <mesh file="Cup_White_collision_37.obj"/>
+    <mesh file="Cup_White_collision_38.obj"/>
+    <mesh file="Cup_White_collision_39.obj"/>
+    <mesh file="Cup_White_collision_40.obj"/>
+    <mesh file="Cup_White_collision_41.obj"/>
+    <mesh file="Cup_White_collision_42.obj"/>
+    <mesh file="Cup_White_collision_43.obj"/>
+    <mesh file="Cup_White_collision_44.obj"/>
+    <mesh file="Cup_White_collision_45.obj"/>
+    <mesh file="Cup_White_collision_46.obj"/>
+    <mesh file="Cup_White_collision_47.obj"/>
+  </asset>
+  <worldbody>
+    <body name="Cup_White">
+      <geom material="Cup_White_Mat" mesh="Cup_White" class="visual"/>
+      <geom mesh="Cup_White_collision_0" rgba="0.52575616637431 0.9374808340350432 0.128013317999786 1" class="collision"/>
+      <geom mesh="Cup_White_collision_1" rgba="0.7380742678381614 0.5776673421183683 0.4539046643269984 1" class="collision"/>
+      <geom mesh="Cup_White_collision_2" rgba="0.8202805697245353 0.6698762595999286 0.5215542384694475 1" class="collision"/>
+      <geom mesh="Cup_White_collision_3" rgba="0.26425903854741806 0.23537561209755586 0.9439476197848067 1" class="collision"/>
+      <geom mesh="Cup_White_collision_4" rgba="0.36959102389669873 0.46191795901681265 0.023372761483462345 1" class="collision"/>
+      <geom mesh="Cup_White_collision_5" rgba="0.22954075089917525 0.5125775173435305 0.5119163143459939 1" class="collision"/>
+      <geom mesh="Cup_White_collision_6" rgba="0.16796989429838904 0.48800075417227506 0.23717065108168545 1" class="collision"/>
+      <geom mesh="Cup_White_collision_7" rgba="0.15102036000909413 0.9382324217202221 0.5135147187482616 1" class="collision"/>
+      <geom mesh="Cup_White_collision_8" rgba="0.45051878801740863 0.7540854344763586 0.28682389671582287 1" class="collision"/>
+      <geom mesh="Cup_White_collision_9" rgba="0.09286766558560977 0.5152769849023997 0.7062305066624246 1" class="collision"/>
+      <geom mesh="Cup_White_collision_10" rgba="0.9990552374879581 0.64218917656052 0.02228190835305821 1" class="collision"/>
+      <geom mesh="Cup_White_collision_11" rgba="0.36181396186935477 0.09355061344767923 0.25562116350181197 1" class="collision"/>
+      <geom mesh="Cup_White_collision_12" rgba="0.10031147902701865 0.3998696460848994 0.8393358682350988 1" class="collision"/>
+      <geom mesh="Cup_White_collision_13" rgba="0.8347862742007054 0.2642288800022402 0.7891569860239974 1" class="collision"/>
+      <geom mesh="Cup_White_collision_14" rgba="0.7715590795777515 0.8187500563334013 0.7991533742217517 1" class="collision"/>
+      <geom mesh="Cup_White_collision_15" rgba="0.8729127537720335 0.24163074872038903 0.047563889931761194 1" class="collision"/>
+      <geom mesh="Cup_White_collision_16" rgba="0.38357419883696675 0.8388738553389807 0.3807620011571181 1" class="collision"/>
+      <geom mesh="Cup_White_collision_17" rgba="0.5646903275567813 0.7219844811996146 0.05448401722740903 1" class="collision"/>
+      <geom mesh="Cup_White_collision_18" rgba="0.7676669237824899 0.4548907792353719 0.7991125893924534 1" class="collision"/>
+      <geom mesh="Cup_White_collision_19" rgba="0.9816153955903684 0.5603855550360415 0.6402890350886914 1" class="collision"/>
+      <geom mesh="Cup_White_collision_20" rgba="0.44295943436434726 0.6674317689517462 0.3250736112414575 1" class="collision"/>
+      <geom mesh="Cup_White_collision_21" rgba="0.3604275260722377 0.7974643151108143 0.7144265963125154 1" class="collision"/>
+      <geom mesh="Cup_White_collision_22" rgba="0.07120284170018853 0.9417395753947636 0.973235632671404 1" class="collision"/>
+      <geom mesh="Cup_White_collision_23" rgba="0.16633818570910996 0.5639458348221253 0.6353910089068092 1" class="collision"/>
+      <geom mesh="Cup_White_collision_24" rgba="0.41436480880771953 0.6467676456475534 0.8754104779601254 1" class="collision"/>
+      <geom mesh="Cup_White_collision_25" rgba="0.06382440592665439 0.06606616242288532 0.11099713573508663 1" class="collision"/>
+      <geom mesh="Cup_White_collision_26" rgba="0.1492241603733102 0.30872726244787674 0.19860504312321303 1" class="collision"/>
+      <geom mesh="Cup_White_collision_27" rgba="0.3471076404895652 0.26616384395618475 0.18635442195628105 1" class="collision"/>
+      <geom mesh="Cup_White_collision_28" rgba="0.767838367179619 0.6694862242212801 0.7781799013142193 1" class="collision"/>
+      <geom mesh="Cup_White_collision_29" rgba="0.002204015302948781 0.2249210929816412 0.2984446606062148 1" class="collision"/>
+      <geom mesh="Cup_White_collision_30" rgba="0.4237201367383382 0.7693853912200584 0.057034937692783005 1" class="collision"/>
+      <geom mesh="Cup_White_collision_31" rgba="0.6712321929407978 0.8386210401574073 0.18037434954486253 1" class="collision"/>
+      <geom mesh="Cup_White_collision_32" rgba="0.5890419763302968 0.5325922698173783 0.9458025075678884 1" class="collision"/>
+      <geom mesh="Cup_White_collision_33" rgba="0.80491334407069 0.6177787115592 0.4129158746099394 1" class="collision"/>
+      <geom mesh="Cup_White_collision_34" rgba="0.6416555828282026 0.7970383750534001 0.5988463877777656 1" class="collision"/>
+      <geom mesh="Cup_White_collision_35" rgba="0.5129298399843933 0.37221280736119444 0.34097147217567203 1" class="collision"/>
+      <geom mesh="Cup_White_collision_36" rgba="0.08579807481837909 0.6174095530726429 0.4670838851159165 1" class="collision"/>
+      <geom mesh="Cup_White_collision_37" rgba="0.5334626887931511 0.3196072709096949 0.3614082225617701 1" class="collision"/>
+      <geom mesh="Cup_White_collision_38" rgba="0.6966095063724708 0.5199111242742511 0.49358401485315195 1" class="collision"/>
+      <geom mesh="Cup_White_collision_39" rgba="0.22914310028593576 0.9893890157994315 0.2880960566543219 1" class="collision"/>
+      <geom mesh="Cup_White_collision_40" rgba="0.41615094664618457 0.0036237109425387715 0.7736585776816695 1" class="collision"/>
+      <geom mesh="Cup_White_collision_41" rgba="0.7511285387942249 0.49567072267577794 0.910042404894403 1" class="collision"/>
+      <geom mesh="Cup_White_collision_42" rgba="0.7193336762201289 0.7839991349145682 0.2567972492553843 1" class="collision"/>
+      <geom mesh="Cup_White_collision_43" rgba="0.5041275684364803 0.962888608674036 0.21699573316042176 1" class="collision"/>
+      <geom mesh="Cup_White_collision_44" rgba="0.0804630593271094 0.5388497109063228 0.9178675765208428 1" class="collision"/>
+      <geom mesh="Cup_White_collision_45" rgba="0.7714038575055558 0.3933296324764012 0.35038507383800865 1" class="collision"/>
+      <geom mesh="Cup_White_collision_46" rgba="0.4295588648830748 0.0013775908171326234 0.16633894083732736 1" class="collision"/>
+      <geom mesh="Cup_White_collision_47" rgba="0.6106677969074223 0.4382263003895155 0.9691213922601181 1" class="collision"/>
+    </body>
+  </worldbody>
+</mujoco>

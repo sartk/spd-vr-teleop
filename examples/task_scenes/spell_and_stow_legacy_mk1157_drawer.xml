@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="spell_and_stow_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="drawer_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" density="0" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="letter_block">
+      <geom type="mesh" contype="0" conaffinity="0" density="0" group="1" />
+    </default>
+    <default class="letter_block_col">
+      <geom type="box" size="0.0127 0.0127 0.0127" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" mass="0.005" group="3" rgba="0 0 0 0" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <texture name="letter_block_tex" type="2d" file="blocks/texture.png" />
+    <material name="letter_block_mat" texture="letter_block_tex" specular="0.3" shininess="0.3" />
+    <mesh name="block_A" file="blocks/block_A.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_B" file="blocks/block_B.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_C" file="blocks/block_C.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_D" file="blocks/block_D.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_E" file="blocks/block_E.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_F" file="blocks/block_F.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_G" file="blocks/block_G.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_H" file="blocks/block_H.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_I" file="blocks/block_I.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_J" file="blocks/block_J.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_K" file="blocks/block_K.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_L" file="blocks/block_L.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_M" file="blocks/block_M.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_N" file="blocks/block_N.obj" scale="0.127 0.127 0.127" />
+    <mesh name="block_O" file="blocks/block_O.obj" scale="0.127 0.127 0.127" />
+    <mesh name="mk1157_counter_collision_01" file="drawer/meshes/mk1157_counter_collision_01.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_02" file="drawer/meshes/mk1157_counter_collision_02.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_03" file="drawer/meshes/mk1157_counter_collision_03.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_04" file="drawer/meshes/mk1157_counter_collision_04.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_05" file="drawer/meshes/mk1157_counter_collision_05.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_06" file="drawer/meshes/mk1157_counter_collision_06.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_counter_collision_07" file="drawer/meshes/mk1157_counter_collision_07.stl" scale="0.4 0.32 0.3" />
+    <mesh name="mk1157_drawer_collision_01" file="drawer/meshes/mk1157_drawer_collision_01.stl" scale="0.368 0.32 0.5" />
+    <mesh name="mk1157_drawer_collision_02" file="drawer/meshes/mk1157_drawer_collision_02.stl" scale="0.368 0.32 0.5" />
+    <mesh name="mk1157_drawer_collision_03" file="drawer/meshes/mk1157_drawer_collision_03.stl" scale="0.368 0.32 0.5" />
+    <mesh name="mk1157_drawer_collision_04" file="drawer/meshes/mk1157_drawer_collision_04.stl" scale="0.368 0.32 0.5" />
+    <mesh name="mk1157_drawer_collision_05" file="drawer/meshes/mk1157_drawer_collision_05.stl" scale="0.368 0.32 0.5" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="drawer_body" pos="0.85 -0.20 0.755" quat="0.65 0 0 -0.7512">
+      <geom type="mesh" name="counter_part_1" rgba="0.85 0.85 0.78 1" mesh="mk1157_counter_collision_01" group="1" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" name="counter_part_2" rgba="0.85 0.85 0.78 1" mesh="mk1157_counter_collision_02" group="1" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" name="counter_part_3" rgba="0.85 0.85 0.78 1" mesh="mk1157_counter_collision_03" group="1" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" name="counter_part_5" rgba="0.85 0.85 0.78 1" mesh="mk1157_counter_collision_05" group="1" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom type="mesh" name="counter_part_6" rgba="0.85 0.85 0.78 1" mesh="mk1157_counter_collision_06" group="1" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <body name="link_top_drawer" pos="0 0 0.204">
+        <joint name="joint_top_drawer" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.2" damping="5" ref="0" />
+        <geom type="sphere" rgba="0.3 0.5 1.0 1" size="0.012" mass="0.005" pos="0.0 -0.112 0" friction="1.2 0.01 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" />
+        <site name="top_drawer_handle" pos="0 -0.115 0" size="0.005 0.005 0.005" rgba="1 .1 .1 .3" group="3" />
+        <geom type="mesh" rgba="0.3 0.5 1.0 1" mesh="mk1157_drawer_collision_01" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.5 1.0 1" mesh="mk1157_drawer_collision_02" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.5 1.0 1" mesh="mk1157_drawer_collision_03" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.5 1.0 1" mesh="mk1157_drawer_collision_04" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.5 1.0 1" mesh="mk1157_drawer_collision_05" group="1" density="200" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      </body>
+      <body name="link_middle_drawer" pos="0 0 0.12">
+        <joint name="joint_middle_drawer" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.2" damping="5" ref="0" />
+        <geom type="sphere" rgba="0.7 0.3 0.9 1" size="0.012" mass="0.005" pos="0.0 -0.112 0" friction="1.2 0.01 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" />
+        <site name="middle_drawer_handle" pos="0 -0.115 0" size="0.005 0.005 0.005" rgba="1 .1 .1 .3" group="3" />
+        <geom type="mesh" rgba="0.7 0.3 0.9 1" mesh="mk1157_drawer_collision_01" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.7 0.3 0.9 1" mesh="mk1157_drawer_collision_02" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.7 0.3 0.9 1" mesh="mk1157_drawer_collision_03" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.7 0.3 0.9 1" mesh="mk1157_drawer_collision_04" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.7 0.3 0.9 1" mesh="mk1157_drawer_collision_05" group="1" density="200" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      </body>
+      <body name="link_bottom_drawer" pos="0 0 0.036">
+        <joint name="joint_bottom_drawer" pos="0 0 0" axis="0 -1 0" type="slide" range="0 0.2" damping="5" ref="0" />
+        <geom type="sphere" rgba="0.3 0.85 0.4 1" size="0.012" mass="0.005" pos="0.0 -0.112 0" friction="1.2 0.01 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" />
+        <site name="bottom_drawer_handle" pos="0 -0.115 0" size="0.005 0.005 0.005" rgba="1 .1 .1 .3" group="3" />
+        <geom type="mesh" rgba="0.3 0.85 0.4 1" mesh="mk1157_drawer_collision_01" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.85 0.4 1" mesh="mk1157_drawer_collision_02" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.85 0.4 1" mesh="mk1157_drawer_collision_03" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.85 0.4 1" mesh="mk1157_drawer_collision_04" group="1" mass="0.01" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+        <geom type="mesh" rgba="0.3 0.85 0.4 1" mesh="mk1157_drawer_collision_05" group="1" density="200" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      </body>
+    </body>
+    <body name="block_A" pos="0.500 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_A_jnt" />
+      <geom name="block_A_vis" mesh="block_A" material="letter_block_mat" class="letter_block" />
+      <geom name="block_A_col" class="letter_block_col" />
+    </body>
+    <body name="block_B" pos="0.500 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_B_jnt" />
+      <geom name="block_B_vis" mesh="block_B" material="letter_block_mat" class="letter_block" />
+      <geom name="block_B_col" class="letter_block_col" />
+    </body>
+    <body name="block_C" pos="0.500 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_C_jnt" />
+      <geom name="block_C_vis" mesh="block_C" material="letter_block_mat" class="letter_block" />
+      <geom name="block_C_col" class="letter_block_col" />
+    </body>
+    <body name="block_D" pos="0.620 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_D_jnt" />
+      <geom name="block_D_vis" mesh="block_D" material="letter_block_mat" class="letter_block" />
+      <geom name="block_D_col" class="letter_block_col" />
+    </body>
+    <body name="block_E" pos="0.620 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_E_jnt" />
+      <geom name="block_E_vis" mesh="block_E" material="letter_block_mat" class="letter_block" />
+      <geom name="block_E_col" class="letter_block_col" />
+    </body>
+    <body name="block_F" pos="0.620 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_F_jnt" />
+      <geom name="block_F_vis" mesh="block_F" material="letter_block_mat" class="letter_block" />
+      <geom name="block_F_col" class="letter_block_col" />
+    </body>
+    <body name="block_G" pos="0.380 0.320 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_G_jnt" />
+      <geom name="block_G_vis" mesh="block_G" material="letter_block_mat" class="letter_block" />
+      <geom name="block_G_col" class="letter_block_col" />
+    </body>
+    <body name="block_H" pos="0.380 0.200 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_H_jnt" />
+      <geom name="block_H_vis" mesh="block_H" material="letter_block_mat" class="letter_block" />
+      <geom name="block_H_col" class="letter_block_col" />
+    </body>
+    <body name="block_I" pos="0.380 0.080 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_I_jnt" />
+      <geom name="block_I_vis" mesh="block_I" material="letter_block_mat" class="letter_block" />
+      <geom name="block_I_col" class="letter_block_col" />
+    </body>
+    <body name="block_J" pos="0.500 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_J_jnt" />
+      <geom name="block_J_vis" mesh="block_J" material="letter_block_mat" class="letter_block" />
+      <geom name="block_J_col" class="letter_block_col" />
+    </body>
+    <body name="block_K" pos="0.620 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_K_jnt" />
+      <geom name="block_K_vis" mesh="block_K" material="letter_block_mat" class="letter_block" />
+      <geom name="block_K_col" class="letter_block_col" />
+    </body>
+    <body name="block_L" pos="0.380 -0.040 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_L_jnt" />
+      <geom name="block_L_vis" mesh="block_L" material="letter_block_mat" class="letter_block" />
+      <geom name="block_L_col" class="letter_block_col" />
+    </body>
+    <body name="block_M" pos="0.500 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_M_jnt" />
+      <geom name="block_M_vis" mesh="block_M" material="letter_block_mat" class="letter_block" />
+      <geom name="block_M_col" class="letter_block_col" />
+    </body>
+    <body name="block_N" pos="0.620 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_N_jnt" />
+      <geom name="block_N_vis" mesh="block_N" material="letter_block_mat" class="letter_block" />
+      <geom name="block_N_col" class="letter_block_col" />
+    </body>
+    <body name="block_O" pos="0.380 -0.160 0.760" quat="0.707 0 0.707 0">
+      <freejoint name="block_O_jnt" />
+      <geom name="block_O_vis" mesh="block_O" material="letter_block_mat" class="letter_block" />
+      <geom name="block_O_col" class="letter_block_col" />
+    </body>
+  </worldbody>
+</mujoco>

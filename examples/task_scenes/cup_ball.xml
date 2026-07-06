@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="cup_ball_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <!-- 3-6 cups and a ball are attached at compile time by
+       variant_pools.attach_chosen_variants / the "cup_ball" branch of
+       pools_for. The worldbody is intentionally empty so the variant slots
+       are the only objects. -->
+  <worldbody />
+</mujoco>

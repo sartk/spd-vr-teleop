@@ -1,0 +1,456 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="cleanup_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <default>
+    <default class="yam">
+      <position inheritrange="1" />
+      <joint frictionloss="0.1" axis="0 0 1" />
+      <default class="dm4340">
+        <joint armature="0.032" />
+        <position kp="40" kv="2.5" forcerange="-28 28" />
+      </default>
+      <default class="dm4310">
+        <joint armature="0.0018" />
+        <position kp="10" kv="1" forcerange="-10 10" />
+      </default>
+      <default class="visual">
+        <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" material="black" />
+      </default>
+      <default class="collision">
+        <geom group="3" type="capsule" friction="2.0 0.1 0.01" condim="4" />
+        <default class="sphere_collision">
+          <geom size="0.0006 0 0" type="sphere" rgba="1 0 0 1" friction="4.0 0.1 0.01" condim="4" solimp="0.998 0.998 0.001" solref="0.004 1" priority="2" />
+        </default>
+      </default>
+      <default class="finger">
+        <joint type="slide" armature="0.1" frictionloss="0.1" />
+        <position ctrlrange="0.0 0.0495" kp="400" kv="14" inheritrange="0" />
+      </default>
+    </default>
+    <default class="sweep_tool">
+      <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" />
+    </default>
+    <default class="sweep_tool_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="3" density="0" rgba="0.0 0.85 1.0 0.35" />
+    </default>
+    <default class="sweep_pan_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" group="3" density="0" rgba="0.2 0.45 1.0 0.28" priority="1" />
+    </default>
+    <default class="dustpan_pan_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" group="3" density="0" rgba="1.0 0.35 0.0 0.32" priority="1" />
+    </default>
+    <default class="trash_paper_vis">
+      <geom type="mesh" contype="0" conaffinity="0" density="0" group="2" />
+    </default>
+    <default class="trash_paper_col">
+      <geom type="mesh" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" group="3" density="100" rgba="1.0 0.85 0.0 0.42" priority="1" />
+    </default>
+    <default class="CMC_joint">
+      <joint armature="0.0032" damping="4.20E-05" frictionloss="0.132" />
+    </default>
+    <default class="PCMC_joint">
+      <joint armature="0.00012" damping="4.20E-05" frictionloss="0.012" />
+    </default>
+    <default class="MCP_joint">
+      <joint armature="0.00265" damping="2.38E-05" frictionloss="0.07456" />
+    </default>
+    <default class="PIP_joint">
+      <joint armature="0.0006" damping="4.06E-06" frictionloss="0.01276" />
+    </default>
+    <default class="DIP_joint">
+      <joint armature="0.00042" damping="1.21E-06" frictionloss="0.00378738" />
+    </default>
+    <default class="elastomer_geom">
+      <geom solref="0.004 1" friction="3.0 0.1 0.01" priority="2" condim="4" />
+    </default>
+    <default class="hand_bone">
+      <geom friction="1.8 0.03 0.003" priority="2" condim="4" />
+    </default>
+  </default>
+  <contact>
+    <exclude body1="right_hand_C_MC" body2="right_thumb_CMC_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_hand_C_MC" />
+    <exclude body1="right_hand_C_MC" body2="right_thumb_MC" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_MCP_VL" />
+    <exclude body1="right_thumb_MC" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_MCP_VL" body2="right_thumb_PP" />
+    <exclude body1="right_thumb_PP" body2="right_thumb_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_index_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_index_PP" />
+    <exclude body1="right_index_MCP_VL" body2="right_index_PP" />
+    <exclude body1="right_index_PP" body2="right_index_MP" />
+    <exclude body1="right_index_MP" body2="right_index_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_middle_PP" />
+    <exclude body1="right_middle_MCP_VL" body2="right_middle_PP" />
+    <exclude body1="right_middle_PP" body2="right_middle_MP" />
+    <exclude body1="right_middle_MP" body2="right_middle_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_MCP_VL" />
+    <exclude body1="right_hand_C_MC" body2="right_ring_PP" />
+    <exclude body1="right_ring_MCP_VL" body2="right_ring_PP" />
+    <exclude body1="right_ring_PP" body2="right_ring_MP" />
+    <exclude body1="right_ring_MP" body2="right_ring_DP" />
+    <exclude body1="right_hand_C_MC" body2="right_pinky_MC" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_MCP_VL" />
+    <exclude body1="right_pinky_MC" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_MCP_VL" body2="right_pinky_PP" />
+    <exclude body1="right_pinky_PP" body2="right_pinky_MP" />
+    <exclude body1="right_pinky_MP" body2="right_pinky_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_CMC_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_hand_C_MC" />
+    <exclude body1="left_hand_C_MC" body2="left_thumb_MC" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_MCP_VL" />
+    <exclude body1="left_thumb_MC" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_MCP_VL" body2="left_thumb_PP" />
+    <exclude body1="left_thumb_PP" body2="left_thumb_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_index_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_index_PP" />
+    <exclude body1="left_index_MCP_VL" body2="left_index_PP" />
+    <exclude body1="left_index_PP" body2="left_index_MP" />
+    <exclude body1="left_index_MP" body2="left_index_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_middle_PP" />
+    <exclude body1="left_middle_MCP_VL" body2="left_middle_PP" />
+    <exclude body1="left_middle_PP" body2="left_middle_MP" />
+    <exclude body1="left_middle_MP" body2="left_middle_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_MCP_VL" />
+    <exclude body1="left_hand_C_MC" body2="left_ring_PP" />
+    <exclude body1="left_ring_MCP_VL" body2="left_ring_PP" />
+    <exclude body1="left_ring_PP" body2="left_ring_MP" />
+    <exclude body1="left_ring_MP" body2="left_ring_DP" />
+    <exclude body1="left_hand_C_MC" body2="left_pinky_MC" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_MCP_VL" />
+    <exclude body1="left_pinky_MC" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_MCP_VL" body2="left_pinky_PP" />
+    <exclude body1="left_pinky_PP" body2="left_pinky_MP" />
+    <exclude body1="left_pinky_MP" body2="left_pinky_DP" />
+  </contact>
+  <asset>
+    <texture name="garbage_can_tex" type="2d" file="garbage_can/material_0.png" />
+    <material name="garbage_can_mat" rgba="0.1 0.1 0.25 1" specular="0.3" shininess="0.2" />
+    <mesh name="garbage_can_vis" file="garbage_can/garbage_can.obj" scale="0.48 0.48 0.48" />
+    <mesh name="garbage_can_inner" file="garbage_can/garbage_can_inner.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col0" file="garbage_can/garbage_can_collision_0.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col1" file="garbage_can/garbage_can_collision_1.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col2" file="garbage_can/garbage_can_collision_2.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col3" file="garbage_can/garbage_can_collision_3.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col4" file="garbage_can/garbage_can_collision_4.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col5" file="garbage_can/garbage_can_collision_5.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col6" file="garbage_can/garbage_can_collision_6.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col7" file="garbage_can/garbage_can_collision_7.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col8" file="garbage_can/garbage_can_collision_8.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col9" file="garbage_can/garbage_can_collision_9.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col10" file="garbage_can/garbage_can_collision_10.obj" scale="0.48 0.48 0.48" />
+    <mesh name="gc_col11" file="garbage_can/garbage_can_collision_11.obj" scale="0.48 0.48 0.48" />
+    <material name="brush_handle_mat" rgba="0.523 0.311 0.200 1" specular="0.5" shininess="0.25" />
+    <texture name="bristle_tex" type="2d" file="brush_flat/bristles.png" />
+    <material name="brush_bristle_mat" texture="bristle_tex" specular="0.2" shininess="0.05" />
+    <mesh name="brush_handle" file="brush_flat/brush_material.obj" scale="0.084 0.042 0.042" />
+    <mesh name="brush_bristles" file="brush_flat/brush_material_003.obj" scale="0.084 0.042 0.042" />
+    <mesh name="brush_col0" file="brush_flat/brush_flat_collision_0.obj" scale="0.084 0.042 0.042" />
+    <mesh name="brush_col1" file="brush_flat/brush_flat_collision_1.obj" scale="0.084 0.042 0.042" />
+    <texture name="dustpan_tex" type="2d" file="dustpan/tex.png" />
+    <material name="dustpan_mat" texture="dustpan_tex" specular="0.5" shininess="0.5" />
+    <mesh name="dustpan_vis" file="dustpan/dustpan_0.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col0" file="dustpan/dustpan_collision_0.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col1" file="dustpan/dustpan_collision_1.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col2" file="dustpan/dustpan_collision_2.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col3" file="dustpan/dustpan_collision_3.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col4" file="dustpan/dustpan_collision_4.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col5" file="dustpan/dustpan_collision_5.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col6" file="dustpan/dustpan_collision_6.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col7" file="dustpan/dustpan_collision_7.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col8" file="dustpan/dustpan_collision_8.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col9" file="dustpan/dustpan_collision_9.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col10" file="dustpan/dustpan_collision_10.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col11" file="dustpan/dustpan_collision_11.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col12" file="dustpan/dustpan_collision_12.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col13" file="dustpan/dustpan_collision_13.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col14" file="dustpan/dustpan_collision_14.obj" scale="0.099 0.099 0.099" />
+    <mesh name="dustpan_col15" file="dustpan/dustpan_collision_15.obj" scale="0.099 0.099 0.099" />
+    <material name="trash_1_mat" rgba="0.30 0.30 0.30 1" specular="0.02" shininess="0.02" />
+    <material name="trash_2_mat" rgba="0.38 0.34 0.30 1" specular="0.02" shininess="0.02" />
+    <material name="trash_3_mat" rgba="0.50 0.40 0.31 1" specular="0.02" shininess="0.02" />
+    <material name="trash_4_mat" rgba="0.58 0.50 0.36 1" specular="0.02" shininess="0.02" />
+    <material name="trash_5_mat" rgba="0.34 0.30 0.25 1" specular="0.02" shininess="0.02" />
+    <material name="trash_6_mat" rgba="0.45 0.41 0.35 1" specular="0.02" shininess="0.02" />
+    <material name="trash_7_mat" rgba="0.33 0.36 0.42 1" specular="0.02" shininess="0.02" />
+    <mesh name="trash_paper_vis_mesh" file="paper_ball/paper_ball.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col0" file="paper_ball/paper_ball_collision_0.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col1" file="paper_ball/paper_ball_collision_1.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col2" file="paper_ball/paper_ball_collision_2.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col3" file="paper_ball/paper_ball_collision_3.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col4" file="paper_ball/paper_ball_collision_4.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col5" file="paper_ball/paper_ball_collision_5.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col6" file="paper_ball/paper_ball_collision_6.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col7" file="paper_ball/paper_ball_collision_7.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col8" file="paper_ball/paper_ball_collision_8.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col9" file="paper_ball/paper_ball_collision_9.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col10" file="paper_ball/paper_ball_collision_10.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col11" file="paper_ball/paper_ball_collision_11.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col12" file="paper_ball/paper_ball_collision_12.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col13" file="paper_ball/paper_ball_collision_13.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col14" file="paper_ball/paper_ball_collision_14.obj" scale="0.016 0.016 0.016" />
+    <mesh name="trash_paper_col15" file="paper_ball/paper_ball_collision_15.obj" scale="0.016 0.016 0.016" />
+    <material name="tray_blue" specular="0.5" shininess="0.5" rgba="0.0 0.188 1.0 1.0" />
+    <mesh name="tray_vis" file="tray/plastic_tray.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_0" file="tray/plastic_tray_collision_0.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_1" file="tray/plastic_tray_collision_1.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_2" file="tray/plastic_tray_collision_2.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_3" file="tray/plastic_tray_collision_3.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_4" file="tray/plastic_tray_collision_4.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_5" file="tray/plastic_tray_collision_5.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_6" file="tray/plastic_tray_collision_6.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_7" file="tray/plastic_tray_collision_7.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_8" file="tray/plastic_tray_collision_8.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_9" file="tray/plastic_tray_collision_9.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_10" file="tray/plastic_tray_collision_10.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_11" file="tray/plastic_tray_collision_11.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_12" file="tray/plastic_tray_collision_12.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_13" file="tray/plastic_tray_collision_13.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_14" file="tray/plastic_tray_collision_14.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_15" file="tray/plastic_tray_collision_15.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_16" file="tray/plastic_tray_collision_16.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_17" file="tray/plastic_tray_collision_17.obj" scale="0.7 0.7 0.7" />
+    <mesh name="tray_col_18" file="tray/plastic_tray_collision_18.obj" scale="0.7 0.7 0.7" />
+    <texture type="skybox" builtin="gradient" rgb1="1.0 1.0 1.0" rgb2="0.98 0.98 0.98" width="512" height="3072" />
+  </asset>
+  <worldbody>
+    <body name="brush" pos="0.60 0.20 0.77" quat="0 -0.707 0 0.707">
+      <freejoint name="brush_jnt" />
+      <geom name="brush_bristle_vis" type="mesh" mesh="brush_bristles" material="brush_handle_mat" contype="0" conaffinity="0" density="0" group="2" mass="0.010" />
+      <!-- Composed primitive visual for the handle (replaces the original
+           flat-bar mesh). Shaft capsule along body-local +Y, a small end
+           knob on the far end, and a darker ferrule where the handle meets
+           the bristles. The handle_grip collision below uses the same
+           shaft so visual and physical agree. -->
+      <geom name="brush_handle_shaft_vis" type="capsule" size="0.018" fromto="0 -0.150 0 0 -0.065 0" material="brush_bristle_mat" contype="0" conaffinity="0" density="0" group="2" />
+      <geom name="brush_handle_knob_vis" type="sphere" size="0.022" pos="0 -0.155 0" material="brush_bristle_mat" contype="0" conaffinity="0" density="0" group="2" />
+      <geom name="brush_handle_ferrule_vis" type="cylinder" size="0.020 0.006" pos="0 -0.054 0" euler="1.5708 0 0" rgba="0.25 0.16 0.10 1" contype="0" conaffinity="0" density="0" group="2" />
+      <geom mesh="brush_col0" class="sweep_tool_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="brush_col1" class="sweep_tool_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom name="brush_handle_grip" type="capsule" size="0.018" fromto="0 -0.155 0 0 -0.055 0" condim="4" friction="1.2 0.01 0.001" priority="1" solref="0.002 1" solimp="0.998 0.998 0.001" group="3" rgba="0.0 1.0 0.35 0.45" />
+    </body>
+    <body name="tray" pos="0.50 0.25 0.76">
+      <freejoint name="tray_jnt" />
+      <geom name="tray_vis" type="mesh" mesh="tray_vis" material="tray_blue" contype="0" conaffinity="0" group="2" mass="0.20" />
+      <geom mesh="tray_col_0" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_1" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_2" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_3" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_4" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_5" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_6" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_7" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_8" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_9" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_10" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_11" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_12" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_13" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_14" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_15" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_16" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_17" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="tray_col_18" type="mesh" group="3" rgba="0 0 0 0" condim="6" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="bin_container" pos="0.75 0.0 0.83" quat="0.707 0.707 0 0">
+      <freejoint name="bin_joint" />
+      <geom name="gc_vis" type="mesh" mesh="garbage_can_vis" material="garbage_can_mat" contype="0" conaffinity="0" group="2" density="0" mass="0.15" />
+      <geom name="gc_inner" type="mesh" mesh="garbage_can_inner" material="garbage_can_mat" contype="0" conaffinity="0" group="2" density="0" />
+      <geom mesh="gc_col0" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col1" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col2" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col3" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col4" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col5" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col6" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col7" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col8" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col9" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col10" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="gc_col11" class="sweep_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="dustpan" pos="0.80 -0.23 0.80" quat="0.707 0.707 0 0">
+      <freejoint name="dustpan_jnt" />
+      <geom name="dustpan_vis" mesh="dustpan_vis" material="dustpan_mat" class="sweep_tool" mass="0.04" />
+      <geom mesh="dustpan_col0" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col1" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col2" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col3" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col4" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col5" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col6" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col7" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col8" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col9" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col10" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col11" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col12" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col13" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col14" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="dustpan_col15" class="dustpan_pan_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom name="dustpan_handle_grip" type="box" size="0.012 0.007 0.035" pos="0 0.023 -0.105" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" density="0" group="3" rgba="0.0 1.0 0.35 0.45" priority="1" />
+    </body>
+    <body name="trash_1" pos="0.55 0.05 0.76">
+      <freejoint name="trash_1_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_1_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_2" pos="0.60 -0.10 0.76">
+      <freejoint name="trash_2_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_2_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_3" pos="0.67 0.05 0.76">
+      <freejoint name="trash_3_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_3_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_4" pos="0.64 -0.02 0.76">
+      <freejoint name="trash_4_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_4_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_5" pos="0.71 0.13 0.76">
+      <freejoint name="trash_5_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_5_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_6" pos="0.73 -0.10 0.76">
+      <freejoint name="trash_6_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_6_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="trash_7" pos="0.57 -0.16 0.76">
+      <freejoint name="trash_7_jnt" />
+      <geom mesh="trash_paper_vis_mesh" material="trash_7_mat" class="trash_paper_vis" />
+      <geom mesh="trash_paper_col0" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col1" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col2" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col3" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col4" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col5" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col6" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col7" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col8" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col9" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col10" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col11" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col12" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col13" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col14" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom mesh="trash_paper_col15" class="trash_paper_col" group="3" condim="4" friction="1.2 0.01 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="bottle_0" pos="0.50 0.42 0.78" quat="0.707 0 0.707 0">
+      <freejoint name="bottle_0_joint" />
+      <geom name="bottle_0_body" type="cylinder" size="0.027 0.07" pos="0 0 0" rgba="0.3 0.7 0.2 1" mass="0.030" friction="1.2 0.05 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="1" />
+      <geom name="bottle_0_neck" type="cylinder" size="0.011 0.015" pos="0 0 0.085" rgba="0.35 0.75 0.25 1" mass="0.005" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom name="bottle_0_cap" type="cylinder" size="0.013 0.007" pos="0 0 0.107" rgba="0.2 0.6 0.15 1" mass="0.004" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="bottle_1" pos="0.48 -0.40 0.78" quat="0.707 0 0.707 0">
+      <freejoint name="bottle_1_joint" />
+      <geom name="bottle_1_body" type="cylinder" size="0.027 0.07" pos="0 0 0" rgba="0.2 0.3 0.9 1" mass="0.030" friction="1.2 0.05 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="1" />
+      <geom name="bottle_1_neck" type="cylinder" size="0.011 0.015" pos="0 0 0.085" rgba="0.25 0.35 0.95 1" mass="0.005" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom name="bottle_1_cap" type="cylinder" size="0.013 0.007" pos="0 0 0.107" rgba="0.15 0.2 0.8 1" mass="0.004" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <body name="bottle_2" pos="0.62 0.50 0.78" quat="0.707 0 0.707 0">
+      <freejoint name="bottle_2_joint" />
+      <geom name="bottle_2_body" type="cylinder" size="0.027 0.07" pos="0 0 0" rgba="0.95 0.6 0.1 1" mass="0.030" friction="1.2 0.05 0.001" condim="4" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" group="1" />
+      <geom name="bottle_2_neck" type="cylinder" size="0.011 0.015" pos="0 0 0.085" rgba="0.98 0.65 0.15 1" mass="0.005" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+      <geom name="bottle_2_cap" type="cylinder" size="0.013 0.007" pos="0 0 0.107" rgba="0.9 0.5 0.05 1" mass="0.004" group="1" condim="4" friction="1.2 0.05 0.001" solref="0.002 1" solimp="0.998 0.998 0.001" priority="1" />
+    </body>
+    <geom type="mesh" contype="0" conaffinity="0" group="2" density="0" rgba="0.60 0.62 0.68 1" mesh="base_visual_gate" />
+    <geom size="0.2975 0.65 0.375" pos="0 0 0.375" type="box" group="3" rgba="1 0 0 0.0" />
+  </worldbody>
+</mujoco>

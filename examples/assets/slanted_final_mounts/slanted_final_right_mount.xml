@@ -1,0 +1,24 @@
+<mujoco model="slanted_final_right_mount">
+  <compiler angle="radian"/>
+
+  <default>
+    <default class="visual">
+      <geom type="mesh" group="2" contype="0" conaffinity="0" density="0"/>
+    </default>
+    <default class="collision">
+      <geom type="mesh" group="3" contype="1" conaffinity="1" solref="0.002 1" solimp="0.999 0.999 0.001"/>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="slanted_final_right_mount" file="slanted_final_right_mount.stl"/>
+  </asset>
+
+  <worldbody>
+    <body name="slanted_final_right_mount">
+      <freejoint/>
+      <geom name="slanted_final_right_mount_visual" mesh="slanted_final_right_mount" class="visual" rgba="0.72 0.73 0.76 1"/>
+      <geom name="slanted_final_right_mount_collision" mesh="slanted_final_right_mount" class="collision" rgba="0.72 0.73 0.76 0.35"/>
+    </body>
+  </worldbody>
+</mujoco>

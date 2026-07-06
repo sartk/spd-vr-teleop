@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="hang_mugs_task">
+  <compiler angle="radian" meshdir="../assets" texturedir="../assets" />
+  <!-- All bodies (mug tree + 2 mugs) are attached at compile time by
+       variant_pools.HANG_MUGS_POOLS. The worldbody is intentionally
+       empty so the variant slots are the only objects. -->
+  <worldbody />
+</mujoco>

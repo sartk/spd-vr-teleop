@@ -1,0 +1,150 @@
+{
+    "command": "VRStreamerConfig(builder=BuildSceneConfig(scene_type='bottles_in_bin', arm_type='yam_ultra', end_effector='sharpa', actuator_mode='position', hand_scale=0.9, ik_ori_weight=5.0, finger_control='shadow', wrist_control='hybrid_weld', walls=True, wall_opacity=0.2, safe_joint_ranges=False, table_height_offset=0.02921, selected_variants=None, sharpa_visual_mesh_quality='standard'), domain_randomization={'enabled': True, 'tree': {'actions': [], 'children': []}, 'settle': {'seconds': 0.5}, 'start_modes': {'scattered': {'probability': 1.0, 'settle': {'seconds': 0.3}, 'tree': {'actions': []}}}, 'variant_pools': {'chosen_variants': {'bottles_in_bin_bin': 0, 'bottles_in_bin_bottle_0': 11, 'bottles_in_bin_bottle_1': 5, 'bottles_in_bin_bottle_2': 18, 'bottles_in_bin_bottle_3': 14, 'bottles_in_bin_bottle_4': 14}}}, port=8012, left_leader='left', right_leader='right', control_rate=60.0, physics_rate=480.0, stream_rate=60.0, record_rate=None, collision_mode=False, hand_skeleton=False, ik_mode=True, ik_workers_per_arm=2, shadow_workers_per_hand=1, wrist_hybrid_label_horizon=4, weld_enter_thresh=0.03, arm_ik_backend='mink', arm_ik_urdf='mujoco_vr_teleop/urdf/yam_ultra_arm_kinematics.urdf', arm_ik_target_link='sharpa_palm_site_frame', ik_rot_correction=None, ik_side_rot_correction_right=None, ik_side_rot_correction_left=None, ik_smoothing=0.95, ik_ori_weight=5.0, mink_solver='daqp', mink_iterations=4, mink_gain=0.2, mink_max_velocity=3.0, mink_max_joint_delta=0.12, mink_limit_margin=0.1, mink_limit_gain=0.5, mink_posture_cost=0.005, pyroki_max_velocity=3.0, pyroki_max_joint_delta=0.12, pyroki_limit_margin=0.1, shadow_hand_right='examples/sharpa_right_floating.xml', shadow_hand_left='examples/sharpa_left_floating.xml', shadow_welds=('fingertip', 'distal', 'intermediate', 'proximal'), joint_ik_xml_right=None, joint_ik_xml_left=None, scene_pos=(0.0, 0.2, 0.2), vr_pos=(0.0, 0.0, 0.0), vr_target=(0.0, 0.75, 0.0), output_dir='data', session_name='default', record_delay=0.5, arm_opacity=0.1, mode='collector')",
+    "episode_index": 0,
+    "frame_keys": [
+        "mocap_pos",
+        "mocap_quat",
+        "qpos",
+        "qvel",
+        "ctrl",
+        "sensordata",
+        "site_xpos",
+        "site_xmat"
+    ],
+    "git_commit": "d139b67e2425cfc05fbcff922e62334a4cd2a32e",
+    "head_clip": 10,
+    "replay_config": "replay_config.json",
+    "save_time": "2026-05-18T06:54:30.572991",
+    "scene_xml": "yam_ultra_bottles_in_bin_walls_hybridweld_sharpa_position_ag1p0_eg1p0.xml",
+    "streamer_config": {
+        "config": {
+            "arm_ik_backend": "mink",
+            "arm_ik_target_link": "sharpa_palm_site_frame",
+            "arm_ik_urdf": "mujoco_vr_teleop/urdf/yam_ultra_arm_kinematics.urdf",
+            "arm_opacity": 0.1,
+            "builder": {
+                "actuator_mode": "position",
+                "arm_type": "yam_ultra",
+                "end_effector": "sharpa",
+                "finger_control": "shadow",
+                "hand_scale": 0.9,
+                "ik_ori_weight": 5.0,
+                "safe_joint_ranges": false,
+                "scene_type": "bottles_in_bin",
+                "selected_variants": null,
+                "sharpa_visual_mesh_quality": "standard",
+                "table_height_offset": 0.02921,
+                "wall_opacity": 0.2,
+                "walls": true,
+                "wrist_control": "hybrid_weld"
+            },
+            "collision_mode": false,
+            "control_rate": 60.0,
+            "domain_randomization": {
+                "enabled": true,
+                "settle": {
+                    "seconds": 0.5
+                },
+                "start_modes": {
+                    "scattered": {
+                        "probability": 1.0,
+                        "settle": {
+                            "seconds": 0.3
+                        },
+                        "tree": {
+                            "actions": []
+                        }
+                    }
+                },
+                "tree": {
+                    "actions": [],
+                    "children": []
+                },
+                "variant_pools": {
+                    "chosen_variants": {
+                        "bottles_in_bin_bin": 0,
+                        "bottles_in_bin_bottle_0": 11,
+                        "bottles_in_bin_bottle_1": 5,
+                        "bottles_in_bin_bottle_2": 18,
+                        "bottles_in_bin_bottle_3": 14,
+                        "bottles_in_bin_bottle_4": 14
+                    }
+                }
+            },
+            "hand_skeleton": false,
+            "ik_mode": true,
+            "ik_ori_weight": 5.0,
+            "ik_rot_correction": null,
+            "ik_side_rot_correction_left": null,
+            "ik_side_rot_correction_right": null,
+            "ik_smoothing": 0.95,
+            "ik_workers_per_arm": 2,
+            "joint_ik_xml_left": null,
+            "joint_ik_xml_right": null,
+            "left_leader": "left",
+            "mink_gain": 0.2,
+            "mink_iterations": 4,
+            "mink_limit_gain": 0.5,
+            "mink_limit_margin": 0.1,
+            "mink_max_joint_delta": 0.12,
+            "mink_max_velocity": 3.0,
+            "mink_posture_cost": 0.005,
+            "mink_solver": "daqp",
+            "mode": "collector",
+            "output_dir": "data",
+            "physics_rate": 480.0,
+            "port": 8012,
+            "pyroki_limit_margin": 0.1,
+            "pyroki_max_joint_delta": 0.12,
+            "pyroki_max_velocity": 3.0,
+            "record_delay": 0.5,
+            "record_rate": null,
+            "right_leader": "right",
+            "scene_pos": [
+                0.0,
+                0.2,
+                0.2
+            ],
+            "session_name": "default",
+            "shadow_hand_left": "examples/sharpa_left_floating.xml",
+            "shadow_hand_right": "examples/sharpa_right_floating.xml",
+            "shadow_welds": [
+                "fingertip",
+                "distal",
+                "intermediate",
+                "proximal"
+            ],
+            "shadow_workers_per_hand": 1,
+            "stream_rate": 60.0,
+            "vr_pos": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "vr_target": [
+                0.0,
+                0.75,
+                0.0
+            ],
+            "weld_enter_thresh": 0.03,
+            "wrist_hybrid_label_horizon": 4
+        },
+        "git_commit": "d139b67e2425cfc05fbcff922e62334a4cd2a32e"
+    },
+    "task": {
+        "difficulty": "hard",
+        "instruction": "Toss every bottle into the bin.",
+        "interrupted": true,
+        "parameters": {
+            "target_duration_s": 180.0
+        },
+        "skill": "bimanual toss",
+        "task_id": "bottles_in_bin/toss_in_bin",
+        "task_index": 0,
+        "template": "",
+        "title": "Toss the bottles in the bin",
+        "total_tasks": 1
+    },
+    "task_prompt": "Toss every bottle into the bin.",
+    "trajectory_length": 596
+}

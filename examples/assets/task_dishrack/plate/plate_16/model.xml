@@ -1,0 +1,36 @@
+<mujoco model="plate_10">
+  <asset>
+    <mesh file="visual/model_normalized_0.obj" name="model_normalized_0_vis" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <texture type="2d" name="image0" file="visual/image0.png" />
+    <material name="defaultMat.035" texture="image0" specular="0.5" shininess="0.800356625" />
+    <mesh file="collision/model_collision_0.obj" name="model_collision_0" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_1.obj" name="model_collision_1" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_2.obj" name="model_collision_2" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_3.obj" name="model_collision_3" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_4.obj" name="model_collision_4" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_5.obj" name="model_collision_5" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_6.obj" name="model_collision_6" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_7.obj" name="model_collision_7" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_8.obj" name="model_collision_8" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_9.obj" name="model_collision_9" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_10.obj" name="model_collision_10" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_11.obj" name="model_collision_11" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_12.obj" name="model_collision_12" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_13.obj" name="model_collision_13" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_14.obj" name="model_collision_14" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+    <mesh file="collision/model_collision_15.obj" name="model_collision_15" scale="0.185 0.185 0.185" refquat="0.7397248827654451 0.5594849272637079 -0.29905092401907074 0.2243930899687281" />
+  </asset>
+  <default>
+    <default class="region">
+      <geom group="1" conaffinity="0" contype="0" rgba="0 1 0 0" />
+    </default>
+  </default>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom density="0" type="mesh" mesh="model_normalized_0_vis" conaffinity="0" contype="0" group="2" material="defaultMat.035" mass="0.18" />
+        <geom class="region" name="reg_bbox" type="box" pos="-0.00015597795692112308 -7.656947075153048e-05 -0.005287543601466518" size="0.09504878174901156 0.09418715387715267 0.02792947533870042" />
+        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_0"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_1"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_2"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_3"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_4"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_5"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_6"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_7"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_8"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_9"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_10"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_11"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_12"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_13"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_14"  condim="4"/>        <geom density="0" friction="1.2 0.1 0.001" type="mesh" group="3" rgba="0 0 0 0" mesh="model_collision_15"  condim="4"/>      </body>
+    </body>
+  </worldbody>
+</mujoco>

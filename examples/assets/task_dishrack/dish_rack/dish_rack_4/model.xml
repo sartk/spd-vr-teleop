@@ -1,0 +1,135 @@
+<mujoco model="model">
+  <option timestep="0.002" gravity="0.0 0.0 -9.81" />
+  <compiler angle="radian" />
+  <asset>
+    <mesh file="visual/DishRack030.obj" name="DishRack030_vis" scale="0.8 0.8 0.8" />
+    <texture file="visual/T_BC001.png" name="DishRack030_material" type="2d" />
+    <material name="DishRack030_material" rgba="1 1 1 1.0" texture="DishRack030_material" shininess="0.4472135901451111" specular="0.3103448502657381" />
+  </asset>
+  <default>
+    <default class="visual">
+      <geom conaffinity="0" contype="0" group="2" type="mesh" density="0" />
+    </default>
+    <default class="collision">
+      <geom group="3" rgba="1 1 1 0.25" density="0" friction="1.2" />
+    </default>
+    <default class="spawn">
+      <geom group="0" rgba="1 1 1 0.5" contype="0" conaffinity="0" />
+      <site group="0" rgba="1 1 1 0.5" />
+    </default>
+    <default class="region">
+      <geom group="1" conaffinity="0" contype="0" rgba="0 1 0 0" mass="0" />
+    </default>
+  </default>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="DishRack030_vis" type="mesh" class="visual" material="DishRack030_material" group="2" contype="0" conaffinity="0" density="0" mass="0.5" />
+        <geom type="box" pos="-0.20302856 0.10015124 -0.073187224" size="0.00633350983262 0.0063881650567 0.00959458276632" quat="0.9781383872032166 0.19029957056045532 -0.01601365953683853 0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.203377744 0.0709088 0.004020824" size="0.00478751286864 0.00641122236848 0.0749001324177" quat="0.9781383872032166 0.19029957056045532 -0.01601365953683853 0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.203478216 0.000433736 0.076687624" size="0.00413835085928 0.0482719957829 0.00470789186657" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-1.3352e-05 0.097973272 -0.047118064" size="0.203974056243 0.00413835458458 0.00415748246014" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.18276036 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.18276036 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.17148676 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.177669168 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-1.3352e-05 -0.09664712 -0.047118064" size="0.203974056243 0.00413835458458 0.00415748246014" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.177669168 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.203377744 -0.07025748 0.004020824" size="0.00478751286864 0.00641122236848 0.0749001324177" quat="0.9781383872032166 -0.19029957056045532 -0.016013650223612785 -0.0823102742433548" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.20302856 -0.099499928 -0.073187224" size="0.00633350983262 0.0063881650567 0.00959458276632" quat="0.9781383872032166 -0.19029955565929413 -0.016013650223612785 -0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.203668096 -0.099499928 -0.073187224" size="0.00633350983262 0.0063881650567 0.00959458276632" quat="0.9781383872032166 -0.19029955565929413 -0.016013650223612785 -0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.20331888 -0.083474624 -0.031531936" size="0.00460766814649 0.00535018630326 0.0369853049517" quat="0.9781383872032166 -0.19029957056045532 -0.016013650223612785 -0.0823102742433548" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.203218416 0.000674272 0.00440112" size="0.00413835085928 0.0749468147754 0.00588886328042" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.20331888 0.08436648 -0.031531944" size="0.00464493408799 0.00557004772127 0.0368951171637" quat="0.9781383872032166 0.19029957056045532 -0.01601365953683853 0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.203668096 0.10015124 -0.073187224" size="0.00633350983262 0.0063881650567 0.00959458276632" quat="0.9781383872032166 0.19029957056045532 -0.01601365953683853 0.0823102816939354" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.177669168 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.177669168 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.17148676 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.18276036 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.138210296 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.126936696 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.133119104 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.133119104 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.133119104 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.133119104 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.126936696 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.138210296 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.138210296 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.049090392 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.0490904 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.037816784 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.043999208 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.043999208 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.043999208 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.043999208 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.037816784 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.049090392 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.093640456 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.082366848 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.088549272 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.088549272 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.088549272 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.088549272 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.082366848 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.093640456 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.093640456 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.037448528 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.037448528 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.048722136 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.04253972 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.04253972 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.04253972 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.04253972 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.048722136 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.037448528 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.006274512 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.004999096 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.00118332 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.00118332 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.00118332 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.00118332 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.004999096 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.006274512 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="-0.006274512 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.080395696 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.080395696 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.091669304 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.08548688 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.08548688 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.08548688 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.08548688 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.091669304 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.080395696 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.124178592 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.135452184 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.129269776 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.129269776 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.129269776 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.129269776 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.135452184 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.124178592 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.124178592 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.16388388 -0.088374856 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.175157472 -0.059350944 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.168975064 -0.070252048 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.168975064 -0.048886232 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.168975064 0.049713016 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.168975064 0.071078832 -0.019919648" size="0.00430568195879 0.00487963669002 0.0244384646416" quat="0.9872633218765259 0.0 0.1590948849916458 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.175157472 0.060177736 0.005273304" size="0.00339950844646 0.0133820787072 0.00438583120704" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.16388388 0.000391304 -0.040008736" size="0.00413835085928 0.0443565487862 0.00337168164551" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom type="box" pos="0.16388388 0.089201648 -0.039936072" size="0.00413835085928 0.0131615892053 0.00329902209342" quat="1.0 0.0 0.0 0.0" class="collision" group="3" rgba="0 0 0 0" density="0" friction="1.2" />
+        <geom class="region" name="reg_int_0" type="box" pos="-0.155536128 0.000668656 0.017276648" size="0.012475192 0.102242976 0.060413664" />
+        <geom class="region" name="reg_int_1" type="box" pos="-0.110688576 0.000657516 0.017276656" size="0.012475184 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_2" type="box" pos="-0.06653178 0.000657516 0.017276656" size="0.012475196 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_3" type="box" pos="-0.022349896 0.000657516 0.017276656" size="0.012475192 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_4" type="box" pos="0.020823868 0.000657516 0.017276656" size="0.012475196 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_5" type="box" pos="0.064024196 0.000657516 0.017276656" size="0.012475196 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_6" type="box" pos="0.10722452 0.000657516 0.017276656" size="0.012475192 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_7" type="box" pos="0.149432956 0.000657516 0.017276656" size="0.010721668 0.102254116 0.060413672" />
+        <geom class="region" name="reg_int_8" type="box" pos="0.188222924 0.000657516 0.017276656" size="0.0101903 0.102254116 0.060413672" />
+        <geom size="0.210934504 0.1084806 0.0843738" pos="0 0 -0" name="reg_bbox" class="region" type="box" quat="1.0 0.0 0.0 0.0" />
+      </body>
+    </body>
+  </worldbody>
+  <actuator />
+</mujoco>
